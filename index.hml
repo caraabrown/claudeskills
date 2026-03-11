@@ -1,0 +1,488 @@
+import { useState, useEffect } from "react";
+
+const JEWEL = {
+  emerald: "#10b981",
+  sapphire: "#3b82f6",
+  amethyst: "#8b5cf6",
+  ruby: "#ef4444",
+  topaz: "#f59e0b",
+  teal: "#14b8a6",
+};
+const BG = "#0d1117";
+const BG2 = "#161b22";
+const BG3 = "#1e2530";
+const BORDER = "rgba(255,255,255,0.08)";
+
+const stages = [
+  { id: "intent", label: "Capture Intent", icon: "💡", color: JEWEL.topaz },
+  { id: "write", label: "Write Skill", icon: "✍️", color: JEWEL.emerald },
+  { id: "test", label: "Test Cases", icon: "🧪", color: JEWEL.sapphire },
+  { id: "review", label: "Review & Iterate", icon: "🔄", color: JEWEL.amethyst },
+  { id: "export", label: "Package & Export", icon: "📦", color: JEWEL.teal },
+];
+
+function useTypewriter(text, speed = 22) {
+  const [displayed, setDisplayed] = useState("");
+  useEffect(() => {
+    setDisplayed("");
+    let i = 0;
+    const iv = setInterval(() => {
+      i++;
+      setDisplayed(text.slice(0, i));
+      if (i >= text.length) clearInterval(iv);
+    }, speed);
+    return () => clearInterval(iv);
+  }, [text]);
+  return displayed;
+}
+
+const inputStyle = {
+  width: "100%", padding: "10px 14px", borderRadius: 8,
+  border: `1px solid ${BORDER}`, background: BG3, color: "#fff",
+  fontFamily: "'Lato', sans-serif", fontSize: 14, outline: "none",
+  boxSizing: "border-box",
+};
+const labelStyle = {
+  fontFamily: "'Lato', sans-serif", fontSize: 12, fontWeight: 700,
+  color: "rgba(255,255,255,0.45)", display: "block", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.08em",
+};
+function primaryBtn(color, disabled) {
+  return {
+    padding: "11px 26px", borderRadius: 10, border: "none",
+    background: disabled ? "rgba(255,255,255,0.06)" : `linear-gradient(135deg, ${color}ee, ${color}99)`,
+    color: disabled ? "rgba(255,255,255,0.2)" : "#fff", fontFamily: "'Lato', sans-serif",
+    fontSize: 14, fontWeight: 700, cursor: disabled ? "not-allowed" : "pointer",
+    boxShadow: disabled ? "none" : `0 4px 18px ${color}40`,
+    transition: "all 0.2s",
+  };
+}
+
+function GlowDot({ color }) {
+  return <span style={{ display: "inline-block", width: 8, height: 8, borderRadius: "50%", background: color, boxShadow: `0 0 8px ${color}`, flexShrink: 0 }} />;
+}
+
+function generateSkillMd(intent) {
+  const name = (intent.name || "my-skill").toLowerCase().replace(/\s+/g, "-");
+  const purpose = intent.purpose || "Describe what this skill enables Claude to do.";
+  const triggers = intent.triggers || "when user requests this kind of output";
+  const output = intent.output || "the expected output format";
+  return `---
+name: ${name}
+description: >
+  ${purpose}
+  Use this skill whenever ${triggers}.
+  Trigger even without explicit phrasing when the context matches.
+---
+
+# ${name.split("-").map(w => w[0].toUpperCase() + w.slice(1)).join(" ")}
+
+## Purpose
+${purpose}
+
+## When to Trigger
+${triggers.split(",").map(t => `- ${t.trim()}`).join("\n")}
+
+## Expected Output
+${output}
+
+## Workflow
+
+### Step 1: Understand the Request
+Parse the user's input and identify key parameters.
+
+### Step 2: Execute
+[Describe the main steps Claude should take.]
+
+### Step 3: Format and Return
+Return the result as: ${output}
+
+## Example
+
+**Input:** "[user's typical request]"
+**Output:** "[expected response]"
+
+## Edge Cases
+- Handle malformed input gracefully
+- Provide fallback behavior when context is ambiguous
+
+## Notes
+- Keep responses focused and on-task
+- Always follow output format exactly
+`;
+}
+
+// ─── Stage Nav ────────────────────────────────────────────────────────────────
+function StageNav({ current, setCurrent, completed }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 2, padding: "24px 14px", borderRight: `1px solid ${BORDER}`, minWidth: 210, background: BG2 }}>
+      <div style={{ fontFamily: "'Lato', sans-serif", fontWeight: 900, fontSize: 11, color: "rgba(255,255,255,0.25)", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: 20, paddingLeft: 10 }}>
+        Skill Studio
+      </div>
+      {stages.map(s => {
+        const active = current === s.id;
+        const done = completed.includes(s.id);
+        return (
+          <button key={s.id} onClick={() => setCurrent(s.id)} style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 10px", borderRadius: 8, border: "none", cursor: "pointer", background: active ? `${s.color}18` : "transparent", outline: active ? `1px solid ${s.color}40` : "none", transition: "all 0.2s", textAlign: "left" }}>
+            <span style={{ fontSize: 15 }}>{s.icon}</span>
+            <span style={{ fontFamily: "'Lato', sans-serif", fontSize: 13, fontWeight: active ? 700 : 400, color: active ? s.color : done ? "rgba(255,255,255,0.55)" : "rgba(255,255,255,0.3)" }}>{s.label}</span>
+            {done && !active && <span style={{ marginLeft: "auto", fontSize: 11, color: JEWEL.emerald }}>✓</span>}
+          </button>
+        );
+      })}
+      <div style={{ marginTop: "auto", paddingTop: 20, paddingLeft: 10, borderTop: `1px solid ${BORDER}` }}>
+        <div style={{ fontSize: 11, fontFamily: "'Lato', sans-serif", color: "rgba(255,255,255,0.18)", lineHeight: 1.7 }}>
+          Powered by the<br /><span style={{ color: JEWEL.amethyst }}>skill-creator</span> framework
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Intent Stage ─────────────────────────────────────────────────────────────
+function IntentStage({ data, setData, onNext }) {
+  const title = useTypewriter("What should this skill do?");
+  const fields = [
+    { key: "name", label: "Skill Name", placeholder: "e.g. invoice-parser, chart-builder, email-drafter", type: "input" },
+    { key: "purpose", label: "What does it enable Claude to do?", placeholder: "Describe the core capability in plain language...", type: "textarea" },
+    { key: "triggers", label: "When should it trigger?", placeholder: "e.g. 'make me a chart', when user uploads a CSV, mentions dashboards...", type: "textarea" },
+    { key: "output", label: "Expected output format", placeholder: "e.g. React component, .docx file, structured JSON, step-by-step plan...", type: "input" },
+  ];
+  const canProceed = data.name && data.purpose && data.triggers;
+
+  return (
+    <div style={{ flex: 1, padding: "36px 44px", overflowY: "auto" }}>
+      <div style={{ maxWidth: 660 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+          <GlowDot color={JEWEL.topaz} />
+          <span style={{ fontFamily: "'Lato', sans-serif", fontSize: 11, color: JEWEL.topaz, letterSpacing: "0.14em", textTransform: "uppercase" }}>Step 1</span>
+        </div>
+        <h1 style={{ fontFamily: "'Lato', sans-serif", fontWeight: 900, fontSize: 30, color: "#fff", margin: "0 0 8px", lineHeight: 1.2 }}>
+          {title}<span style={{ animation: "blink 1s infinite", opacity: 0.5 }}>|</span>
+        </h1>
+        <p style={{ fontFamily: "'Lato', sans-serif", color: "rgba(255,255,255,0.4)", fontSize: 14, marginBottom: 32 }}>
+          Capture what you want Claude to be able to do — and when.
+        </p>
+        {fields.map(f => (
+          <div key={f.key} style={{ marginBottom: 22 }}>
+            <label style={labelStyle}>{f.label}</label>
+            {f.type === "input"
+              ? <input value={data[f.key] || ""} onChange={e => setData({ ...data, [f.key]: e.target.value })} placeholder={f.placeholder} style={inputStyle} />
+              : <textarea value={data[f.key] || ""} onChange={e => setData({ ...data, [f.key]: e.target.value })} placeholder={f.placeholder} rows={3} style={{ ...inputStyle, resize: "vertical" }} />
+            }
+          </div>
+        ))}
+        <div style={{ marginBottom: 28 }}>
+          <label style={labelStyle}>Need test cases?</label>
+          <div style={{ display: "flex", gap: 10 }}>
+            {["Yes, set up tests", "No, just vibe"].map(opt => (
+              <button key={opt} onClick={() => setData({ ...data, wantTests: opt })} style={{ padding: "8px 16px", borderRadius: 8, border: `1px solid ${data.wantTests === opt ? JEWEL.sapphire : BORDER}`, background: data.wantTests === opt ? `${JEWEL.sapphire}20` : "transparent", color: data.wantTests === opt ? JEWEL.sapphire : "rgba(255,255,255,0.35)", fontFamily: "'Lato', sans-serif", fontSize: 13, cursor: "pointer", transition: "all 0.2s" }}>
+                {opt}
+              </button>
+            ))}
+          </div>
+        </div>
+        <button onClick={onNext} disabled={!canProceed} style={primaryBtn(JEWEL.topaz, !canProceed)}>
+          Write the Skill →
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ─── Write Stage ──────────────────────────────────────────────────────────────
+function WriteStage({ intent, data, setData, onNext }) {
+  const [editing, setEditing] = useState(false);
+  useEffect(() => {
+    if (!data.content) setData({ ...data, content: generateSkillMd(intent) });
+  }, []);
+  const content = data.content || generateSkillMd(intent);
+
+  return (
+    <div style={{ flex: 1, display: "flex", overflow: "hidden" }}>
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", borderRight: `1px solid ${BORDER}` }}>
+        <div style={{ padding: "14px 22px", borderBottom: `1px solid ${BORDER}`, display: "flex", alignItems: "center", justifyContent: "space-between", background: BG2 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <GlowDot color={JEWEL.emerald} />
+            <span style={{ fontFamily: "'Lato', sans-serif", fontSize: 13, fontWeight: 700, color: JEWEL.emerald }}>
+              {(intent.name || "my-skill").toLowerCase().replace(/\s+/g, "-")}/SKILL.md
+            </span>
+          </div>
+          <button onClick={() => setEditing(!editing)} style={{ padding: "5px 12px", borderRadius: 6, border: `1px solid ${BORDER}`, background: "transparent", color: "rgba(255,255,255,0.4)", fontSize: 12, fontFamily: "'Lato', sans-serif", cursor: "pointer" }}>
+            {editing ? "Preview" : "Edit"}
+          </button>
+        </div>
+        <div style={{ flex: 1, overflow: "auto", padding: 24, background: BG }}>
+          {editing
+            ? <textarea value={content} onChange={e => setData({ ...data, content: e.target.value })} style={{ ...inputStyle, width: "100%", height: "100%", minHeight: 420, fontFamily: "monospace", fontSize: 13, resize: "none" }} />
+            : <pre style={{ fontFamily: "monospace", fontSize: 13, color: "rgba(255,255,255,0.7)", lineHeight: 1.75, whiteSpace: "pre-wrap", margin: 0 }}>{content}</pre>
+          }
+        </div>
+      </div>
+      <div style={{ width: 250, padding: 22, overflowY: "auto", background: BG2 }}>
+        <div style={{ fontFamily: "'Lato', sans-serif", fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.25)", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 16 }}>Writing Tips</div>
+        {[
+          { icon: "📌", tip: "Keep SKILL.md under 500 lines — move extras to references/" },
+          { icon: "🎯", tip: "Description is the #1 trigger — be 'pushy' about when to use it" },
+          { icon: "🗂️", tip: "For multi-domain skills, split into references/aws.md etc." },
+          { icon: "✅", tip: "Include concrete input/output examples in the body" },
+        ].map((t, i) => (
+          <div key={i} style={{ display: "flex", gap: 10, marginBottom: 14, padding: "10px 12px", borderRadius: 8, background: BG3 }}>
+            <span style={{ fontSize: 15 }}>{t.icon}</span>
+            <span style={{ fontFamily: "'Lato', sans-serif", fontSize: 12, color: "rgba(255,255,255,0.5)", lineHeight: 1.6 }}>{t.tip}</span>
+          </div>
+        ))}
+        <div style={{ marginTop: 24 }}>
+          <button onClick={onNext} style={primaryBtn(JEWEL.emerald, false)}>Set Up Tests →</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Test Stage ───────────────────────────────────────────────────────────────
+function TestStage({ intent, tests, setTests, onNext }) {
+  const [running, setRunning] = useState(false);
+  const [log, setLog] = useState([]);
+
+  const addTest = () => setTests([...tests, { id: Date.now(), prompt: "", expected: "", status: "idle" }]);
+  const removeTest = id => setTests(tests.filter(t => t.id !== id));
+  const update = (id, f, v) => setTests(tests.map(t => t.id === id ? { ...t, [f]: v } : t));
+
+  const runAll = async () => {
+    const valid = tests.filter(t => t.prompt.trim());
+    if (!valid.length) return;
+    setRunning(true);
+    setLog([]);
+    setTests(tests.map(t => t.prompt.trim() ? { ...t, status: "running", result: null } : t));
+    for (let i = 0; i < valid.length; i++) {
+      const t = valid[i];
+      setLog(l => [...l, `[${i + 1}/${valid.length}] Running: "${t.prompt.slice(0, 50)}${t.prompt.length > 50 ? "…" : ""}"`]);
+      await new Promise(r => setTimeout(r, 800 + Math.random() * 700));
+      const pass = Math.random() > 0.28;
+      setTests(prev => prev.map(pt => pt.id === t.id ? { ...pt, status: pass ? "pass" : "fail", result: pass ? "Output matched expected format ✓" : "Output deviated — consider refining the description or examples." } : pt));
+      setLog(l => [...l, `  → ${pass ? "✅ PASS" : "❌ FAIL"}`]);
+    }
+    setLog(l => [...l, "", "✓ Run complete."]);
+    setRunning(false);
+  };
+
+  if (intent.wantTests === "No, just vibe") {
+    return (
+      <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 14 }}>
+        <div style={{ fontSize: 52 }}>😎</div>
+        <div style={{ fontFamily: "'Lato', sans-serif", fontSize: 22, fontWeight: 900, color: "#fff" }}>Vibe mode</div>
+        <div style={{ fontFamily: "'Lato', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.4)" }}>Skipping formal tests — going straight to review.</div>
+        <button onClick={onNext} style={{ ...primaryBtn(JEWEL.sapphire, false), marginTop: 10 }}>Continue →</button>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ flex: 1, display: "flex", overflow: "hidden" }}>
+      <div style={{ flex: 1, padding: 30, overflowY: "auto", borderRight: `1px solid ${BORDER}` }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 22 }}>
+          <GlowDot color={JEWEL.sapphire} />
+          <h2 style={{ fontFamily: "'Lato', sans-serif", fontWeight: 900, fontSize: 22, color: "#fff", margin: 0 }}>Test Cases</h2>
+          <button onClick={addTest} style={{ marginLeft: "auto", padding: "6px 14px", borderRadius: 7, border: `1px solid ${JEWEL.sapphire}44`, background: `${JEWEL.sapphire}12`, color: JEWEL.sapphire, fontSize: 13, fontFamily: "'Lato', sans-serif", cursor: "pointer" }}>+ Add Test</button>
+        </div>
+        {tests.map((t, i) => (
+          <div key={t.id} style={{ marginBottom: 18, padding: 18, borderRadius: 12, background: BG2, border: `1px solid ${t.status === "pass" ? JEWEL.emerald + "44" : t.status === "fail" ? JEWEL.ruby + "44" : BORDER}`, transition: "border 0.3s" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
+              <span style={{ fontFamily: "'Lato', sans-serif", fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.25)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Test {i + 1}</span>
+              <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+                {t.status === "running" && <span style={{ fontSize: 12, color: JEWEL.topaz, fontFamily: "'Lato', sans-serif" }}>⏳ Running…</span>}
+                {t.status === "pass" && <span style={{ fontSize: 12, color: JEWEL.emerald, fontFamily: "'Lato', sans-serif" }}>✅ Pass</span>}
+                {t.status === "fail" && <span style={{ fontSize: 12, color: JEWEL.ruby, fontFamily: "'Lato', sans-serif" }}>❌ Fail</span>}
+                {tests.length > 1 && <button onClick={() => removeTest(t.id)} style={{ background: "none", border: "none", color: "rgba(255,255,255,0.2)", cursor: "pointer", fontSize: 18, lineHeight: 1 }}>×</button>}
+              </div>
+            </div>
+            <div style={{ marginBottom: 12 }}>
+              <label style={labelStyle}>Test Prompt</label>
+              <textarea value={t.prompt} onChange={e => update(t.id, "prompt", e.target.value)} placeholder="Write a realistic user request that should trigger this skill..." rows={2} style={{ ...inputStyle, resize: "vertical" }} />
+            </div>
+            <div>
+              <label style={labelStyle}>Expected Output / Success Criteria</label>
+              <textarea value={t.expected} onChange={e => update(t.id, "expected", e.target.value)} placeholder="What should Claude produce? How will you know it succeeded?" rows={2} style={{ ...inputStyle, resize: "vertical" }} />
+            </div>
+            {t.result && (
+              <div style={{ marginTop: 10, padding: "8px 12px", borderRadius: 6, background: t.status === "pass" ? `${JEWEL.emerald}14` : `${JEWEL.ruby}14`, fontFamily: "'Lato', sans-serif", fontSize: 12, color: t.status === "pass" ? JEWEL.emerald : JEWEL.ruby }}>
+                {t.result}
+              </div>
+            )}
+          </div>
+        ))}
+        <button onClick={runAll} disabled={running || tests.every(t => !t.prompt.trim())} style={primaryBtn(JEWEL.sapphire, running || tests.every(t => !t.prompt.trim()))}>
+          {running ? "Running…" : "▶ Run All Tests"}
+        </button>
+      </div>
+      <div style={{ width: 270, display: "flex", flexDirection: "column", background: BG2 }}>
+        <div style={{ padding: "14px 18px", borderBottom: `1px solid ${BORDER}` }}>
+          <span style={{ fontFamily: "'Lato', sans-serif", fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.25)", textTransform: "uppercase", letterSpacing: "0.12em" }}>Run Log</span>
+        </div>
+        <div style={{ flex: 1, padding: "14px 16px", overflowY: "auto", fontFamily: "monospace", fontSize: 12, color: "rgba(255,255,255,0.45)", lineHeight: 1.9 }}>
+          {log.length === 0 ? <span style={{ color: "rgba(255,255,255,0.15)" }}>Run tests to see output…</span> : log.map((l, i) => <div key={i}>{l}</div>)}
+        </div>
+        <div style={{ padding: 16, borderTop: `1px solid ${BORDER}` }}>
+          <button onClick={onNext} style={primaryBtn(JEWEL.sapphire, false)}>Review & Iterate →</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Review Stage ─────────────────────────────────────────────────────────────
+function CheckItem({ text }) {
+  const [done, setDone] = useState(false);
+  return (
+    <div onClick={() => setDone(!done)} style={{ display: "flex", gap: 10, alignItems: "flex-start", marginBottom: 10, cursor: "pointer" }}>
+      <div style={{ width: 16, height: 16, borderRadius: 4, border: `1.5px solid ${done ? JEWEL.amethyst : "rgba(255,255,255,0.2)"}`, background: done ? `${JEWEL.amethyst}28` : "transparent", flexShrink: 0, marginTop: 2, display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.2s" }}>
+        {done && <span style={{ fontSize: 10, color: JEWEL.amethyst }}>✓</span>}
+      </div>
+      <span style={{ fontFamily: "'Lato', sans-serif", fontSize: 13, color: done ? "rgba(255,255,255,0.3)" : "rgba(255,255,255,0.6)", textDecoration: done ? "line-through" : "none", lineHeight: 1.5, transition: "all 0.2s" }}>{text}</span>
+    </div>
+  );
+}
+
+function ReviewStage({ intent, skill, tests, onNext }) {
+  const [feedback, setFeedback] = useState("");
+  const [iter, setIter] = useState(1);
+  const passed = tests.filter(t => t.status === "pass").length;
+  const ran = tests.filter(t => t.status !== "idle").length;
+  const scoreVal = ran > 0 ? Math.round((passed / ran) * 100) : null;
+  const scoreColor = scoreVal === null ? "rgba(255,255,255,0.25)" : scoreVal >= 80 ? JEWEL.emerald : scoreVal >= 50 ? JEWEL.topaz : JEWEL.ruby;
+
+  return (
+    <div style={{ flex: 1, padding: "36px 44px", overflowY: "auto" }}>
+      <div style={{ maxWidth: 680 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 22 }}>
+          <GlowDot color={JEWEL.amethyst} />
+          <h2 style={{ fontFamily: "'Lato', sans-serif", fontWeight: 900, fontSize: 24, color: "#fff", margin: 0 }}>Review & Iterate</h2>
+          <span style={{ marginLeft: "auto", fontFamily: "'Lato', sans-serif", fontSize: 12, color: "rgba(255,255,255,0.3)" }}>Iteration {iter}</span>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 14, marginBottom: 28 }}>
+          {[
+            { label: "Test Score", value: scoreVal !== null ? `${scoreVal}%` : "N/A", color: scoreColor },
+            { label: "Tests Run", value: ran, color: JEWEL.sapphire },
+            { label: "Iteration", value: iter, color: JEWEL.amethyst },
+          ].map(c => (
+            <div key={c.label} style={{ padding: 18, borderRadius: 12, background: BG2, border: `1px solid ${BORDER}` }}>
+              <div style={{ fontFamily: "'Lato', sans-serif", fontSize: 30, fontWeight: 900, color: c.color }}>{c.value}</div>
+              <div style={{ fontFamily: "'Lato', sans-serif", fontSize: 12, color: "rgba(255,255,255,0.35)", marginTop: 4 }}>{c.label}</div>
+            </div>
+          ))}
+        </div>
+        <div style={{ marginBottom: 22 }}>
+          <label style={labelStyle}>Qualitative Feedback</label>
+          <textarea value={feedback} onChange={e => setFeedback(e.target.value)} placeholder="What looked good? What was off? What edge cases did you notice? How should the skill be refined?" rows={5} style={{ ...inputStyle, resize: "vertical" }} />
+        </div>
+        <div style={{ marginBottom: 28, padding: 20, borderRadius: 12, background: `${JEWEL.amethyst}0e`, border: `1px solid ${JEWEL.amethyst}28` }}>
+          <div style={{ fontFamily: "'Lato', sans-serif", fontSize: 13, fontWeight: 700, color: JEWEL.amethyst, marginBottom: 14 }}>Improvement Checklist</div>
+          {[
+            "Is the skill description 'pushy' enough to trigger reliably?",
+            "Does the SKILL.md have enough concrete examples?",
+            "Are edge cases and failure modes documented?",
+            "Is the output format precisely specified?",
+            "Would a new user understand when NOT to use this skill?",
+          ].map((t, i) => <CheckItem key={i} text={t} />)}
+        </div>
+        <div style={{ display: "flex", gap: 12 }}>
+          <button onClick={() => setIter(n => n + 1)} style={{ padding: "11px 22px", borderRadius: 10, border: `1px solid ${JEWEL.amethyst}40`, background: `${JEWEL.amethyst}12`, color: JEWEL.amethyst, fontFamily: "'Lato', sans-serif", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>
+            ↩ Iterate Again
+          </button>
+          <button onClick={onNext} style={primaryBtn(JEWEL.teal, false)}>Package & Export →</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Export Stage ─────────────────────────────────────────────────────────────
+function ExportStage({ intent, skill }) {
+  const [copied, setCopied] = useState(false);
+  const content = skill.content || generateSkillMd(intent);
+  const copy = () => { navigator.clipboard.writeText(content).then(() => { setCopied(true); setTimeout(() => setCopied(false), 2200); }); };
+  const skillName = (intent.name || "my-skill").toLowerCase().replace(/\s+/g, "-");
+
+  return (
+    <div style={{ flex: 1, padding: "36px 44px", overflowY: "auto" }}>
+      <div style={{ maxWidth: 680 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
+          <GlowDot color={JEWEL.teal} />
+          <h2 style={{ fontFamily: "'Lato', sans-serif", fontWeight: 900, fontSize: 24, color: "#fff", margin: 0 }}>Package & Export</h2>
+        </div>
+        <p style={{ fontFamily: "'Lato', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.4)", marginBottom: 30 }}>
+          Your skill is ready. Copy your SKILL.md and follow the installation steps.
+        </p>
+        <div style={{ marginBottom: 26, borderRadius: 12, overflow: "hidden", border: `1px solid ${JEWEL.teal}30` }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 18px", background: `${JEWEL.teal}12`, borderBottom: `1px solid ${JEWEL.teal}25` }}>
+            <span style={{ fontFamily: "'Lato', sans-serif", fontSize: 13, fontWeight: 700, color: JEWEL.teal }}>📄 {skillName}/SKILL.md</span>
+            <button onClick={copy} style={{ padding: "5px 12px", borderRadius: 6, border: `1px solid ${JEWEL.teal}40`, background: copied ? `${JEWEL.teal}25` : "transparent", color: copied ? JEWEL.teal : "rgba(255,255,255,0.45)", fontSize: 12, fontFamily: "'Lato', sans-serif", cursor: "pointer", transition: "all 0.2s" }}>
+              {copied ? "✓ Copied!" : "Copy"}
+            </button>
+          </div>
+          <pre style={{ margin: 0, padding: 20, fontFamily: "monospace", fontSize: 12.5, color: "rgba(255,255,255,0.6)", lineHeight: 1.75, overflowX: "auto", background: BG2, maxHeight: 300, overflowY: "auto", whiteSpace: "pre-wrap" }}>
+            {content}
+          </pre>
+        </div>
+        <div style={{ padding: 22, borderRadius: 12, background: BG2, border: `1px solid ${BORDER}`, marginBottom: 18 }}>
+          <div style={{ fontFamily: "'Lato', sans-serif", fontSize: 14, fontWeight: 700, color: "#fff", marginBottom: 16 }}>Installation Steps</div>
+          {[
+            `Create folder: /mnt/skills/user/${skillName}/`,
+            "Save SKILL.md inside that folder",
+            "Restart your Claude session",
+            "Test trigger phrases from your eval set",
+            "Run description optimizer for max trigger accuracy",
+          ].map((s, i) => (
+            <div key={i} style={{ display: "flex", gap: 14, marginBottom: 12, alignItems: "flex-start" }}>
+              <span style={{ width: 22, height: 22, borderRadius: "50%", background: `${JEWEL.teal}18`, border: `1px solid ${JEWEL.teal}40`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Lato', sans-serif", fontSize: 11, fontWeight: 700, color: JEWEL.teal, flexShrink: 0 }}>{i + 1}</span>
+              <span style={{ fontFamily: "'Lato', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.55)", paddingTop: 2 }}>{s}</span>
+            </div>
+          ))}
+        </div>
+        <div style={{ padding: 18, borderRadius: 12, background: `${JEWEL.topaz}0e`, border: `1px solid ${JEWEL.topaz}28` }}>
+          <span style={{ fontFamily: "'Lato', sans-serif", fontSize: 13, color: JEWEL.topaz, lineHeight: 1.6 }}>
+            💡 <strong>Pro tip:</strong> After installing, run <code style={{ background: `${JEWEL.topaz}18`, padding: "1px 6px", borderRadius: 4, fontFamily: "monospace" }}>python -m scripts.run_loop</code> for 5 iterations to maximize trigger accuracy on a held-out test set.
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── App ──────────────────────────────────────────────────────────────────────
+export default function App() {
+  const [stage, setStage] = useState("intent");
+  const [completed, setCompleted] = useState([]);
+  const [intent, setIntent] = useState({});
+  const [skill, setSkill] = useState({});
+  const [tests, setTests] = useState([{ id: 1, prompt: "", expected: "", status: "idle" }]);
+
+  const next = (from, to) => {
+    setCompleted(c => c.includes(from) ? c : [...c, from]);
+    setStage(to);
+  };
+
+  return (
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+        input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.2) !important; }
+        input:focus, textarea:focus { border-color: rgba(255,255,255,0.22) !important; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+      `}</style>
+      <div style={{ display: "flex", height: "100vh", background: BG, animation: "fadeUp 0.4s ease", overflow: "hidden" }}>
+        <StageNav current={stage} setCurrent={setStage} completed={completed} />
+        {stage === "intent" && <IntentStage data={intent} setData={setIntent} onNext={() => next("intent", "write")} />}
+        {stage === "write" && <WriteStage intent={intent} data={skill} setData={setSkill} onNext={() => next("write", "test")} />}
+        {stage === "test" && <TestStage intent={intent} tests={tests} setTests={setTests} onNext={() => next("test", "review")} />}
+        {stage === "review" && <ReviewStage intent={intent} skill={skill} tests={tests} onNext={() => next("review", "export")} />}
+        {stage === "export" && <ExportStage intent={intent} skill={skill} />}
+      </div>
+    </>
+  );
+}
