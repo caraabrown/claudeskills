@@ -8,7 +8,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <style>
 :root {
-  /* Dark base — deep navy from palette */
+  /* Dark base - deep navy from palette */
   --bg: #0E1425;
   --surface: #151D35;
   --surface2: #1C2340;
@@ -21,7 +21,7 @@
   --text2: #8B8FA8;
   --text3: #555A72;
 
-  /* Coral rose — primary accent */
+  /* Coral rose - primary accent */
   --accent: #2B9DAA;
   --accent2: #1A7A88;
   --accent-dim: rgba(43,157,170,0.14);
@@ -51,15 +51,15 @@
   --shadow-sm: 0 2px 12px rgba(0,0,0,0.25);
 
   /* Ingredient category colors */
-  --cat-nat: #2ECC8F;      /* Natural/Ayurvedic — emerald */
+  --cat-nat: #2ECC8F;      /* Natural/Ayurvedic - emerald */
   --cat-nat-dim: rgba(46,204,143,0.12);
-  --cat-pro: #7B9EFF;      /* Professional/Lab — periwinkle */
+  --cat-pro: #7B9EFF;      /* Professional/Lab - periwinkle */
   --cat-pro-dim: rgba(123,158,255,0.12);
-  --cat-ing: #FF9F5A;      /* Ingestible — warm amber */
+  --cat-ing: #FF9F5A;      /* Ingestible - warm amber */
   --cat-ing-dim: rgba(255,159,90,0.12);
-  --cat-diy: #C77DFF;      /* DIY/Homemade — violet */
+  --cat-diy: #C77DFF;      /* DIY/Homemade - violet */
   --cat-diy-dim: rgba(199,125,255,0.12);
-  --cat-com: #2B9DAA;      /* Commercial — teal */
+  --cat-com: #2B9DAA;      /* Commercial - teal */
   --cat-com-dim: rgba(43,157,170,0.12);
 
   /* Tracking dimensions */
@@ -76,12 +76,12 @@
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.65;min-height:100vh;-webkit-font-smoothing:antialiased;}
 
-/* ── SCROLLBAR ── */
+/* -- SCROLLBAR -- */
 ::-webkit-scrollbar{width:4px;height:4px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
 
-/* ── HEADER ── */
+/* -- HEADER -- */
 .header{background:rgba(14,20,37,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;padding:0 32px;}
 .header-inner{display:flex;align-items:center;gap:24px;height:52px;}
 .logo{font-family:var(--font-head);font-size:15px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text);white-space:nowrap;flex-shrink:0;}
@@ -93,7 +93,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-si
 .ico-btn{background:none;border:none;color:var(--text2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:22px;transition:color .15s;padding:0;}
 .ico-btn:hover{color:var(--accent);}
 
-/* ── NAV ── */
+/* -- NAV -- */
 .nav{background:rgba(14,20,37,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:sticky;top:52px;z-index:199;padding:0 32px;overflow-x:auto;scrollbar-width:none;}
 .nav::-webkit-scrollbar{display:none;}
 .nav-inner{display:flex;gap:0;white-space:nowrap;}
@@ -101,11 +101,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-si
 .n:hover{color:var(--text2);}
 .n.on{color:var(--accent);border-bottom-color:var(--accent);}
 
-/* ── MAIN ── */
+/* -- MAIN -- */
 main{max-width:1200px;margin:0 auto;padding:40px 32px;position:relative;}
 .tab{display:none !important;}.tab.on{display:block !important;}
 
-/* ── PAGE HEADER ── */
+/* -- PAGE HEADER -- */
 .page-hd{margin-bottom:40px;}
 .page-hd
 h1 {
@@ -155,19 +155,19 @@ h3 {
 }
 .page-hd p{color:var(--text2);font-size:15px;}
 
-/* ── CARDS ── */
+/* -- CARDS -- */
 .card{background:var(--surface);border:none;border-radius:var(--r);padding:24px;box-shadow:var(--shadow-sm);}
 .card+.card{margin-top:12px;}
 .card-head{font-family:var(--font-head);font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
 .card-title{font-family:var(--font-head);font-size:18px;font-weight:600;margin-bottom:4px;}
 .card-sub{font-size:13px;color:var(--text2);}
 
-/* ── GRID ── */
+/* -- GRID -- */
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
 .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
 
-/* ── BUTTONS ── */
+/* -- BUTTONS -- */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border-radius:7px;border:none;cursor:pointer;font-family:var(--font-body);font-size:13px;font-weight:600;letter-spacing:0.02em;transition:all .15s;}
 .btn-primary{background:var(--text);color:#fff;}
 .btn-primary:hover{background:var(--accent);color:var(--bg);}
@@ -180,7 +180,7 @@ h3 {
 .btn-sm{padding:6px 14px;font-size:12px;}
 .btn-xs{padding:4px 10px;font-size:11px;}
 
-/* ── ACCORDION ── */
+/* -- ACCORDION -- */
 .acc-item{border-bottom:1px solid var(--border);margin-bottom:0;}
 .acc-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;padding:14px 0;background:none;border:none;cursor:pointer;color:var(--text);font-family:var(--font-body);font-size:14px;font-weight:500;transition:color .15s;text-align:left;gap:12px;}
 .acc-trigger:hover{color:var(--accent);}
@@ -191,8 +191,8 @@ h3 {
 .acc-body{display:none;padding:0 0 18px;background:none;}
 .acc-item.open .acc-body{display:block;}
 
-/* ── STEP CARDS ── */
-.step-block{border:none;border-bottom:1px solid var(--border);margin-bottom:0;}last-of-type{border-bottom:none;}
+/* -- STEP CARDS -- */
+.step-block{border:none;border-bottom:1px solid var(--border);margin-bottom:0;}.step-block:last-of-type{border-bottom:none;}
 .step-header{display:flex;align-items:flex-start;gap:16px;padding:20px 0;background:transparent;cursor:pointer;border-bottom:none;}
 .step-num{color:var(--accent);font-family:var(--font-head);font-size:42px;font-weight:800;letter-spacing:-0.02em;flex-shrink:0;text-transform:uppercase;min-width:56px;line-height:1;}
 .step-info{flex:1;}
@@ -209,7 +209,7 @@ h3 {
 .step-block.open .step-body{display:block;}
 
 
-/* ── RECIPE BOX ── */
+/* -- RECIPE BOX -- */
 .recipe{background:var(--surface2);border:none;border-radius:var(--r-sm);padding:18px;margin:12px 0;}
 .recipe-title{font-family:var(--font-head);font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
 .ingredient-row{display:flex;gap:12px;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px;}
@@ -218,11 +218,11 @@ h3 {
 .ing-name{color:var(--text);}
 .method-text{margin-top:14px;font-size:13px;color:var(--text2);line-height:1.7;padding-top:12px;border-top:1px solid var(--border);}
 
-/* ── SCIENCE NOTE ── */
+/* -- SCIENCE NOTE -- */
 .science{background:var(--blue-dim);border:none;border-radius:var(--r-sm);padding:16px 18px;margin:12px 0;font-size:13px;color:var(--text2);line-height:1.75;}
 .science strong{color:var(--text);font-weight:600;}
 
-/* ── INFO BOX ── */
+/* -- INFO BOX -- */
 .info{border-radius:var(--r-sm);padding:14px 18px 14px 22px;font-size:13px;line-height:1.65;margin:12px 0;position:relative;border-left:3px solid;}
 .info::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px 0 0 3px;}
 .info-a{background:var(--accent-dim);border-left-color:var(--accent);}
@@ -231,7 +231,7 @@ h3 {
 .info-b{background:var(--blue-dim);border-left-color:var(--blue);}
 .info strong{font-weight:600;color:var(--text);}
 
-/* ── TAGS ── */
+/* -- TAGS -- */
 .tag{display:inline-flex;align-items:center;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:600;letter-spacing:0.04em;margin:2px;}
 .tag-a{background:var(--accent-dim);color:var(--accent);}
 .tag-g{background:var(--green-dim);color:#4A7A58;}
@@ -239,11 +239,11 @@ h3 {
 .tag-b{background:var(--blue-dim);color:#4A6A88;}
 .tag-n{background:var(--surface3);color:var(--text2);}
 
-/* ── PRODUCT PILLS ── */
+/* -- PRODUCT PILLS -- */
 .products-wrap{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0;}
 .prod-pill{background:var(--surface2);border:1px solid var(--border2);padding:6px 14px;border-radius:6px;font-size:13px;color:var(--text);font-weight:500;}
 
-/* ── CHECKBOXES ── */
+/* -- CHECKBOXES -- */
 .check-item{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);cursor:pointer;}
 .check-item:last-child{border-bottom:none;}
 .check-item.done .check-text{opacity:0.4;text-decoration:line-through;}
@@ -254,14 +254,14 @@ h3 {
 .check-text{flex:1;font-size:14px;font-weight:500;}
 .check-meta{font-size:12px;color:var(--text3);margin-top:1px;}
 
-/* ── STYLE TYPE TABS ── */
+/* -- STYLE TYPE TABS -- */
 .stype-nav{display:flex;gap:0;border-bottom:1px solid var(--border);width:100%;margin-bottom:32px;}
 .stype-panel{display:none;}
 .stype-btn{padding:12px 24px;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-1px;font-family:var(--font-body);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text3);cursor:pointer;transition:all .15s;}
 .stype-btn:hover{color:var(--text2);}
 .stype-btn.on{color:var(--accent);border-bottom-color:var(--accent);background:none;}
 
-/* ── GANTT ── */
+/* -- GANTT -- */
 .gantt-wrap{overflow-x:auto;}
 .gantt-inner{min-width:640px;}
 .gantt-row{display:flex;align-items:center;gap:0;margin-bottom:5px;}
@@ -272,7 +272,7 @@ h3 {
 .gantt-week-nums{display:flex;gap:2px;margin-left:160px;margin-bottom:4px;}
 .g-wn{flex:1;text-align:center;font-size:10px;color:var(--text3);min-width:30px;}
 
-/* ── WEEK GRID ── */
+/* -- WEEK GRID -- */
 .week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:24px;}
 .day-col{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:12px 10px;min-height:180px;}
 .day-col.today{border-color:var(--accent);}
@@ -286,7 +286,7 @@ h3 {
 .mc{width:14px;height:14px;border-radius:3px;border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:8px;flex-shrink:0;}
 .mc.on{background:var(--accent);border-color:var(--accent);color:var(--bg);}
 
-/* ── DC ROTATION ── */
+/* -- DC ROTATION -- */
 .dc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
 .dc-card{border-radius:var(--r-sm);padding:20px;background:var(--surface);position:relative;transition:all .2s;box-shadow:var(--shadow-sm);}
 .dc-card.now{background:var(--accent-dim);box-shadow:0 4px 24px rgba(43,157,170,0.18);}
@@ -297,7 +297,7 @@ h3 {
 .dc-prod{font-size:12px;color:var(--accent);margin-bottom:8px;font-weight:500;}
 .dc-instr{font-size:12px;color:var(--text2);line-height:1.6;}
 
-/* ── TOOLS / SUPPS CHECKLIST ── */
+/* -- TOOLS / SUPPS CHECKLIST -- */
 .tl-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
 .tl-item{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:opacity .15s;background:none;}
 .tl-item:hover{opacity:0.75;}
@@ -307,21 +307,21 @@ h3 {
 .tl-chk{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;transition:all .15s;margin-top:3px;}
 .tl-item.have .tl-chk{background:var(--accent);border-color:var(--accent);color:#fff;}.tl-item.have .tl-label{color:var(--accent);}
 
-/* ── PROGRESS BAR ── */
+/* -- PROGRESS BAR -- */
 .prog-bar-wrap{display:flex;align-items:center;gap:12px;margin:8px 0;}
 .prog-bar-lbl{width:120px;font-size:12px;font-weight:600;color:var(--text2);flex-shrink:0;text-transform:uppercase;letter-spacing:0.04em;}
 .prog-bar-track{flex:1;height:6px;background:var(--surface3);border-radius:3px;overflow:hidden;}
 .prog-bar-fill{height:100%;border-radius:3px;transition:width .6s ease;}
 .prog-bar-val{font-size:12px;font-weight:700;width:38px;text-align:right;color:var(--text2);}
 
-/* ── STATS ── */
+/* -- STATS -- */
 .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
 .stat-card{background:var(--surface);border:none;border-radius:var(--r);padding:20px;text-align:center;box-shadow:var(--shadow-sm);}
 .stat-num{font-family:var(--font-head);font-size:42px;font-weight:800;line-height:1;margin-bottom:4px;color:var(--accent);}
 .stat-lbl{font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text3);}
 .stat-sub{font-size:11px;color:var(--text3);margin-top:4px;}
 
-/* ── PHOTO GRID ── */
+/* -- PHOTO GRID -- */
 .photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;}
 .photo-slot{aspect-ratio:3/4;border-radius:var(--r-sm);overflow:hidden;border:none;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;position:relative;box-shadow:var(--shadow-sm);}
 .photo-slot:hover{opacity:0.8;}
@@ -330,7 +330,7 @@ h3 {
 .photo-prompt{text-align:center;color:var(--text3);font-size:11px;font-weight:500;letter-spacing:0.03em;}
 .photo-prompt .ico{font-size:28px;display:block;margin-bottom:8px;opacity:0.4;}
 
-/* ── MODAL ── */
+/* -- MODAL -- */
 .modal{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:500;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px);}
 .modal.open{display:flex;}
 .modal-box{background:var(--surface);border:none;border-radius:var(--r);padding:36px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,0.7);position:relative;}
@@ -339,7 +339,7 @@ h3 {
 .modal-title{font-family:var(--font-head);font-size:24px;font-weight:700;margin-bottom:6px;}
 .modal-sub{font-size:13px;color:var(--text2);margin-bottom:24px;}
 
-/* ── FORMS ── */
+/* -- FORMS -- */
 .fgrp{margin-bottom:16px;}
 .flbl{display:block;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text2);margin-bottom:7px;}
 .finp,.ftxt,.fsel{width:100%;padding:12px 0;border-radius:0;border:none;border-bottom:1px solid var(--border2);background:none;color:var(--text);font-family:var(--font-body);font-size:14px;outline:none;transition:border-color .15s;}
@@ -347,11 +347,11 @@ h3 {
 .ftxt{min-height:90px;resize:vertical;line-height:1.6;}
 .fsel option{background:var(--surface);}
 
-/* ── CHART ── */
+/* -- CHART -- */
 .chart-wrap{position:relative;height:260px;}
 .chart-wrap-sm{position:relative;height:200px;}
 
-/* ── PERIODIC TABLE ── */
+/* -- PERIODIC TABLE -- */
 .periodic{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;}
 .elem{border-radius:8px;padding:10px 8px;text-align:center;cursor:pointer;transition:all .2s;border:1px solid transparent;position:relative;}
 .elem:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.3);}
@@ -365,7 +365,7 @@ h3 {
 .elem-num{position:absolute;top:5px;left:6px;font-size:8px;font-weight:700;opacity:0.5;}
 .elem-name{font-size:9px;font-weight:600;line-height:1.3;color:var(--text2);}
 
-/* ── ANALYSIS ── */
+/* -- ANALYSIS -- */
 .verdict{border-radius:var(--r-sm);padding:16px 18px;margin-bottom:16px;font-size:15px;font-weight:600;display:flex;align-items:center;gap:12px;}
 .verdict.buy{background:var(--green-dim);border:none;}
 .verdict.skip{background:var(--red-dim);border:none;}
@@ -375,25 +375,25 @@ h3 {
 .pill-r{background:var(--red-dim);color:#963C3C;}
 .pill-n{background:var(--surface3);color:var(--text2);}
 
-/* ── STARS ── */
+/* -- STARS -- */
 .stars{display:flex;gap:4px;}
 .star{font-size:22px;cursor:pointer;color:var(--border2);transition:color .12s;}
 .star.on{color:var(--accent);}
 
-/* ── FEED ENTRIES ── */
+/* -- FEED ENTRIES -- */
 .feed-entry{border-bottom:1px solid var(--border);padding:16px 0;cursor:pointer;transition:opacity .15s;}
 .feed-entry:hover{opacity:0.7;}
 .feed-date{font-size:11px;color:var(--text3);font-weight:600;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:6px;}
 .feed-text{font-size:14px;line-height:1.6;}
 .feed-hint{font-size:11px;color:var(--text3);margin-top:8px;}
 
-/* ── DASH TABS ── */
+/* -- DASH TABS -- */
 .dash-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:32px;}
 .dash-tab{padding:12px 24px;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-1px;font-family:var(--font-body);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text3);cursor:pointer;transition:all .15s;}
 .dash-tab.on{color:var(--accent);border-bottom-color:var(--accent);background:none;}
 .dash-panel{display:none;}.dash-panel.on{display:block;}
 
-/* ── ACHIEVEMENTS ── */
+/* -- ACHIEVEMENTS -- */
 .ach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
 .ach-card{background:var(--surface);border:none;border-radius:var(--r-sm);padding:16px;text-align:center;transition:all .2s;box-shadow:var(--shadow-sm);}
 .ach-card.earned{box-shadow:0 4px 20px rgba(216,99,117,0.2);}
@@ -402,7 +402,7 @@ h3 {
 .ach-name{font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--text3);}
 .ach-card.earned .ach-name{color:var(--accent);}
 
-/* ── INTENSIVE BANNER ── */
+/* -- INTENSIVE BANNER -- */
 .intensive{background:var(--surface2);border:1px solid rgba(200,169,122,0.25);border-radius:var(--r);padding:24px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
 .intensive h3{font-family:var(--font-head);font-size:20px;font-weight:700;margin-bottom:4px;}
 .intensive p{font-size:13px;color:var(--text2);}
@@ -410,15 +410,15 @@ h3 {
 .ring-wrap svg{transform:rotate(-90deg);}
 .ring-num{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-head);font-size:18px;font-weight:800;color:var(--accent);}
 
-/* ── DIVIDER ── */
+/* -- DIVIDER -- */
 .div{height:1px;background:var(--border);margin:20px 0;}
 .div-label{display:flex;align-items:center;gap:12px;margin:20px 0;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text3);}
 .div-label::before,.div-label::after{content:'';flex:1;height:1px;background:var(--border);}
 
-/* ── PRODUCT TABS (products page) ── */
+/* -- PRODUCT TABS (products page) -- */
 .prod-panel{display:none;}.prod-panel.on{display:block;}
 
-/* ── UTILITY ── */
+/* -- UTILITY -- */
 .mb8{margin-bottom:8px;}.mb12{margin-bottom:12px;}.mb16{margin-bottom:16px;}.mb24{margin-bottom:24px;}.mb32{margin-bottom:32px;}
 .mt8{margin-top:8px;}.mt12{margin-top:12px;}.mt16{margin-top:16px;}.mt24{margin-top:24px;}
 .flex{display:flex;}.fxa{align-items:center;}.fxb{justify-content:space-between;}.gap8{gap:8px;}.gap12{gap:12px;}
@@ -443,19 +443,19 @@ h3 {
   .modal-box{padding:22px 18px;}
 }
 
-/* ── HERO STRIP ── */
+/* -- HERO STRIP -- */
 .hero-strip{padding:20px 32px 16px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;background:var(--surface2);}
 .hero-system{font-size:11px;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:var(--text3);margin-bottom:4px;}
 .hero-title{font-family:var(--font-head);font-size:22px;font-weight:700;color:var(--text);margin-bottom:4px;}
 .hero-sub{font-size:12px;color:var(--text3);max-width:520px;line-height:1.5;}
 .hero-tags{display:flex;flex-wrap:wrap;gap:6px;align-items:flex-start;padding-top:4px;}
 .htag{font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text3);padding:4px 10px;border:1px solid var(--border2);border-radius:4px;}
-/* ── NAV offset for hero ── */
+/* -- NAV offset for hero -- */
 .nav{top:auto;}
 
-/* ══════════════════════════════════════════════════════
+/* ======================================================
    RESPONSIVE SYSTEM
-══════════════════════════════════════════════════════ */
+====================================================== */
 html { font-size: 16px; }
 
 /* Large desktop */
@@ -518,9 +518,9 @@ html { font-size: 16px; }
   .week-chip { display: none; }
 }
 
-/* ══════════════════════════════════════════════════════
+/* ======================================================
    PRODUCT PAGE STYLES
-══════════════════════════════════════════════════════ */
+====================================================== */
 .prod-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
 .prod-card { background: var(--surface); border-radius: var(--r); padding: 20px; position: relative; transition: transform .2s, box-shadow .2s; cursor: pointer; }
 .prod-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
@@ -631,19 +631,25 @@ html { font-size: 16px; }
 .ctime-btn.on { background: var(--accent-dim); border-color: var(--accent); color: var(--text); }
 
 
-/* ══════════════════════════════════════════════════════
-   DESIGN POLISH — Animation, Texture, Motion
-══════════════════════════════════════════════════════ */
+/* ======================================================
+   DESIGN POLISH - Animation, Texture, Motion
+====================================================== */
 
-/* Grain texture overlay */
+/* Subtle grain via CSS only */
 body::after {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.4;
+  opacity: 0.015;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255,255,255,0.03) 2px,
+    rgba(255,255,255,0.03) 4px
+  );
 }
 
 /* Ambient gradient in bg */
@@ -717,7 +723,7 @@ main { position: relative; z-index: 1; }
 .ing-card.pro:hover { box-shadow: 0 8px 24px rgba(123,158,255,0.15); }
 .ing-card.ing:hover { box-shadow: 0 8px 24px rgba(255,159,90,0.15); }
 
-/* Hero title — letter spacing animation */
+/* Hero title - letter spacing animation */
 .hero-title {
   letter-spacing: -0.02em;
   background: linear-gradient(135deg, var(--text) 60%, var(--accent));
@@ -736,11 +742,11 @@ main { position: relative; z-index: 1; }
 }
 .logo span { color: var(--accent); }
 
-/* Tag chips — smooth transitions */
+/* Tag chips - smooth transitions */
 .tag-chip { transition: all .12s ease; }
 .tag-chip.on { box-shadow: 0 0 0 1px var(--accent); }
 
-/* Diary entries — subtle left border accent on hover */
+/* Diary entries - subtle left border accent on hover */
 .diary-entry {
   transition: padding-left .15s;
   border-left: 2px solid transparent;
@@ -755,7 +761,7 @@ main { position: relative; z-index: 1; }
 .dim-card { transition: box-shadow .2s; }
 .dim-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
 
-/* Buttons — subtle shimmer */
+/* Buttons - subtle shimmer */
 .btn-accent {
   background: var(--accent);
   position: relative;
@@ -786,7 +792,7 @@ main { position: relative; z-index: 1; }
 }
 
 
-/* ══ DM Sans + Open Sans Typography ══ */
+/* == DM Sans + Open Sans Typography == */
 
 h2, .card-head, .modal-title {
   font-family: var(--font-head);
@@ -877,7 +883,7 @@ em, i { font-style: italic; }
 .acc-arrow-char{color:var(--text3);flex-shrink:0;font-size:24px;font-weight:300;line-height:1;transition:transform .25s ease;display:inline-block;transform:rotate(90deg);font-family:var(--font-body);margin-top:10px;}
 .step-block.open .acc-arrow-char{color:var(--text3);flex-shrink:0;font-size:24px;font-weight:300;line-height:1;transition:transform .25s ease;display:inline-block;transform:rotate(90deg);font-family:var(--font-body);margin-top:10px;}
 
-/* ── QUANTITY CIRCLES ── */
+/* -- QUANTITY CIRCLES -- */
 .qty-circle {
   display: inline-flex;
   align-items: center;
@@ -892,21 +898,21 @@ em, i { font-style: italic; }
 .qty-circle svg { display: block; }
 
 
-/* ══ STEP LAYOUT FINAL FIXES ══ */
+/* == STEP LAYOUT FINAL FIXES == */
 .step-header { align-items: flex-start !important; }
 .step-info { padding-top: 4px; }
 
 /* Prod card - remove old badge classes that may still exist */
 .badge-full, .badge-med, .badge-low { display: none; }
 
-/* Clean info box — remove duplicate border */
+/* Clean info box - remove duplicate border */
 .info[style*="border-left"] { border-left-width: 3px !important; }
 
 /* Step body products full width */
 .step-body > .products-wrap { width: 100%; }
 .step-body .step-cols > div:first-child { width: 100%; }
 
-/* stype-panel — ensure hidden by default, shown by JS */
+/* stype-panel - ensure hidden by default, shown by JS */
 .stype-panel { display: none; }
 
 /* Fix step-cols children to align top when shown side by side via grid */
@@ -915,7 +921,7 @@ em, i { font-style: italic; }
 /* Acc arrow position */
 .step-header > .acc-arrow-char { margin-top: 12px; }
 
-/* Step num — tighten with info column */
+/* Step num - tighten with info column */
 .step-num { padding-top: 2px; }
 
 </style>
@@ -927,25 +933,25 @@ em, i { font-style: italic; }
     <div class="logo">Hair<span>Protocol</span></div>
     <div class="week-chip">
       <span>Week</span>
-      <strong id="hdrWk">—</strong>
+      <strong id="hdrWk">&mdash;</strong>
       <span id="hdrPhase"></span>
     </div>
     <div class="header-right">
-      <button class="ico-btn" onclick="openM('m-settings')" title="Settings">⚙</button>
+      <button class="ico-btn" onclick="openM('m-settings')" title="Settings">&#9881;</button>
       <button class="ico-btn" onclick="openM('m-log')" title="Log Session">+</button>
     </div>
 </div>
 <div class="hero-strip">
     <div class="hero-left">
-      <div class="hero-system">Personal Hair Care System · 3C / 4A · High Porosity · Fine</div>
+      <div class="hero-system">Personal Hair Care System &middot; 3C / 4A &middot; High Porosity &middot; Fine</div>
       <div class="hero-title">The Bra-Strap Growth Protocol</div>
-      <div class="hero-sub">A precision routine using your owned inventory — Ayurvedic, professional, and commercial — built for consistent, measurable growth.</div>
+      <div class="hero-sub">A precision routine using your owned inventory &mdash; Ayurvedic, professional, and commercial &mdash; built for consistent, measurable growth.</div>
     </div>
     <div class="hero-tags">
-      <span class="htag">3C Top · 4A Bottom</span>
+      <span class="htag">3C Top &middot; 4A Bottom</span>
       <span class="htag">High Porosity</span>
       <span class="htag">Fine Strands</span>
-      <span class="htag">Shoulder → BSL</span>
+      <span class="htag">Shoulder &rarr; BSL</span>
       <span class="htag">Heat Damage Recovery</span>
       <span class="htag">No Stylist</span>
     </div>
@@ -968,9 +974,9 @@ em, i { font-style: italic; }
 
 <main>
 
-<!-- ═══════════════════════════════════════════════════
+<!-- 
   SCHEDULE
-════════════════════════════════════════════════════ -->
+ -->
 <div class="tab on" id="tab-schedule">
   <div id="sch-empty" style="display:none;text-align:center;padding:80px 24px;">
     <div style="font-family:var(--font-head);font-size:28px;font-weight:700;margin-bottom:8px;">Set Your Start Date</div>
@@ -980,7 +986,7 @@ em, i { font-style: italic; }
   <div id="sch-main">
     <div class="flex fxb fxa mb32" style="flex-wrap:wrap;gap:12px;">
       <div>
-        <div style="font-family:var(--font-head);font-size:36px;font-weight:800;line-height:1;" id="sch-title">Week —</div>
+        <div style="font-family:var(--font-head);font-size:36px;font-weight:800;line-height:1;" id="sch-title">Week &mdash;</div>
         <div class="text2 sz13 mt8" id="sch-range">Configure start date in settings</div>
       </div>
       <div class="flex gap8">
@@ -991,7 +997,7 @@ em, i { font-style: italic; }
 
     <div id="intensive-banner" class="intensive" style="display:none;">
       <div>
-        <h3 id="int-title">Intensive Protocol — Active</h3>
+        <h3 id="int-title">Intensive Protocol &mdash; Active</h3>
         <p id="int-body"></p>
       </div>
       <div class="ring-wrap">
@@ -1009,7 +1015,7 @@ em, i { font-style: italic; }
       <div class="flex fxb fxa mb16">
         <div class="card-head" style="margin-bottom:0;">12-Week Protocol Map</div>
         <div class="flex gap8" style="flex-wrap:wrap;">
-          <span class="tag tag-a">Intensive · Wks 1–8</span>
+          <span class="tag tag-a">Intensive &middot; Wks 1&ndash;8</span>
           <span class="tag tag-b">Bond Repair</span>
           <span class="tag" style="background:rgba(90,138,106,0.12);color:#7ABB8A;">Protein DC</span>
           <span class="tag tag-n">Scalp+Moist</span>
@@ -1033,9 +1039,9 @@ em, i { font-style: italic; }
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════
+<!-- 
   WASH & DC
-════════════════════════════════════════════════════ -->
+ -->
 <div class="tab" id="tab-wash">
   <div class="page-hd">
     <h1>Wash &amp; Deep Conditioning</h1>
@@ -1043,29 +1049,29 @@ em, i { font-style: italic; }
   </div>
 
   <div id="wash-int" class="info info-a mb24" style="display:none;">
-    <strong>Intensive Phase (Weeks 1–8):</strong> Deep condition every wash day without exception. Protein treatment every other week. Do not skip.
+    <strong>Intensive Phase (Weeks 1&ndash;8):</strong> Deep condition every wash day without exception. Protein treatment every other week. Do not skip.
   </div>
 
   <!-- DC Rotation -->
   <div class="card mb24">
     <div class="flex fxb fxa mb16">
       <div class="card-head" style="margin-bottom:0;">Deep Conditioning Rotation</div>
-      <div id="dc-week-tag" class="tag tag-a">Week — of 4</div>
+      <div id="dc-week-tag" class="tag tag-a">Week &mdash; of 4</div>
     </div>
     <p class="text2 sz13 mb16">Your DC type rotates on a 4-week cycle. The highlighted card is your current week.</p>
     <div class="dc-grid" id="dc-grid"></div>
   </div>
 
   <!-- Wash Day Steps -->
-  <div class="card-head mb12">Wash Day Protocol — Step by Step</div>
+  <div class="card-head mb12">Wash Day Protocol &mdash; Step by Step</div>
 
   <!-- Step 1 -->
   <div class="step-block open">
     <div class="step-header" onclick="toggleStep(this)">
       <div class="step-num">01</div>
-      <div class="step-info"><h3>24-Hour Pre-Poo</h3><p>Night before · Dry hair · Ayurvedic penetrating treatment</p></div>
+      <div class="step-info"><h3>24-Hour Pre-Poo</h3><p>Night before &middot; Dry hair &middot; Ayurvedic penetrating treatment</p></div>
       <div class="step-timing">Night Before<br>24 hrs</div>
-      <span class="acc-arrow-char">›</span>
+      <span class="acc-arrow-char">&#8250;</span>
     </div>
     <div class="step-body">
       <div class="products-wrap">
@@ -1080,14 +1086,14 @@ em, i { font-style: italic; }
             <div class="ingredient-row"><span class="ing-amt">1 tbsp</span><span class="ing-name">Jamaican Black Castor Oil</span></div>
             <div class="ingredient-row"><span class="ing-amt">1 tsp</span><span class="ing-name">Vitamin E oil</span></div>
             <div class="ingredient-row"><span class="ing-amt">5 drops</span><span class="ing-name">Rosemary essential oil</span></div>
-            <div class="method-text">Mix Chebe into warm coconut oil first to dissolve. Add remaining oils. Apply section by section to dry, detangled hair from mid-shaft to ends — avoid scalp. Cover with plastic cap then satin bonnet. Sleep in it. Full 24 hrs is when penetration occurs.</div>
+            <div class="method-text">Mix Chebe into warm coconut oil first to dissolve. Add remaining oils. Apply section by section to dry, detangled hair from mid-shaft to ends &mdash; avoid scalp. Cover with plastic cap then satin bonnet. Sleep in it. Full 24 hrs is when penetration occurs.</div>
           </div>
         </div>
 <div>
           <div class="science">
-            <strong>Chebe:</strong> Prevents hygral fatigue — the repeated swelling and contracting cycle that causes breakage in high-porosity hair. The resin compounds coat the shaft, reducing moisture absorption rate.<br><br>
+            <strong>Chebe:</strong> Prevents hygral fatigue &mdash; the repeated swelling and contracting cycle that causes breakage in high-porosity hair. The resin compounds coat the shaft, reducing moisture absorption rate.<br><br>
             <strong>Avocado Oil:</strong> One of the only plant oils that penetrates the hair shaft (not just coats it). Contains oleic and linoleic acid that displace moisture-absorbing water from the cortex.<br><br>
-            <strong>JBCO:</strong> Ricinoleic acid increases scalp circulation by up to 14× with massage. Not just lubrication — actual vasodilation of follicular capillaries.<br><br>
+            <strong>JBCO:</strong> Ricinoleic acid increases scalp circulation by up to 14&times; with massage. Not just lubrication &mdash; actual vasodilation of follicular capillaries.<br><br>
             <strong>Coconut Oil:</strong> Reduces protein loss by up to 39% when applied pre-wash (published in Journal of Cosmetic Science). Most effective when applied to dry hair and left 24 hrs.
           </div>
         </div>
@@ -1099,9 +1105,9 @@ em, i { font-style: italic; }
   <div class="step-block">
     <div class="step-header" onclick="toggleStep(this)">
       <div class="step-num">02</div>
-      <div class="step-info"><h3>Ayurvedic Scalp Rinse Pre-Wash</h3><p>Applied before shampoo · Scalp treatment · Stimulates growth</p></div>
-      <div class="step-timing">Wash Day<br>30–45 min</div>
-      <span class="acc-arrow-char">›</span>
+      <div class="step-info"><h3>Ayurvedic Scalp Rinse Pre-Wash</h3><p>Applied before shampoo &middot; Scalp treatment &middot; Stimulates growth</p></div>
+      <div class="step-timing">Wash Day<br>30&ndash;45 min</div>
+      <span class="acc-arrow-char">&#8250;</span>
     </div>
     <div class="step-body">
       <div class="products-wrap">
@@ -1117,15 +1123,15 @@ em, i { font-style: italic; }
             <div class="ingredient-row"><span class="ing-amt">3 tbsp</span><span class="ing-name">Sesame oil</span></div>
             <div class="ingredient-row"><span class="ing-amt">1 tbsp</span><span class="ing-name">Neem powder</span></div>
             <div class="ingredient-row"><span class="ing-amt">1 tsp</span><span class="ing-name">Amla powder</span></div>
-            <div class="method-text">Combine powders with oils in a small pot. Add powders, stir. Simmer 5–7 min on lowest heat — do NOT boil. Cool to warm-touch. Strain through cheesecloth. Apply to scalp with dropper or fingertips, massage 5 min. Apply remainder to hair. Cover with plastic cap + hooded dryer 30 min. Shampoo out thoroughly.<br><br><em>Batch note: Make 4–6× this recipe. Refrigerate in dark glass. Good for 3–4 weeks.</em></div>
+            <div class="method-text">Combine powders with oils in a small pot. Add powders, stir. Simmer 5&ndash;7 min on lowest heat &mdash; do NOT boil. Cool to warm-touch. Strain through cheesecloth. Apply to scalp with dropper or fingertips, massage 5 min. Apply remainder to hair. Cover with plastic cap + hooded dryer 30 min. Shampoo out thoroughly.<br><br><em>Batch note: Make 4&ndash;6&times; this recipe. Refrigerate in dark glass. Good for 3&ndash;4 weeks.</em></div>
           </div>
         </div>
 <div>
           <div class="science">
-            <strong>Bhringraj (Eclipta alba):</strong> Clinically shown to promote anagen (growth) phase in multiple peer-reviewed studies. Contains wedelolactone and ecliptine — DHT inhibitors. Critical for stimulant-medication users where vasoconstriction reduces scalp blood flow.<br><br>
-            <strong>Brahmi (Bacopa):</strong> Strengthens keratin protein structure and reduces breakage. Also supports cognitive function — relevant if taking Adderall.<br><br>
-            <strong>Fenugreek:</strong> Contains lecithin (acts as deep conditioner) and diosgenin (phytoestrogen — counteracts DHT-related hormone imbalance in hair).<br><br>
-            <strong>Mustard Oil:</strong> Strong scalp stimulant and antifungal. Highest erucic acid content of any cooking oil — penetrates scalp layers.<br><br>
+            <strong>Bhringraj (Eclipta alba):</strong> Clinically shown to promote anagen (growth) phase in multiple peer-reviewed studies. Contains wedelolactone and ecliptine &mdash; DHT inhibitors. Critical for stimulant-medication users where vasoconstriction reduces scalp blood flow.<br><br>
+            <strong>Brahmi (Bacopa):</strong> Strengthens keratin protein structure and reduces breakage. Also supports cognitive function &mdash; relevant if taking Adderall.<br><br>
+            <strong>Fenugreek:</strong> Contains lecithin (acts as deep conditioner) and diosgenin (phytoestrogen &mdash; counteracts DHT-related hormone imbalance in hair).<br><br>
+            <strong>Mustard Oil:</strong> Strong scalp stimulant and antifungal. Highest erucic acid content of any cooking oil &mdash; penetrates scalp layers.<br><br>
             <strong>Adderall Note:</strong> Stimulants cause vasoconstriction (reduced blood flow to extremities, including scalp). This oil blend directly counteracts that mechanism.
           </div>
         </div>
@@ -1139,7 +1145,7 @@ em, i { font-style: italic; }
       <div class="step-num">03</div>
       <div class="step-info"><h3>Shampoo</h3><p>Clarify or moisture-wash depending on week</p></div>
       <div class="step-timing">Wash Day</div>
-      <span class="acc-arrow-char">›</span>
+      <span class="acc-arrow-char">&#8250;</span>
     </div>
     <div class="step-body">
       <div class="products-wrap">
@@ -1149,15 +1155,15 @@ em, i { font-style: italic; }
 <div><div class="div-label">Ambunu Co-Wash Method</div>
           <div class="recipe">
             <div class="recipe-title">Ambunu Cleansing Method</div>
-            <div class="ingredient-row"><span class="ing-amt">2–3 tbsp</span><span class="ing-name">Ambunu (dried or fresh)</span></div>
+            <div class="ingredient-row"><span class="ing-amt">2&ndash;3 tbsp</span><span class="ing-name">Ambunu (dried or fresh)</span></div>
             <div class="ingredient-row"><span class="ing-amt">2 cups</span><span class="ing-name">Warm water</span></div>
-            <div class="method-text">Steep Ambunu in warm water 15–20 min. Strain and use liquid to massage scalp and coat hair sections. The mucilage acts as both cleanser and conditioner simultaneously. No shampoo needed on low-buildup weeks. Works best on weeks 2 of 4 in rotation.</div>
+            <div class="method-text">Steep Ambunu in warm water 15&ndash;20 min. Strain and use liquid to massage scalp and coat hair sections. The mucilage acts as both cleanser and conditioner simultaneously. No shampoo needed on low-buildup weeks. Works best on weeks 2 of 4 in rotation.</div>
           </div>
         </div>
 <div>
           <div class="science">
             <strong>Ambunu:</strong> West African plant used for centuries. The mucilage coating mimics commercial silicone conditioning agents but is water-soluble (no buildup). Contains saponins for gentle cleansing without stripping the acid mantle.<br><br>
-            <strong>Nizoral (once monthly):</strong> Ketoconazole — antifungal that also blocks DHT receptors at the scalp. Clinical studies show 3–5× improvement in hair shedding with monthly use. Do not overuse — disrupts scalp microbiome.<br><br>
+            <strong>Nizoral (once monthly):</strong> Ketoconazole &mdash; antifungal that also blocks DHT receptors at the scalp. Clinical studies show 3&ndash;5&times; improvement in hair shedding with monthly use. Do not overuse &mdash; disrupts scalp microbiome.<br><br>
             <strong>Clarify monthly:</strong> Product buildup on high-porosity hair seals the cuticle shut, preventing moisture absorption. Monthly clarification is non-negotiable.
           </div>
         </div>
@@ -1169,9 +1175,9 @@ em, i { font-style: italic; }
   <div class="step-block">
     <div class="step-header" onclick="toggleStep(this)">
       <div class="step-num">04</div>
-      <div class="step-info"><h3>Deep Condition (with Heat)</h3><p>Rotation-based · Must use heat for high-porosity hair</p></div>
-      <div class="step-timing">20–30 min heat<br>Rinse cool</div>
-      <span class="acc-arrow-char">›</span>
+      <div class="step-info"><h3>Deep Condition (with Heat)</h3><p>Rotation-based &middot; Must use heat for high-porosity hair</p></div>
+      <div class="step-timing">20&ndash;30 min heat<br>Rinse cool</div>
+      <span class="acc-arrow-char">&#8250;</span>
     </div>
     <div class="step-body">
       <div class="products-wrap">
@@ -1179,19 +1185,19 @@ em, i { font-style: italic; }
           </div>
 <div class="step-cols">
 <div><div class="recipe">
-            <div class="recipe-title">Boosted DC Mixture (Week 1 — Moisture)</div>
+            <div class="recipe-title">Boosted DC Mixture (Week 1 &mdash; Moisture)</div>
             <div class="ingredient-row"><span class="ing-amt">3 tbsp</span><span class="ing-name">Oribe Gold Lust Mask (or any moisture DC)</span></div>
             <div class="ingredient-row"><span class="ing-amt">1 tbsp</span><span class="ing-name">Avocado oil</span></div>
             <div class="ingredient-row"><span class="ing-amt">1 tbsp</span><span class="ing-name">Collagen Protein Hydrolyzed powder</span></div>
             <div class="ingredient-row"><span class="ing-amt">1 tsp</span><span class="ing-name">Glycerin</span></div>
             <div class="ingredient-row"><span class="ing-amt">1 tsp</span><span class="ing-name">Hibiscus powder</span></div>
-            <div class="method-text">Mix all until smooth. Apply to soaking-wet clean hair in sections, mid-shaft to ends. Cover with plastic cap. Sit under hooded dryer 20–30 min. Rinse with cool water only — cold water seals the cuticle. Do not use hot water for final rinse.</div>
+            <div class="method-text">Mix all until smooth. Apply to soaking-wet clean hair in sections, mid-shaft to ends. Cover with plastic cap. Sit under hooded dryer 20&ndash;30 min. Rinse with cool water only &mdash; cold water seals the cuticle. Do not use hot water for final rinse.</div>
           </div>
         </div>
 <div>
           <div class="science">
-            <strong>GK Keratin Treatment:</strong> Applied treatment. Benefits last 3–5 months. No SLS shampoos. Do not wash for 72 hrs after application. Avoid excessive heat above 450°F without Oribe Balm d'Or.<br><br>
-            <strong>Mizani Fiberfyl:</strong> Bond-building protein treatment — one of the most sophisticated protein technologies available. Leave 5–10 min MAX. Always follow with a moisture DC immediately. Signs of protein overload: stiff, brittle, snapping hair — reduce protein frequency.<br><br>
+            <strong>GK Keratin Treatment:</strong> Applied treatment. Benefits last 3&ndash;5 months. No SLS shampoos. Do not wash for 72 hrs after application. Avoid excessive heat above 450&deg;F without Oribe Balm d'Or.<br><br>
+            <strong>Mizani Fiberfyl:</strong> Bond-building protein treatment &mdash; one of the most sophisticated protein technologies available. Leave 5&ndash;10 min MAX. Always follow with a moisture DC immediately. Signs of protein overload: stiff, brittle, snapping hair &mdash; reduce protein frequency.<br><br>
             <strong>CER-100:</strong> Ceramide infusion. Ceramides are the lipid "mortar" between hair cells. Chemical processing depletes them. This is restorative infrastructure work, not just conditioning.<br><br>
             <strong>Cool rinse:</strong> The hair cuticle closes at lower temperatures. Rinsing with cold water physically locks treatment into the cortex.
           </div>
@@ -1204,9 +1210,9 @@ em, i { font-style: italic; }
   <div class="step-block">
     <div class="step-header" onclick="toggleStep(this)">
       <div class="step-num">05</div>
-      <div class="step-info"><h3>ACV Seal Rinse</h3><p>Post-DC · Closes cuticle · pH balance</p></div>
+      <div class="step-info"><h3>ACV Seal Rinse</h3><p>Post-DC &middot; Closes cuticle &middot; pH balance</p></div>
       <div class="step-timing">Optional<br>Post-DC</div>
-      <span class="acc-arrow-char">›</span>
+      <span class="acc-arrow-char">&#8250;</span>
     </div>
     <div class="step-body">
       <div class="g2">
@@ -1216,12 +1222,12 @@ em, i { font-style: italic; }
             <div class="ingredient-row"><span class="ing-amt">2 tbsp</span><span class="ing-name">Apple Cider Vinegar (raw, with mother)</span></div>
             <div class="ingredient-row"><span class="ing-amt">1 cup</span><span class="ing-name">Water (filtered or cool)</span></div>
             <div class="ingredient-row"><span class="ing-amt">1 tsp</span><span class="ing-name">Green tea (brewed, cooled)</span></div>
-            <div class="method-text">Combine in spray bottle. Apply after DC rinse — work into scalp and through lengths. Leave 2–3 min. Rinse thoroughly with cool water. Do not leave on — 1:8 ratio is safe, undiluted is not.</div>
+            <div class="method-text">Combine in spray bottle. Apply after DC rinse &mdash; work into scalp and through lengths. Leave 2&ndash;3 min. Rinse thoroughly with cool water. Do not leave on &mdash; 1:8 ratio is safe, undiluted is not.</div>
           </div>
         </div>
         <div>
           <div class="science">
-            <strong>Why ACV works:</strong> Healthy hair pH is 4.5–5.5. Most shampoos and treatments push hair to pH 7–9 (alkaline), which raises the cuticle and causes frizz, tangles, and color fade. ACV (pH 3) restores the acid mantle and physically closes the cuticle.<br><br>
+            <strong>Why ACV works:</strong> Healthy hair pH is 4.5&ndash;5.5. Most shampoos and treatments push hair to pH 7&ndash;9 (alkaline), which raises the cuticle and causes frizz, tangles, and color fade. ACV (pH 3) restores the acid mantle and physically closes the cuticle.<br><br>
             <strong>Green tea:</strong> Catechins in green tea inhibit DHT production at the follicle level. Combined with the rinse, it's a functional scalp treatment alongside the pH balance.
           </div>
         </div>
@@ -1233,9 +1239,9 @@ em, i { font-style: italic; }
   <div class="step-block">
     <div class="step-header" onclick="toggleStep(this)">
       <div class="step-num">06</div>
-      <div class="step-info"><h3>LOC / LCO Method — Moisturize &amp; Seal</h3><p>On soaking-wet hair · Layer in sequence</p></div>
+      <div class="step-info"><h3>LOC / LCO Method &mdash; Moisturize &amp; Seal</h3><p>On soaking-wet hair &middot; Layer in sequence</p></div>
       <div class="step-timing">Post-wash<br>While dripping</div>
-      <span class="acc-arrow-char">›</span>
+      <span class="acc-arrow-char">&#8250;</span>
     </div>
     <div class="step-body">
       <div class="products-wrap">
@@ -1244,7 +1250,7 @@ em, i { font-style: italic; }
             <span class="prod-pill">C: Camille Rose Almond Jai Twisting Butter</span><span class="prod-pill">C: Oribe Imperial Blowout Cream</span>
           </div>
 <div class="step-cols">
-<div><div class="div-label mt16">LCO — For High-Porosity Hair</div>
+<div><div class="div-label mt16">LCO &mdash; For High-Porosity Hair</div>
           <div class="products-wrap">
             <span class="prod-pill">L: Leave-in conditioner</span>
             <span class="prod-pill">C: UBH Satin Cream</span><span class="prod-pill">C: Wired Flexible Styling Cream</span>
@@ -1255,8 +1261,8 @@ em, i { font-style: italic; }
 <div>
           <div class="science">
             <strong>LOC Science:</strong> Each layer serves a molecular function. Liquid water-based products penetrate the cortex. Oil prevents water evaporation by coating the cuticle. Cream seals everything and adds a protective flexible layer.<br><br>
-            <strong>Leven Rose Jojoba:</strong> Structurally closest to human sebum (squalene content). The scalp can't distinguish it from its own oil — no overproduction response.<br><br>
-            <strong>Keracare Silken Seal:</strong> Final locking step. Liquid sheen with silicone-adjacent sealing chemistry — locks the LOC/LCO stack in place for up to 5–7 days.<br><br>
+            <strong>Leven Rose Jojoba:</strong> Structurally closest to human sebum (squalene content). The scalp can't distinguish it from its own oil &mdash; no overproduction response.<br><br>
+            <strong>Keracare Silken Seal:</strong> Final locking step. Liquid sheen with silicone-adjacent sealing chemistry &mdash; locks the LOC/LCO stack in place for up to 5&ndash;7 days.<br><br>
             <strong>Hollywood Beauty Biotin Oil:</strong> Biotin penetrates the cortex in oil form more effectively than topical biotin serums. Consistent daily use supports keratin production at the shaft level.
           </div>
         </div>
@@ -1265,9 +1271,9 @@ em, i { font-style: italic; }
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════
+<!-- 
   MAINTENANCE
-════════════════════════════════════════════════════ -->
+ -->
 <div class="tab" id="tab-maintenance">
   <div class="page-hd">
     <h1>Daily Maintenance</h1>
@@ -1287,8 +1293,8 @@ em, i { font-style: italic; }
       <div class="step-block open">
         <div class="step-header" onclick="toggleStep(this)">
           <div class="step-num">AM</div>
-          <div class="step-info"><h3>Morning Refresh</h3><p>Days 2–7 of wash &amp; go</p></div>
-          <span class="acc-arrow-char">›</span>
+          <div class="step-info"><h3>Morning Refresh</h3><p>Days 2&ndash;7 of wash &amp; go</p></div>
+          <span class="acc-arrow-char">&#8250;</span>
         </div>
         <div class="step-body">
           <div class="products-wrap"><span class="prod-pill">Camille Rose Rosemary Water</span><span class="prod-pill">Leven Rose Jojoba</span><span class="prod-pill">NOW Almond Oil</span><span class="prod-pill">Keracare Silken Seal</span></div>
@@ -1298,10 +1304,10 @@ em, i { font-style: italic; }
             <div class="ingredient-row"><span class="ing-amt">10%</span><span class="ing-name">Aloe vera juice</span></div>
             <div class="ingredient-row"><span class="ing-amt">5%</span><span class="ing-name">Glycerin</span></div>
             <div class="ingredient-row"><span class="ing-amt">5%</span><span class="ing-name">Camille Rose Rosemary Water</span></div>
-            <div class="method-text">Combine in spray bottle. Lightly mist — do not soak. Scrunch upward gently. Follow immediately with a drop of jojoba or almond oil on palms, smoothed over surface.</div>
+            <div class="method-text">Combine in spray bottle. Lightly mist &mdash; do not soak. Scrunch upward gently. Follow immediately with a drop of jojoba or almond oil on palms, smoothed over surface.</div>
           </div>
           <div class="science mt12">
-            <strong>Why not just water:</strong> Plain water without humectant and oil layering will evaporate within 20 minutes, leaving hair drier than before. Glycerin is the key — it binds water molecules to the shaft. The oil seals those water molecules in.
+            <strong>Why not just water:</strong> Plain water without humectant and oil layering will evaporate within 20 minutes, leaving hair drier than before. Glycerin is the key &mdash; it binds water molecules to the shaft. The oil seals those water molecules in.
           </div>
         </div>
       </div>
@@ -1310,18 +1316,18 @@ em, i { font-style: italic; }
         <div class="step-header" onclick="toggleStep(this)">
           <div class="step-num">PM</div>
           <div class="step-info"><h3>Nightly Protection</h3><p>Every single night without exception</p></div>
-          <span class="acc-arrow-char">›</span>
+          <span class="acc-arrow-char">&#8250;</span>
         </div>
         <div class="step-body">
           <div class="products-wrap"><span class="prod-pill">Satin Bonnet (required)</span><span class="prod-pill">JBCO (edges)</span><span class="prod-pill">Leven Rose Jojoba (scalp)</span></div>
-          <div class="info info-a mt12"><strong>Pineapple:</strong> Gather all hair loosely at crown with a soft scrunchie — never elastics. This preserves curl pattern overnight without compression.</div>
+          <div class="info info-a mt12"><strong>Pineapple:</strong> Gather all hair loosely at crown with a soft scrunchie &mdash; never elastics. This preserves curl pattern overnight without compression.</div>
           <div class="science mt12">
-            <strong>Cotton vs. Satin:</strong> Cotton pillowcases have a friction coefficient of 3.7 vs. satin's 0.9. That's 4× more friction on your hair shaft every time you move overnight. Over weeks: significant cuticle damage, breakage, and moisture loss. Non-negotiable.
+            <strong>Cotton vs. Satin:</strong> Cotton pillowcases have a friction coefficient of 3.7 vs. satin's 0.9. That's 4&times; more friction on your hair shaft every time you move overnight. Over weeks: significant cuticle damage, breakage, and moisture loss. Non-negotiable.
           </div>
         </div>
       </div>
     </div>
-    <div class="info info-b"><strong>Days 3–4:</strong> If your wash & go starts looking tired, co-wash (conditioner only, no shampoo) to refresh without stripping. Camille Rose Rosemary Water can extend this by a day as a midday refresher.</div>
+    <div class="info info-b"><strong>Days 3&ndash;4:</strong> If your wash & go starts looking tired, co-wash (conditioner only, no shampoo) to refresh without stripping. Camille Rose Rosemary Water can extend this by a day as a midday refresher.</div>
   </div>
 
   <!-- Twist Out Maintenance -->
@@ -1330,12 +1336,12 @@ em, i { font-style: italic; }
       <div class="step-block open">
         <div class="step-header" onclick="toggleStep(this)">
           <div class="step-num">AM</div>
-          <div class="step-info"><h3>Morning Refresh</h3><p>Days 2–5 of twist out</p></div>
-          <span class="acc-arrow-char">›</span>
+          <div class="step-info"><h3>Morning Refresh</h3><p>Days 2&ndash;5 of twist out</p></div>
+          <span class="acc-arrow-char">&#8250;</span>
         </div>
         <div class="step-body">
           <div class="products-wrap"><span class="prod-pill">ORS Super Silken Leave-In</span><span class="prod-pill">Camille Rose Almond Jai Butter</span><span class="prod-pill">Leven Rose Jojoba</span></div>
-          <div class="method-text" style="margin-top:12px;font-size:13px;color:var(--text2);">1. Lightly mist sections that lost definition — do not over-wet. 2. Smooth a small amount of leave-in over each section, following the pattern direction. 3. Seal each section with a light oil. 4. Fluff from roots with fingers only — no comb or brush.</div>
+          <div class="method-text" style="margin-top:12px;font-size:13px;color:var(--text2);">1. Lightly mist sections that lost definition &mdash; do not over-wet. 2. Smooth a small amount of leave-in over each section, following the pattern direction. 3. Seal each section with a light oil. 4. Fluff from roots with fingers only &mdash; no comb or brush.</div>
           <div class="science mt12">
             <strong>Why fingers only:</strong> A comb or brush separates twist-out sections at random rather than following the natural coil pattern, creating frizz at the point of separation. Fingers navigate the pattern; tools don't.
           </div>
@@ -1345,10 +1351,10 @@ em, i { font-style: italic; }
         <div class="step-header" onclick="toggleStep(this)">
           <div class="step-num">PM</div>
           <div class="step-info"><h3>Nightly Preservation</h3><p>Protect and preserve definition</p></div>
-          <span class="acc-arrow-char">›</span>
+          <span class="acc-arrow-char">&#8250;</span>
         </div>
         <div class="step-body">
-          <div class="info info-a">Either pineapple at crown OR re-twist into 4–6 large sections. Secure with satin scrunchie. Large enough bonnet to hold the volume. Days 4–5: if pattern is gone, transitiion to a puff or afro and start a fresh twist-out next wash day.</div>
+          <div class="info info-a">Either pineapple at crown OR re-twist into 4&ndash;6 large sections. Secure with satin scrunchie. Large enough bonnet to hold the volume. Days 4&ndash;5: if pattern is gone, transitiion to a puff or afro and start a fresh twist-out next wash day.</div>
         </div>
       </div>
     </div>
@@ -1360,8 +1366,8 @@ em, i { font-style: italic; }
       <div class="step-block open">
         <div class="step-header" onclick="toggleStep(this)">
           <div class="step-num">Day</div>
-          <div class="step-info"><h3>Daily Scalp Oil</h3><p>Even in protective styles — scalp health continues</p></div>
-          <span class="acc-arrow-char">›</span>
+          <div class="step-info"><h3>Daily Scalp Oil</h3><p>Even in protective styles &mdash; scalp health continues</p></div>
+          <span class="acc-arrow-char">&#8250;</span>
         </div>
         <div class="step-body">
           <div class="products-wrap"><span class="prod-pill">Leven Rose Jojoba (applicator tip)</span><span class="prod-pill">Hollywood Beauty Biotin Oil</span><span class="prod-pill">Wild Growth Hair Oil</span><span class="prod-pill">Kaleidoscope Miracle Drops (edges)</span></div>
@@ -1378,14 +1384,14 @@ em, i { font-style: italic; }
       <div class="step-block">
         <div class="step-header" onclick="toggleStep(this)">
           <div class="step-num">Wk</div>
-          <div class="step-info"><h3>Weekly Scalp Cleanse</h3><p>Even with style in — don't skip</p></div>
-          <span class="acc-arrow-char">›</span>
+          <div class="step-info"><h3>Weekly Scalp Cleanse</h3><p>Even with style in &mdash; don't skip</p></div>
+          <span class="acc-arrow-char">&#8250;</span>
         </div>
         <div class="step-body">
-          <div class="info info-r"><strong>Max duration: 6–8 weeks.</strong> After that, new growth matting at the roots will begin to loc. Set a takedown reminder at week 7.</div>
+          <div class="info info-r"><strong>Max duration: 6&ndash;8 weeks.</strong> After that, new growth matting at the roots will begin to loc. Set a takedown reminder at week 7.</div>
           <div class="method-text" style="margin-top:12px;font-size:13px;color:var(--text2);">Dilute shampoo 1:3 with water in applicator bottle. Apply directly to scalp, not the style itself. Massage scalp, then rinse letting water run through the style. Follow with diluted ACV rinse. Air dry completely before re-oiling.</div>
           <div class="science mt12">
-            <strong>Why scalp cleanse still matters:</strong> Sebum buildup + product buildup creates a biofilm over follicle openings within 2–3 weeks. This physically blocks new growth. Scalp odor in protective styles is a sign this is happening.
+            <strong>Why scalp cleanse still matters:</strong> Sebum buildup + product buildup creates a biofilm over follicle openings within 2&ndash;3 weeks. This physically blocks new growth. Scalp odor in protective styles is a sign this is happening.
           </div>
         </div>
       </div>
@@ -1396,73 +1402,73 @@ em, i { font-style: italic; }
   <!-- Low Heat Daily Maintenance -->
   <div id="maint-lowheat" class="stype-panel">
     <div class="info info-b mb20">
-      <strong>Low Heat Style Maintenance (Days 2–7+):</strong> Your stretched blow-out or braid-out can last a full week with the right nightly and morning protocol. The goal is to maintain stretch, avoid reversion, and keep ends moisturized without re-wetting.
+      <strong>Low Heat Style Maintenance (Days 2&ndash;7+):</strong> Your stretched blow-out or braid-out can last a full week with the right nightly and morning protocol. The goal is to maintain stretch, avoid reversion, and keep ends moisturized without re-wetting.
     </div>
     <div class="g2 mb16">
       <div class="step-block open">
         <div class="step-header" onclick="toggleStep(this)">
           <div class="step-num">AM</div>
-          <div class="step-info"><h3>Morning Refresh</h3><p>No water on stretched hair · Seal only</p></div>
-          <span class="acc-arrow-char">›</span>
+          <div class="step-info"><h3>Morning Refresh</h3><p>No water on stretched hair &middot; Seal only</p></div>
+          <span class="acc-arrow-char">&#8250;</span>
         </div>
         <div class="step-body">
           <div class="products-wrap mb10"><span class="prod-pill">Phyto 7 Day Cream (ends only)</span><span class="prod-pill">Oribe Impermeable Spray</span><span class="prod-pill">AllPlex No.7 Oil (ends)</span><span class="prod-pill">AllDay Edges</span></div>
-          <div class="science"><strong>No water rule:</strong> Water on stretched/blow-dried hair causes instant reversion in high-porosity curls. Moisture refresh = cream on ends only, never a spray on lengths. Phyto 7 is ideal — rich enough to add slip and moisture without triggering curl reversion. Apply with fingertips to ends, not lengths.</div>
+          <div class="science"><strong>No water rule:</strong> Water on stretched/blow-dried hair causes instant reversion in high-porosity curls. Moisture refresh = cream on ends only, never a spray on lengths. Phyto 7 is ideal &mdash; rich enough to add slip and moisture without triggering curl reversion. Apply with fingertips to ends, not lengths.</div>
         </div>
       </div>
       <div class="step-block">
         <div class="step-header" onclick="toggleStep(this)">
           <div class="step-num">PM</div>
           <div class="step-info"><h3>Nightly Wrap + Protection</h3><p>Critical for extending stretch and preventing frizz</p></div>
-          <span class="acc-arrow-char">›</span>
+          <span class="acc-arrow-char">&#8250;</span>
         </div>
         <div class="step-body">
           <div class="products-wrap mb10"><span class="prod-pill">Satin Bonnet (non-negotiable)</span><span class="prod-pill">Keracare Silken Seal (ends before bonnet)</span><span class="prod-pill">JBCO (edges, nightly)</span></div>
-          <div class="science"><strong>Wrapping technique:</strong> For straight/blown-out styles, wrap hair around the head (like a pin curl wrap) before applying the bonnet — this keeps the shape smooth rather than compressed. Sleep on a satin pillowcase as backup if the bonnet comes off. Cotton friction is the #1 cause of next-day frizz on low-heat styles according to multiple natural hair stylists on YouTube (Naptural85, SunKissAlba).</div>
+          <div class="science"><strong>Wrapping technique:</strong> For straight/blown-out styles, wrap hair around the head (like a pin curl wrap) before applying the bonnet &mdash; this keeps the shape smooth rather than compressed. Sleep on a satin pillowcase as backup if the bonnet comes off. Cotton friction is the #1 cause of next-day frizz on low-heat styles according to multiple natural hair stylists on YouTube (Naptural85, SunKissAlba).</div>
         </div>
       </div>
     </div>
-    <div class="info info-b"><strong>Days 4–7:</strong> If ends start to feel dry, apply 1–2 drops of Emu oil or Simi de Lino to ends only — do not disturb the roots or lengths. Oribe Impermeable spray re-applied daily acts as a humidity barrier and can extend a low-heat style 2–3 extra days in moderate humidity.</div>
+    <div class="info info-b"><strong>Days 4&ndash;7:</strong> If ends start to feel dry, apply 1&ndash;2 drops of Emu oil or Simi de Lino to ends only &mdash; do not disturb the roots or lengths. Oribe Impermeable spray re-applied daily acts as a humidity barrier and can extend a low-heat style 2&ndash;3 extra days in moderate humidity.</div>
   </div>
 
   <!-- High Heat Daily Maintenance -->
   <div id="maint-highheat" class="stype-panel">
     <div class="info info-r mb20">
       <span style="font-size:20px;flex-shrink:0;"></span>
-      <div><strong>High Heat Style Maintenance (Days 2–21+):</strong> A properly executed high-heat style with keratin base should last 2–3 weeks. The protocol below is designed to protect that investment and avoid the temptation to re-apply heat too soon. The less you manipulate, the longer it lasts.</div>
+      <div><strong>High Heat Style Maintenance (Days 2&ndash;21+):</strong> A properly executed high-heat style with keratin base should last 2&ndash;3 weeks. The protocol below is designed to protect that investment and avoid the temptation to re-apply heat too soon. The less you manipulate, the longer it lasts.</div>
     </div>
     <div class="g2 mb16">
       <div class="step-block open">
         <div class="step-header" onclick="toggleStep(this)">
           <div class="step-num">AM</div>
           <div class="step-info"><h3>Morning Routine</h3><p>Humidity protection is the priority every single day</p></div>
-          <span class="acc-arrow-char">›</span>
+          <span class="acc-arrow-char">&#8250;</span>
         </div>
         <div class="step-body">
           <div class="products-wrap mb10"><span class="prod-pill">Oribe Impermeable Spray</span><span class="prod-pill">Phyto 7 Day Cream (ends)</span><span class="prod-pill">Simi de Lino (if frizz)</span><span class="prod-pill">AllDay Edges</span></div>
-          <div class="science"><strong>Order matters:</strong> Apply Phyto 7 to ends first (moisture), then Oribe Impermeable over the entire length (seal + humidity shield). The Impermeable must be the last layer — it creates a film that traps the moisture applied underneath. Do not apply to roots — this causes scalp buildup and can clog follicles, contributing to DHT accumulation on an already sensitive scalp.</div>
+          <div class="science"><strong>Order matters:</strong> Apply Phyto 7 to ends first (moisture), then Oribe Impermeable over the entire length (seal + humidity shield). The Impermeable must be the last layer &mdash; it creates a film that traps the moisture applied underneath. Do not apply to roots &mdash; this causes scalp buildup and can clog follicles, contributing to DHT accumulation on an already sensitive scalp.</div>
         </div>
       </div>
       <div class="step-block">
         <div class="step-header" onclick="toggleStep(this)">
           <div class="step-num">PM</div>
           <div class="step-info"><h3>Nightly Protection</h3><p>The most important thing you do for a straight style</p></div>
-          <span class="acc-arrow-char">›</span>
+          <span class="acc-arrow-char">&#8250;</span>
         </div>
         <div class="step-body">
           <div class="products-wrap mb10"><span class="prod-pill">Satin Bonnet (non-negotiable)</span><span class="prod-pill">Satin Pillowcase (backup)</span><span class="prod-pill">Keracare Silken Seal (ends)</span></div>
-          <div class="science"><strong>Why wrapping matters more for straight styles:</strong> High-porosity hair absorbs 2–3× more atmospheric moisture overnight than low-porosity hair (hair science research, Philip Kingsley). Even moderate indoor humidity will cause visible reversion along the hairline by morning without protection. Wrap + satin bonnet is non-negotiable. For maximum flatness: wrap hair around the head in a clockwise direction before bonnet application.</div>
+          <div class="science"><strong>Why wrapping matters more for straight styles:</strong> High-porosity hair absorbs 2&ndash;3&times; more atmospheric moisture overnight than low-porosity hair (hair science research, Philip Kingsley). Even moderate indoor humidity will cause visible reversion along the hairline by morning without protection. Wrap + satin bonnet is non-negotiable. For maximum flatness: wrap hair around the head in a clockwise direction before bonnet application.</div>
         </div>
       </div>
     </div>
     <div class="g2">
       <div class="card">
-        <div class="card-head mb10">Weekly Wash — Keeping Keratin Intact</div>
+        <div class="card-head mb10">Weekly Wash &mdash; Keeping Keratin Intact</div>
         <div class="products-wrap mb10"><span class="prod-pill">Chi Infra Shampoo</span><span class="prod-pill">Oribe Gold Lust Repair Shampoo</span><span class="prod-pill">Matrix Food for Soft</span></div>
-        <div class="sz13 text2" style="line-height:1.7;">Co-wash or sulfate-free shampoo only. No clarifying shampoo (it strips keratin). Wash in sections, smooth downward, never scrub in circles. Condition with a lightweight conditioner (no heavy masks — they weigh down straight styles). Blow dry smooth with tension before applying Impermeable.</div>
+        <div class="sz13 text2" style="line-height:1.7;">Co-wash or sulfate-free shampoo only. No clarifying shampoo (it strips keratin). Wash in sections, smooth downward, never scrub in circles. Condition with a lightweight conditioner (no heavy masks &mdash; they weigh down straight styles). Blow dry smooth with tension before applying Impermeable.</div>
       </div>
       <div class="card">
-        <div class="card-head mb10">When to Re-Heat — Decision Framework</div>
+        <div class="card-head mb10">When to Re-Heat &mdash; Decision Framework</div>
         <div style="display:flex;flex-direction:column;gap:8px;">
           <div class="info info-g sz13"> Re-heat after 2+ weeks AND co-wash</div>
           <div class="info info-g sz13"> Re-heat if significant new growth visible</div>
@@ -1474,16 +1480,16 @@ em, i { font-style: italic; }
     </div>
   </div>
 
-<!-- ═══════════════════════════════════════════════════
+<!-- 
   STYLING
-════════════════════════════════════════════════════ -->
+ -->
 
-  <!-- ═══ SILK PRESS DAILY MAINTENANCE ═══ -->
+  <!--  SILK PRESS DAILY MAINTENANCE  -->
   <div id="maint-silkpress" class="stype-panel" style="display:none;">
 
     <div class="card mb20" style="border-left:3px solid #FF6B9D;">
-      <div style="font-family:var(--font-head);font-size:1.3rem;font-weight:600;color:#FF6B9D;margin-bottom:6px;">Between Wash Days — Silk Press Edition</div>
-      <p class="text2 sz14">Your silk press can last 7–14 days with consistent care. The enemy is moisture, heat (ironic), and friction. Every action you take should be oriented around keeping the cuticle flat and the humidity out.</p>
+      <div style="font-family:var(--font-head);font-size:1.3rem;font-weight:600;color:#FF6B9D;margin-bottom:6px;">Between Wash Days &mdash; Silk Press Edition</div>
+      <p class="text2 sz14">Your silk press can last 7&ndash;14 days with consistent care. The enemy is moisture, heat (ironic), and friction. Every action you take should be oriented around keeping the cuticle flat and the humidity out.</p>
     </div>
 
     <div class="g2 mb12">
@@ -1491,16 +1497,16 @@ em, i { font-style: italic; }
       <div class="step-block open">
         <div class="step-header" onclick="toggleStep(this)">
           <div class="step-num" style="background:rgba(255,107,157,.15);color:#FF6B9D;">AM</div>
-          <div class="step-info"><h3>Morning — Release &amp; Refresh</h3><p>After taking down the nightly wrap</p></div>
-          <span class="acc-arrow-char">›</span>
+          <div class="step-info"><h3>Morning &mdash; Release &amp; Refresh</h3><p>After taking down the nightly wrap</p></div>
+          <span class="acc-arrow-char">&#8250;</span>
         </div>
         <div class="step-body">
           <div class="products-wrap mb10">
             <span class="prod-pill">Oribe Impermeable (light mist)</span>
-            <span class="prod-pill">Amika Glass Action Elixir (1–2 drops)</span>
+            <span class="prod-pill">Amika Glass Action Elixir (1&ndash;2 drops)</span>
             <span class="prod-pill">AllDay Edges</span>
           </div>
-          <div class="info info-a mb8">Release wrap. Gently finger-comb through if needed — do not use a brush or comb on a silk press. Light mist of Oribe Impermeable to reset the anti-humidity barrier. 1–2 drops of shine serum between palms, smooth over surface only.</div>
+          <div class="info info-a mb8">Release wrap. Gently finger-comb through if needed &mdash; do not use a brush or comb on a silk press. Light mist of Oribe Impermeable to reset the anti-humidity barrier. 1&ndash;2 drops of shine serum between palms, smooth over surface only.</div>
           <div class="info info-r">Never spritz water on a silk press. Even a small amount of moisture will begin reversion in high-porosity hair. If a section has already reverted, seal it with Impermeable rather than trying to re-press it with a flat iron.</div>
         </div>
       </div>
@@ -1509,16 +1515,16 @@ em, i { font-style: italic; }
       <div class="step-block">
         <div class="step-header" onclick="toggleStep(this)">
           <div class="step-num" style="background:rgba(255,107,157,.15);color:#FF6B9D;">PM</div>
-          <div class="step-info"><h3>Nightly — Wrap &amp; Protect</h3><p>Before sleep — most important step for longevity</p></div>
-          <span class="acc-arrow-char">›</span>
+          <div class="step-info"><h3>Nightly &mdash; Wrap &amp; Protect</h3><p>Before sleep &mdash; most important step for longevity</p></div>
+          <span class="acc-arrow-char">&#8250;</span>
         </div>
         <div class="step-body">
           <div class="products-wrap mb10">
             <span class="prod-pill">Satin scarf (silk preferred)</span>
             <span class="prod-pill">Satin pillowcase (backup)</span>
           </div>
-          <div class="info info-b mb8"><strong>The wrap technique:</strong> Loose figure-eight around the head. Start at the crown, wrap sections smoothly around the perimeter. Secure at the nape with a loose pin — never tight. The goal is to keep the hair flat against your head, not compressed.</div>
-          <div class="info info-g">Community-verified: silk vs. satin matters. Real silk has the lowest coefficient of friction — silk pillowcases showed 43% less strand breakage vs. cotton in a small 2020 study. Satin polyester is next best. Cotton is the worst — it both creates friction and absorbs moisture from the hair.</div>
+          <div class="info info-b mb8"><strong>The wrap technique:</strong> Loose figure-eight around the head. Start at the crown, wrap sections smoothly around the perimeter. Secure at the nape with a loose pin &mdash; never tight. The goal is to keep the hair flat against your head, not compressed.</div>
+          <div class="info info-g">Community-verified: silk vs. satin matters. Real silk has the lowest coefficient of friction &mdash; silk pillowcases showed 43% less strand breakage vs. cotton in a small 2020 study. Satin polyester is next best. Cotton is the worst &mdash; it both creates friction and absorbs moisture from the hair.</div>
         </div>
       </div>
     </div>
@@ -1526,27 +1532,27 @@ em, i { font-style: italic; }
     <!-- Scalp care note -->
     <div class="card" style="border-left:3px solid var(--accent);">
       <div class="card-head" style="font-size:1.1rem;">Scalp Care During a Silk Press</div>
-      <div class="info info-a mb8">Apply scalp oil (Bhringraj-Brahmi DIY) or Kaleidoscope Miracle Drops directly to the scalp with a dropper. Part the hair at the scalp and apply without touching the straightened strands. Massage gently with fingertip pressure only — no kneading that lifts the root and causes frizz.</div>
+      <div class="info info-a mb8">Apply scalp oil (Bhringraj-Brahmi DIY) or Kaleidoscope Miracle Drops directly to the scalp with a dropper. Part the hair at the scalp and apply without touching the straightened strands. Massage gently with fingertip pressure only &mdash; no kneading that lifts the root and causes frizz.</div>
       <div class="info info-b">Dry shampoo can extend a silk press at the roots if scalp oil production is an issue. Spray only at the root, never on lengths.</div>
     </div>
 
   </div><!-- end maint-silkpress -->
 
 
-  <!-- ═══ STRETCHED STYLE DAILY MAINTENANCE ═══ -->
+  <!--  STRETCHED STYLE DAILY MAINTENANCE  -->
   <div id="maint-stretchedcare" class="stype-panel" style="display:none;">
 
     <div class="card mb20" style="border-left:3px solid #7B9EFF;">
-      <div style="font-family:var(--font-head);font-size:1.3rem;font-weight:600;color:#7B9EFF;margin-bottom:6px;">Between Wash Days — Blow-Out &amp; Stretched Style</div>
-      <p class="text2 sz14">Maintaining a stretched style (blow-out, twist out from blow-out, or heat-stretched braid out) is about preserving elongation while restoring moisture. Unlike a silk press, light moisture is your friend here — the curl memory is still intact and water won't ruin anything.</p>
+      <div style="font-family:var(--font-head);font-size:1.3rem;font-weight:600;color:#7B9EFF;margin-bottom:6px;">Between Wash Days &mdash; Blow-Out &amp; Stretched Style</div>
+      <p class="text2 sz14">Maintaining a stretched style (blow-out, twist out from blow-out, or heat-stretched braid out) is about preserving elongation while restoring moisture. Unlike a silk press, light moisture is your friend here &mdash; the curl memory is still intact and water won't ruin anything.</p>
     </div>
 
     <div class="g2 mb12">
       <div class="step-block open">
         <div class="step-header" onclick="toggleStep(this)">
           <div class="step-num" style="background:rgba(123,158,255,.15);color:#7B9EFF;">AM</div>
-          <div class="step-info"><h3>Morning — Moisture + Shape</h3><p>Days 2–5 of stretched style</p></div>
-          <span class="acc-arrow-char">›</span>
+          <div class="step-info"><h3>Morning &mdash; Moisture + Shape</h3><p>Days 2&ndash;5 of stretched style</p></div>
+          <span class="acc-arrow-char">&#8250;</span>
         </div>
         <div class="step-body">
           <div class="products-wrap mb10">
@@ -1555,21 +1561,21 @@ em, i { font-style: italic; }
             <span class="prod-pill">Phyto 7 Day Cream (fingertip amount)</span>
             <span class="prod-pill">Leven Rose Jojoba (seal)</span>
           </div>
-          <div class="info info-b mb8">Light spritz of water-based refresh spray on sections that feel dry. Do <em>not</em> saturate — you want to add just enough moisture to revive softness without triggering full curl reversion. Immediately seal with a fingertip of Phyto 7 cream or jojoba oil.</div>
-          <div class="info info-a">If the style was a twist out: re-twist any sections that lost definition overnight. They don't need to be wet — just a tiny amount of Camille Rose twisting butter on your fingertips, twist the section back up, release in 30–60 minutes.</div>
+          <div class="info info-b mb8">Light spritz of water-based refresh spray on sections that feel dry. Do <em>not</em> saturate &mdash; you want to add just enough moisture to revive softness without triggering full curl reversion. Immediately seal with a fingertip of Phyto 7 cream or jojoba oil.</div>
+          <div class="info info-a">If the style was a twist out: re-twist any sections that lost definition overnight. They don't need to be wet &mdash; just a tiny amount of Camille Rose twisting butter on your fingertips, twist the section back up, release in 30&ndash;60 minutes.</div>
         </div>
       </div>
 
       <div class="step-block">
         <div class="step-header" onclick="toggleStep(this)">
           <div class="step-num" style="background:rgba(123,158,255,.15);color:#7B9EFF;">PM</div>
-          <div class="step-info"><h3>Nightly — Pineapple or Bonnet</h3><p>Stretch preservation overnight</p></div>
-          <span class="acc-arrow-char">›</span>
+          <div class="step-info"><h3>Nightly &mdash; Pineapple or Bonnet</h3><p>Stretch preservation overnight</p></div>
+          <span class="acc-arrow-char">&#8250;</span>
         </div>
         <div class="step-body">
-          <div class="info info-g mb8"><strong>Pineapple method:</strong> Gather all hair loosely to the very top of the head (like a high loose ponytail). Secure with a satin scrunchie only — no elastic bands. The loose top-knot position keeps the length elevated and prevents the back sections from being compressed. Satin bonnet over everything.</div>
-          <div class="info info-b mb8"><strong>For longer hair or braid outs:</strong> Divide into 2–3 loose sections and secure each with a satin scrunchie. Bonnet over. This prevents the sections from tangling into each other overnight.</div>
-          <div class="info info-a">Re-twisting before bed on a twist out dramatically extends the style. Takes 5 minutes and adds 3–4 days. Dampen fingertips only (not the hair), re-twist each section, bonnet.</div>
+          <div class="info info-g mb8"><strong>Pineapple method:</strong> Gather all hair loosely to the very top of the head (like a high loose ponytail). Secure with a satin scrunchie only &mdash; no elastic bands. The loose top-knot position keeps the length elevated and prevents the back sections from being compressed. Satin bonnet over everything.</div>
+          <div class="info info-b mb8"><strong>For longer hair or braid outs:</strong> Divide into 2&ndash;3 loose sections and secure each with a satin scrunchie. Bonnet over. This prevents the sections from tangling into each other overnight.</div>
+          <div class="info info-a">Re-twisting before bed on a twist out dramatically extends the style. Takes 5 minutes and adds 3&ndash;4 days. Dampen fingertips only (not the hair), re-twist each section, bonnet.</div>
         </div>
       </div>
     </div>
@@ -1579,16 +1585,16 @@ em, i { font-style: italic; }
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num" style="background:rgba(123,158,255,.15);color:#7B9EFF;">Day 4+</div>
         <div class="step-info"><h3>Mid-Week Refresh</h3><p>When the style needs a reset but wash day isn't yet</p></div>
-        <span class="acc-arrow-char">›</span>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body">
         <div class="products-wrap mb10">
           <span class="prod-pill">Daily Moisture Refresh Spray (DIY)</span>
           <span class="prod-pill">Curls Blueberry Bliss (optional redefine)</span>
-          <span class="prod-pill">Diffuser — cool shot only</span>
+          <span class="prod-pill">Diffuser &mdash; cool shot only</span>
         </div>
         <div class="info info-a mb8">Spritz the entire head more liberally with the refresh spray. Scrunch upward to reactivate curl memory. If definition has faded completely, apply a small amount of Blueberry Bliss or flaxseed gel to redefine sections. Diffuse on cool air only (no heat) to reset without frizz.</div>
-        <div class="info info-b">This is the difference between a 5-day style and a 9-day style: the mid-week re-wet-and-seal refresh. Most YouTube natural hair creators document this as the key to extended wear — Naptural85, Craving Yellow, Whitney White all demonstrate the technique.</div>
+        <div class="info info-b">This is the difference between a 5-day style and a 9-day style: the mid-week re-wet-and-seal refresh. Most YouTube natural hair creators document this as the key to extended wear &mdash; Naptural85, Craving Yellow, Whitney White all demonstrate the technique.</div>
       </div>
     </div>
 
@@ -1598,7 +1604,7 @@ em, i { font-style: italic; }
 <div class="tab" id="tab-styling">
   <div class="page-hd">
     <h1>Styling Routines</h1>
-    <p class="text2">Full protocols per style type — wash &amp; go, low heat, and high heat. Product layers, DIY recipes, and the science behind each step.</p>
+    <p class="text2">Full protocols per style type &mdash; wash &amp; go, low heat, and high heat. Product layers, DIY recipes, and the science behind each step.</p>
   </div>
 
   <div class="stype-nav">
@@ -1609,80 +1615,80 @@ em, i { font-style: italic; }
     <button class="stype-btn" onclick="stab('style','protective',this)">Protective</button>
   </div>
 
-  <!-- ─────────────────────────────────────────────────
+  <!-- 
     WASH & GO
-  ───────────────────────────────────────────────── -->
+   -->
   <div id="style-washgo" class="stype-panel">
     <div class="info info-a mb20">
-      <strong>Pixie Knot Prevention:</strong> Fairy knots form when a single strand curls back on itself. Apply styling products to soaking-wet hair in small sections, smooth each strand downward before releasing, and avoid touching hair while it dries. The gel cast below is essential — it locks strands in place while they dry.
+      <strong>Pixie Knot Prevention:</strong> Fairy knots form when a single strand curls back on itself. Apply styling products to soaking-wet hair in small sections, smooth each strand downward before releasing, and avoid touching hair while it dries. The gel cast below is essential &mdash; it locks strands in place while they dry.
     </div>
     <div class="step-block open">
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num">L</div>
-        <div class="step-info"><h3>Leave-In (Liquid Phase)</h3><p>Soaking wet hair · Section by section</p></div>
-        <span class="acc-arrow-char">›</span>
+        <div class="step-info"><h3>Leave-In (Liquid Phase)</h3><p>Soaking wet hair &middot; Section by section</p></div>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body"><div class="step-cols">
         <div><div class="products-wrap"><span class="prod-pill">ORS Super Silken Leave-In</span><span class="prod-pill">It's a 10 Miracle Leave-In + Keratin</span><span class="prod-pill">Pantene Miracle Rescue (10-in-1)</span><span class="prod-pill">Phyto 7 Day Cream</span><span class="prod-pill">Crome Hair Food Leave-In</span></div></div>
-        <div><div class="science">Apply to hair that is actively dripping — not towel dried. Rake through with fingers root to ends. This is your water phase: it hydrates the cortex. High-porosity hair loses moisture within hours without a humectant layer locked underneath oil. Redditors with high-po fine hair consistently report that product on soaking wet hair gives 2× better definition vs. damp hair (r/curlyhair, r/NaturalHair). The water itself is the first moisturizer.</div></div>
+        <div><div class="science">Apply to hair that is actively dripping &mdash; not towel dried. Rake through with fingers root to ends. This is your water phase: it hydrates the cortex. High-porosity hair loses moisture within hours without a humectant layer locked underneath oil. Redditors with high-po fine hair consistently report that product on soaking wet hair gives 2&times; better definition vs. damp hair (r/curlyhair, r/NaturalHair). The water itself is the first moisturizer.</div></div>
       </div></div>
     </div>
     <div class="step-block">
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num">O</div>
-        <div class="step-info"><h3>Oil (Seal Phase)</h3><p>Over leave-in · Traps moisture in cortex</p></div>
-        <span class="acc-arrow-char">›</span>
+        <div class="step-info"><h3>Oil (Seal Phase)</h3><p>Over leave-in &middot; Traps moisture in cortex</p></div>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body"><div class="step-cols">
         <div><div class="products-wrap"><span class="prod-pill">Leven Rose Jojoba</span><span class="prod-pill">NOW Almond Oil</span><span class="prod-pill">Avocado Oil</span><span class="prod-pill">Farm &amp; Table Frizz Free Oil</span><span class="prod-pill">Bio Silk Silk Therapy</span></div></div>
-        <div><div class="science">Rub 1–2 drops between palms, smooth over each section. For fine strands: almond (lightest). For dry ends or thick sections: jojoba. Oil is the moisture lock — without it, the leave-in hydration evaporates within an hour. <em>NaturalHair Reddit consensus:</em> "seal on soaking wet, not damp — oil on wet hair distributes more evenly and doesn't cause buildup as fast."</div></div>
+        <div><div class="science">Rub 1&ndash;2 drops between palms, smooth over each section. For fine strands: almond (lightest). For dry ends or thick sections: jojoba. Oil is the moisture lock &mdash; without it, the leave-in hydration evaporates within an hour. <em>NaturalHair Reddit consensus:</em> "seal on soaking wet, not damp &mdash; oil on wet hair distributes more evenly and doesn't cause buildup as fast."</div></div>
       </div></div>
     </div>
     <div class="step-block">
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num">C</div>
-        <div class="step-info"><h3>Cream + Gel (Define &amp; Cast)</h3><p>Final style layer · Creates frizz-blocking cast</p></div>
-        <span class="acc-arrow-char">›</span>
+        <div class="step-info"><h3>Cream + Gel (Define &amp; Cast)</h3><p>Final style layer &middot; Creates frizz-blocking cast</p></div>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body"><div class="step-cols">
         <div>
           <div class="products-wrap mb12"><span class="prod-pill">Curls Blueberry Bliss Curl Jelly</span><span class="prod-pill">Phyto Joba Gel</span><span class="prod-pill">Camille Rose Almond Jai Butter</span><span class="prod-pill">Enhanced Flaxseed Gel (DIY)</span><span class="prod-pill">Ako Style Super Protein Gel</span></div>
           <div class="recipe">
             <div class="recipe-title">Enhanced Flaxseed Curl Gel</div>
-            <div class="ingredient-row"><span class="ing-amt">¼ cup</span><span class="ing-name">Flaxseeds (or chia seeds)</span></div>
+            <div class="ingredient-row"><span class="ing-amt">1/4 cup</span><span class="ing-name">Flaxseeds (or chia seeds)</span></div>
             <div class="ingredient-row"><span class="ing-amt">2 cups</span><span class="ing-name">Brewed green tea</span></div>
             <div class="ingredient-row"><span class="ing-amt">1 tsp</span><span class="ing-name">Glycerin</span></div>
-            <div class="ingredient-row"><span class="ing-amt">½ tsp</span><span class="ing-name">Polyquaternium-7</span></div>
+            <div class="ingredient-row"><span class="ing-amt">1/2 tsp</span><span class="ing-name">Polyquaternium-7</span></div>
             <div class="ingredient-row"><span class="ing-amt">1 tsp</span><span class="ing-name">Aloe vera</span></div>
-            <div class="method-text">Boil green tea, add flaxseeds. Stir until a foam ring forms and gel coats the spoon (~8 min). Strain immediately. Stir in additives while warm. Refrigerate 1–2 weeks. The PQ-7 adds professional-grade hold and frizz control equivalent to commercial gels at a fraction of the cost.</div>
+            <div class="method-text">Boil green tea, add flaxseeds. Stir until a foam ring forms and gel coats the spoon (~8 min). Strain immediately. Stir in additives while warm. Refrigerate 1&ndash;2 weeks. The PQ-7 adds professional-grade hold and frizz control equivalent to commercial gels at a fraction of the cost.</div>
           </div>
         </div>
-        <div><div class="science"><strong>The cast system:</strong> A hard gel cast shrinks as it dries, compressing and defining curl clumps. Once fully dry, scrunch out the crunch (SOTC) — this breaks the cast and leaves soft, defined curls. Curly Girl Method creators and curl coaches (Jonathan Torch, Lorraine Massey) all identify the gel cast as the single most effective anti-frizz technique for high-porosity hair. <strong>Fine hair:</strong> Apply cream to mid-shaft/ends only, then gel over entire length. Too much cream at roots causes limpness.</div></div>
+        <div><div class="science"><strong>The cast system:</strong> A hard gel cast shrinks as it dries, compressing and defining curl clumps. Once fully dry, scrunch out the crunch (SOTC) &mdash; this breaks the cast and leaves soft, defined curls. Curly Girl Method creators and curl coaches (Jonathan Torch, Lorraine Massey) all identify the gel cast as the single most effective anti-frizz technique for high-porosity hair. <strong>Fine hair:</strong> Apply cream to mid-shaft/ends only, then gel over entire length. Too much cream at roots causes limpness.</div></div>
       </div></div>
     </div>
   </div>
 
-  <!-- ─────────────────────────────────────────────────
+  <!-- 
     LOW HEAT STYLING
-  ───────────────────────────────────────────────── -->
+   -->
   <div id="style-lowheat" class="stype-panel">
     <div class="info info-b mb20">
-      <span style="font-size:22px;">〰</span>
-      <div><strong>Low Heat:</strong> Blow dryer on warm setting (250–300°F). Tension method only — no concentrator nozzle for curl stretch. This is your highest-frequency heat option: safe for weekly use when executed correctly. Ideal outcome: stretched, frizz-free natural texture ready for twist-out or braid-out.</div>
+      <span style="font-size:22px;">~</span>
+      <div><strong>Low Heat:</strong> Blow dryer on warm setting (250&ndash;300&deg;F). Tension method only &mdash; no concentrator nozzle for curl stretch. This is your highest-frequency heat option: safe for weekly use when executed correctly. Ideal outcome: stretched, frizz-free natural texture ready for twist-out or braid-out.</div>
     </div>
 
     <div class="step-block open">
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num">01</div>
-        <div class="step-info"><h3>Prep + Heat Protector</h3><p>On damp post-LOC hair · Non-negotiable</p></div>
-        <span class="acc-arrow-char">›</span>
+        <div class="step-info"><h3>Prep + Heat Protector</h3><p>On damp post-LOC hair &middot; Non-negotiable</p></div>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body"><div class="step-cols">
         <div>
           <div class="products-wrap mb12"><span class="prod-pill">Nisim 25 Miracle Milk</span><span class="prod-pill">ORS Super Silken Leave-In</span><span class="prod-pill">Oribe Balm D'Or Heat Styling Shield</span><span class="prod-pill">By Taraji Hot Commodity</span><span class="prod-pill">Bio Silk Silk Therapy</span></div>
           <div class="recipe">
             <div class="recipe-title">DIY Thermal Shield Spray</div>
-            <div class="ingredient-row"><span class="ing-amt">½ cup</span><span class="ing-name">Water</span></div>
+            <div class="ingredient-row"><span class="ing-amt">1/2 cup</span><span class="ing-name">Water</span></div>
             <div class="ingredient-row"><span class="ing-amt">2 tbsp</span><span class="ing-name">Glycerin</span></div>
             <div class="ingredient-row"><span class="ing-amt">1 tbsp</span><span class="ing-name">Keratin Hydrolyzed</span></div>
             <div class="ingredient-row"><span class="ing-amt">1 tbsp</span><span class="ing-name">Sesame oil</span></div>
@@ -1691,7 +1697,7 @@ em, i { font-style: italic; }
           </div>
         </div>
         <div>
-          <div class="science"><strong>Why silicone for high porosity:</strong> Your hair responds well to silicone-based protectants because silicone fills the gaps in high-porosity cuticles, creating a smooth, heat-resistant surface. Research from the International Journal of Trichology (2015) confirmed that silicone-coated strands showed 40% less thermal damage at equivalent temperatures vs. uncoated strands. Clarify monthly to prevent silicone buildup — use Nizoral or Shikakai rinse.<br><br><strong>Sesame oil:</strong> ~450°F smoke point — the highest of your owned oils. Functions as a natural thermal buffer under the silicone layer. Lightly applied so fine hair doesn't go limp.</div>
+          <div class="science"><strong>Why silicone for high porosity:</strong> Your hair responds well to silicone-based protectants because silicone fills the gaps in high-porosity cuticles, creating a smooth, heat-resistant surface. Research from the International Journal of Trichology (2015) confirmed that silicone-coated strands showed 40% less thermal damage at equivalent temperatures vs. uncoated strands. Clarify monthly to prevent silicone buildup &mdash; use Nizoral or Shikakai rinse.<br><br><strong>Sesame oil:</strong> ~450&deg;F smoke point &mdash; the highest of your owned oils. Functions as a natural thermal buffer under the silicone layer. Lightly applied so fine hair doesn't go limp.</div>
         </div>
       </div></div>
     </div>
@@ -1699,8 +1705,8 @@ em, i { font-style: italic; }
     <div class="step-block">
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num">02</div>
-        <div class="step-info"><h3>Blow Dry — Tension Method</h3><p>250–300°F · No concentrator · Section by section</p></div>
-        <span class="acc-arrow-char">›</span>
+        <div class="step-info"><h3>Blow Dry &mdash; Tension Method</h3><p>250&ndash;300&deg;F &middot; No concentrator &middot; Section by section</p></div>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body"><div class="step-cols">
         <div>
@@ -1710,13 +1716,13 @@ em, i { font-style: italic; }
             <div class="ingredient-row"><span class="ing-amt">2 tbsp</span><span class="ing-name">Shea Moisture JBCO Mask (base)</span></div>
             <div class="ingredient-row"><span class="ing-amt">1 tbsp</span><span class="ing-name">Avocado oil</span></div>
             <div class="ingredient-row"><span class="ing-amt">1 tbsp</span><span class="ing-name">Keratin Hydrolyzed</span></div>
-            <div class="ingredient-row"><span class="ing-amt">½ tsp</span><span class="ing-name">Glycerin</span></div>
-            <div class="ingredient-row"><span class="ing-amt">½ tsp</span><span class="ing-name">Polyquaternium-7</span></div>
+            <div class="ingredient-row"><span class="ing-amt">1/2 tsp</span><span class="ing-name">Glycerin</span></div>
+            <div class="ingredient-row"><span class="ing-amt">1/2 tsp</span><span class="ing-name">Polyquaternium-7</span></div>
             <div class="method-text">Apply section by section before blow drying. Hold root with one hand, apply tension toward ends, dry in the direction of hair growth (downward). Move dryer constantly. Blast cool air at end of each section to set. Never hold dryer in one spot for more than 2 seconds.</div>
           </div>
         </div>
         <div>
-          <div class="science"><strong>Tension method science:</strong> Stretching the curl during drying realigns the hydrogen bonds within the cortex into an elongated configuration. This achieves stretch without exceeding the 320°F threshold where permanent protein damage occurs. Keep dryer at arm's length and moving — static heat is what causes damage, not the temperature alone.<br><br><strong>Adderall + heat note:</strong> Stimulant medications cause peripheral vasoconstriction, reducing scalp blood flow. This can make the scalp more sensitive to heat and increase dryness. If scalp feels tender post-blow dry, apply diluted bhringraj oil to the scalp that evening. r/ADHD_Hair and r/NaturalHair both document this pattern extensively.</div>
+          <div class="science"><strong>Tension method science:</strong> Stretching the curl during drying realigns the hydrogen bonds within the cortex into an elongated configuration. This achieves stretch without exceeding the 320&deg;F threshold where permanent protein damage occurs. Keep dryer at arm's length and moving &mdash; static heat is what causes damage, not the temperature alone.<br><br><strong>Adderall + heat note:</strong> Stimulant medications cause peripheral vasoconstriction, reducing scalp blood flow. This can make the scalp more sensitive to heat and increase dryness. If scalp feels tender post-blow dry, apply diluted bhringraj oil to the scalp that evening. r/ADHD_Hair and r/NaturalHair both document this pattern extensively.</div>
         </div>
       </div></div>
     </div>
@@ -1725,7 +1731,7 @@ em, i { font-style: italic; }
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num">03</div>
         <div class="step-info"><h3>Finish + Style</h3><p>Braid-out, twist-out, or stretched natural</p></div>
-        <span class="acc-arrow-char">›</span>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body"><div class="step-cols">
         <div>
@@ -1740,30 +1746,30 @@ em, i { font-style: italic; }
           </div>
         </div>
         <div>
-          <div class="science"><strong>Emu oil:</strong> Closest fatty acid profile to human sebum of any available oil. Penetrates the follicle level rather than just coating — unique among oils due to its comedogenicity score of 0 and small molecular size. Excellent for fine hair that can't tolerate heavier sealants.<br><br><strong>Simi de Lino:</strong> Liquid crystals coat each strand individually with a flexible, frizz-resistant film. 2–3 drops is enough for shoulder-length fine hair. Overuse = limp, coated feel.<br><br><strong>Style options:</strong> Braid-out (2 or 3-strand on blow-dried hair, unravel next morning), roller set low heat, or leave as stretched natural. The blow dry itself is a style when finished with shine serum.</div>
+          <div class="science"><strong>Emu oil:</strong> Closest fatty acid profile to human sebum of any available oil. Penetrates the follicle level rather than just coating &mdash; unique among oils due to its comedogenicity score of 0 and small molecular size. Excellent for fine hair that can't tolerate heavier sealants.<br><br><strong>Simi de Lino:</strong> Liquid crystals coat each strand individually with a flexible, frizz-resistant film. 2&ndash;3 drops is enough for shoulder-length fine hair. Overuse = limp, coated feel.<br><br><strong>Style options:</strong> Braid-out (2 or 3-strand on blow-dried hair, unravel next morning), roller set low heat, or leave as stretched natural. The blow dry itself is a style when finished with shine serum.</div>
         </div>
       </div></div>
     </div>
   </div>
 
-  <!-- ─────────────────────────────────────────────────
+  <!-- 
     HIGH HEAT STYLING
-  ───────────────────────────────────────────────── -->
+   -->
   <div id="style-highheat" class="stype-panel">
     <div class="info info-r mb20">
       <span style="font-size:22px;"></span>
-      <div><strong>Limit: 2× per month maximum</strong> during heat damage recovery. Your hair sustained significant heat damage. High heat is achievable safely but frequency controls total thermal load. Always layer silicone + protein protectant. Never exceed 380°F on fine strands. The keratin protocol below extends your style 4–6 weeks, reducing total heat exposure.</div>
+      <div><strong>Limit: 2&times; per month maximum</strong> during heat damage recovery. Your hair sustained significant heat damage. High heat is achievable safely but frequency controls total thermal load. Always layer silicone + protein protectant. Never exceed 380&deg;F on fine strands. The keratin protocol below extends your style 4&ndash;6 weeks, reducing total heat exposure.</div>
     </div>
 
     <div class="step-block">
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num" style="background:var(--cat-diy);color:var(--bg);">0</div>
-        <div class="step-info"><h3>Optional: At-Home Keratin Treatment</h3><p>Every 4–6 weeks if using · Best base for extended straight style</p></div>
-        <span class="acc-arrow-char">›</span>
+        <div class="step-info"><h3>Optional: At-Home Keratin Treatment</h3><p>Every 4&ndash;6 weeks if using &middot; Best base for extended straight style</p></div>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body"><div class="step-cols">
         <div>
-          <div class="products-wrap mb12"><span class="prod-pill" style="border-color:var(--cat-diy);color:var(--cat-diy);">⭐ GK Keratin Treatment (Applied)</span><span class="prod-pill">Chi Infra Shampoo (prep wash)</span><span class="prod-pill">Keratin Protein Hydrolyzed</span><span class="prod-pill">Bio Silk Silk Therapy</span><span class="prod-pill">Leven Rose Jojoba (post-seal)</span></div>
+          <div class="products-wrap mb12"><span class="prod-pill" style="border-color:var(--cat-diy);color:var(--cat-diy);">&#9733; GK Keratin Treatment (Applied)</span><span class="prod-pill">Chi Infra Shampoo (prep wash)</span><span class="prod-pill">Keratin Protein Hydrolyzed</span><span class="prod-pill">Bio Silk Silk Therapy</span><span class="prod-pill">Leven Rose Jojoba (post-seal)</span></div>
           <div class="recipe" style="border-color:var(--cat-diy-dim);background:var(--cat-diy-dim);">
             <div class="recipe-title" style="color:var(--cat-diy);">DIY Smoothing Keratin Gloss (No Formaldehyde)</div>
             <div class="ingredient-row"><span class="ing-amt">3 tbsp</span><span class="ing-name">Keratin Protein Hydrolyzed</span></div>
@@ -1772,11 +1778,11 @@ em, i { font-style: italic; }
             <div class="ingredient-row"><span class="ing-amt">1 tbsp</span><span class="ing-name">EVOO</span></div>
             <div class="ingredient-row"><span class="ing-amt">1 tbsp</span><span class="ing-name">Bio Silk Silk Therapy</span></div>
             <div class="ingredient-row"><span class="ing-amt">1 cup</span><span class="ing-name">Water</span></div>
-            <div class="method-text">Apply to clean, slightly damp hair in sections, smoothing downward. Sit 15 min under heat cap. Blow dry smooth with tension. Flat iron at 350°F in thin sections (2–3 passes max). This is a protein coating that temporarily smooths — not a formaldehyde treatment. Style lasts 2–4 weeks.</div>
+            <div class="method-text">Apply to clean, slightly damp hair in sections, smoothing downward. Sit 15 min under heat cap. Blow dry smooth with tension. Flat iron at 350&deg;F in thin sections (2&ndash;3 passes max). This is a protein coating that temporarily smooths &mdash; not a formaldehyde treatment. Style lasts 2&ndash;4 weeks.</div>
           </div>
         </div>
         <div>
-          <div class="science"><strong>Formaldehyde vs. aldehyde-free:</strong> True keratin treatments (GK, Keratin Research) use glyoxylic acid or formaldehyde to cross-link keratin proteins within the cortex, creating a lasting smooth effect until new growth. This is why GK gives 3–5 months of smoothing while DIY protein coatings last 2–4 weeks — one repairs the structure, the other coats it.<br><br><strong>Your history:</strong> You saw growth both with and without keratin, confirming the real driver is your consistent protocol. Keratin's primary value for you: extending high-heat styles safely, reducing total annual heat exposures from ~52 (weekly) to ~12 (monthly with keratin).<br><br><strong>Sulfate rule:</strong> After GK treatment, zero sulfate shampoos. Sulfates break the keratin bonds within 3 washes. Use Oribe Gold Lust or Chi Infra only.</div>
+          <div class="science"><strong>Formaldehyde vs. aldehyde-free:</strong> True keratin treatments (GK, Keratin Research) use glyoxylic acid or formaldehyde to cross-link keratin proteins within the cortex, creating a lasting smooth effect until new growth. This is why GK gives 3&ndash;5 months of smoothing while DIY protein coatings last 2&ndash;4 weeks &mdash; one repairs the structure, the other coats it.<br><br><strong>Your history:</strong> You saw growth both with and without keratin, confirming the real driver is your consistent protocol. Keratin's primary value for you: extending high-heat styles safely, reducing total annual heat exposures from ~52 (weekly) to ~12 (monthly with keratin).<br><br><strong>Sulfate rule:</strong> After GK treatment, zero sulfate shampoos. Sulfates break the keratin bonds within 3 washes. Use Oribe Gold Lust or Chi Infra only.</div>
         </div>
       </div></div>
     </div>
@@ -1784,8 +1790,8 @@ em, i { font-style: italic; }
     <div class="step-block open">
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num" style="background:var(--red);color:#fff;">01</div>
-        <div class="step-info"><h3>Prep + Layered Heat Protection</h3><p>Layer 3 products · No single product is sufficient alone</p></div>
-        <span class="acc-arrow-char">›</span>
+        <div class="step-info"><h3>Prep + Layered Heat Protection</h3><p>Layer 3 products &middot; No single product is sufficient alone</p></div>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body"><div class="step-cols">
         <div>
@@ -1793,20 +1799,20 @@ em, i { font-style: italic; }
           <div style="counter-reset:layer;margin-bottom:16px;">
             <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);">
               <div style="width:22px;height:22px;border-radius:50%;background:var(--cat-nat-dim);color:var(--cat-nat);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">1</div>
-              <div><div class="fw6 sz13">Phyto Repairing Serum</div><div class="text3 sz11">Damaged ends first — direct application</div></div>
+              <div><div class="fw6 sz13">Phyto Repairing Serum</div><div class="text3 sz11">Damaged ends first &mdash; direct application</div></div>
             </div>
             <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);">
               <div style="width:22px;height:22px;border-radius:50%;background:var(--cat-nat-dim);color:var(--cat-nat);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">2</div>
-              <div><div class="fw6 sz13">Ayurvedic Pre-Heat Shield Oil (DIY)</div><div class="text3 sz11">Mid-shaft + ends · Natural thermal buffer</div></div>
+              <div><div class="fw6 sz13">Ayurvedic Pre-Heat Shield Oil (DIY)</div><div class="text3 sz11">Mid-shaft + ends &middot; Natural thermal buffer</div></div>
             </div>
             <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);">
               <div style="width:22px;height:22px;border-radius:50%;background:var(--cat-pro-dim);color:var(--cat-pro);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">3</div>
-              <div><div class="fw6 sz13">Oribe Balm D'Or Heat Styling Shield</div><div class="text3 sz11">Over oil · Silicone thermal barrier</div></div>
+              <div><div class="fw6 sz13">Oribe Balm D'Or Heat Styling Shield</div><div class="text3 sz11">Over oil &middot; Silicone thermal barrier</div></div>
             </div>
           </div>
           <div class="recipe">
             <div class="recipe-title">Ayurvedic Pre-Heat Shield Oil</div>
-            <div class="ingredient-row"><span class="ing-amt">5 drops</span><span class="ing-name">Sesame oil (~450°F smoke point)</span></div>
+            <div class="ingredient-row"><span class="ing-amt">5 drops</span><span class="ing-name">Sesame oil (~450&deg;F smoke point)</span></div>
             <div class="ingredient-row"><span class="ing-amt">3 drops</span><span class="ing-name">Tamanu oil (regenerative)</span></div>
             <div class="ingredient-row"><span class="ing-amt">3 drops</span><span class="ing-name">Emu oil (penetrating)</span></div>
             <div class="ingredient-row"><span class="ing-amt">2 drops</span><span class="ing-name">Vitamin E oil (antioxidant)</span></div>
@@ -1814,7 +1820,7 @@ em, i { font-style: italic; }
           </div>
         </div>
         <div>
-          <div class="science"><strong>Why layer 3 products:</strong> No single heat protectant covers all damage vectors at high heat. Serum coats the damaged cuticle. Natural high-smoke-point oils create a lipid thermal buffer at the cortex level. Silicone (Oribe Balm D'Or) creates the outermost reflective barrier. This is the protocol used by platform artists and session stylists working on chemically damaged hair.<br><br><strong>350–380°F for fine hair:</strong> Fine hair has a smaller cortex — it heats up faster and is damaged at lower temperatures than coarse hair. 380°F is the absolute maximum. For areas with existing heat damage, use 325°F. A 2019 study in the <em>Journal of Cosmetic Science</em> found that fine hair showed measurable cortex damage above 375°F after a single pass without protection.</div>
+          <div class="science"><strong>Why layer 3 products:</strong> No single heat protectant covers all damage vectors at high heat. Serum coats the damaged cuticle. Natural high-smoke-point oils create a lipid thermal buffer at the cortex level. Silicone (Oribe Balm D'Or) creates the outermost reflective barrier. This is the protocol used by platform artists and session stylists working on chemically damaged hair.<br><br><strong>350&ndash;380&deg;F for fine hair:</strong> Fine hair has a smaller cortex &mdash; it heats up faster and is damaged at lower temperatures than coarse hair. 380&deg;F is the absolute maximum. For areas with existing heat damage, use 325&deg;F. A 2019 study in the <em>Journal of Cosmetic Science</em> found that fine hair showed measurable cortex damage above 375&deg;F after a single pass without protection.</div>
         </div>
       </div></div>
     </div>
@@ -1822,20 +1828,20 @@ em, i { font-style: italic; }
     <div class="step-block">
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num" style="background:var(--red);color:#fff;">02</div>
-        <div class="step-info"><h3>Blow Dry to 70% + Flat Iron</h3><p>Jilbre · 350°F standard · 325°F on damage zones · Thin sections</p></div>
-        <span class="acc-arrow-char">›</span>
+        <div class="step-info"><h3>Blow Dry to 70% + Flat Iron</h3><p>Jilbre &middot; 350&deg;F standard &middot; 325&deg;F on damage zones &middot; Thin sections</p></div>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body"><div class="step-cols">
         <div>
           <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:10px;">Execution sequence:</div>
           <div class="info info-a mb12" style="font-size:13px;">1. Section hair into 4 quadrants before touching heat.</div>
           <div class="info info-a mb12" style="font-size:13px;">2. Blow dry each quadrant to 70% dry using low-medium heat + tension. Never high heat on wet hair.</div>
-          <div class="info info-a mb12" style="font-size:13px;">3. Take ½-inch sections for flat iron. No thicker.</div>
+          <div class="info info-a mb12" style="font-size:13px;">3. Take 1/2-inch sections for flat iron. No thicker.</div>
           <div class="info info-a mb12" style="font-size:13px;">4. One slow, smooth pass. Two maximum. Do not repeat on same section.</div>
           <div class="info info-a" style="font-size:13px;">5. Apply AllPlex No.7 oil to ends immediately after each section.</div>
         </div>
         <div>
-          <div class="science"><strong>Wet heat = most damage:</strong> Hair protein denatures fastest when wet + heat combines. Never flat iron hair above 10% moisture content. 70% blow-dry first removes most surface water. The remaining 30% evaporates harmlessly as you finish drying with the iron.<br><br><strong>Jilbre porcelain plates:</strong> Porcelain distributes heat more evenly than titanium or tourmaline, reducing hot spots that cause localized breakage. This matters on fine, high-porosity hair where thermal damage is concentrated.<br><br><strong>AllPlex No.7 post-iron:</strong> Applied immediately after each section while the cuticle is still warm and open, AllPlex bond-building actives penetrate deeper. Cool air sets them in place. This is how professional colorists use bond builders during processing — apply during the open phase, not after.</div>
+          <div class="science"><strong>Wet heat = most damage:</strong> Hair protein denatures fastest when wet + heat combines. Never flat iron hair above 10% moisture content. 70% blow-dry first removes most surface water. The remaining 30% evaporates harmlessly as you finish drying with the iron.<br><br><strong>Jilbre porcelain plates:</strong> Porcelain distributes heat more evenly than titanium or tourmaline, reducing hot spots that cause localized breakage. This matters on fine, high-porosity hair where thermal damage is concentrated.<br><br><strong>AllPlex No.7 post-iron:</strong> Applied immediately after each section while the cuticle is still warm and open, AllPlex bond-building actives penetrate deeper. Cool air sets them in place. This is how professional colorists use bond builders during processing &mdash; apply during the open phase, not after.</div>
         </div>
       </div></div>
     </div>
@@ -1844,30 +1850,30 @@ em, i { font-style: italic; }
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num" style="background:var(--red);color:#fff;">03</div>
         <div class="step-info"><h3>Finish + Extend the Style</h3><p>Seal, protect, and maximize weeks between heat sessions</p></div>
-        <span class="acc-arrow-char">›</span>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body"><div class="step-cols">
         <div>
           <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:10px;">Layer in this order on finished dry hair:</div>
           <div class="products-wrap mb12"><span class="prod-pill">Amika Glass Action Elixir</span><span class="prod-pill">Oribe Impermeable Anti-Humidity Spray</span><span class="prod-pill">Phyto 7 Day Cream (ends)</span><span class="prod-pill">AllDay Edges</span><span class="prod-pill">Simi de Lino Liquid Crystals</span></div>
-          <div class="info info-b" style="font-size:13px;margin-top:12px;"><strong>Style extension:</strong> Co-wash with no manipulation every 7–10 days using Chi Infra shampoo (no sulfates). Wrap hair at night with satin bonnet — silk/satin reduces reversion by limiting humidity access. On refresh days: spritz Phyto 7 cream on ends only, no water on lengths.</div>
+          <div class="info info-b" style="font-size:13px;margin-top:12px;"><strong>Style extension:</strong> Co-wash with no manipulation every 7&ndash;10 days using Chi Infra shampoo (no sulfates). Wrap hair at night with satin bonnet &mdash; silk/satin reduces reversion by limiting humidity access. On refresh days: spritz Phyto 7 cream on ends only, no water on lengths.</div>
         </div>
         <div>
-          <div class="science"><strong>Humidity and reversion:</strong> High-porosity hair absorbs atmospheric moisture faster than low-porosity hair because the cuticle gaps act as entry points. Oribe Impermeable creates a hydrophobic film that slows (not stops) moisture absorption, extending smoothness 2–4 days depending on humidity. Multiple YouTube stylists (Alyssa Forever, Healthy Hair Stylist) document that the combination of Oribe Impermeable + satin wrap extends high-heat styles from 3 days to 10+ days in humid environments.<br><br><strong>Simi de Lino Liquid Crystals:</strong> These are not silicones — they are structured lipid chains that align with the hair cuticle, creating a microscopic interlocking layer. Unlike silicones, they cannot be felt as coating. 2 drops for shoulder-length fine hair. Any more causes buildup within 2 days.</div>
+          <div class="science"><strong>Humidity and reversion:</strong> High-porosity hair absorbs atmospheric moisture faster than low-porosity hair because the cuticle gaps act as entry points. Oribe Impermeable creates a hydrophobic film that slows (not stops) moisture absorption, extending smoothness 2&ndash;4 days depending on humidity. Multiple YouTube stylists (Alyssa Forever, Healthy Hair Stylist) document that the combination of Oribe Impermeable + satin wrap extends high-heat styles from 3 days to 10+ days in humid environments.<br><br><strong>Simi de Lino Liquid Crystals:</strong> These are not silicones &mdash; they are structured lipid chains that align with the hair cuticle, creating a microscopic interlocking layer. Unlike silicones, they cannot be felt as coating. 2 drops for shoulder-length fine hair. Any more causes buildup within 2 days.</div>
         </div>
       </div></div>
     </div>
   </div>
 
-  <!-- ─────────────────────────────────────────────────
+  <!-- 
     TWIST OUT
-  ───────────────────────────────────────────────── -->
+   -->
   <div id="style-twistout" class="stype-panel" style="display:none;">
     <div class="step-block open">
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num">01</div>
-        <div class="step-info"><h3>Start on Damp Hair</h3><p>60–70% dry is ideal</p></div>
-        <span class="acc-arrow-char">›</span>
+        <div class="step-info"><h3>Start on Damp Hair</h3><p>60&ndash;70% dry is ideal</p></div>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body">
         <div class="products-wrap"><span class="prod-pill">ORS Super Silken Leave-In</span><span class="prod-pill">Camille Rose Almond Jai Butter</span><span class="prod-pill">Curls Blueberry Bliss Jelly</span><span class="prod-pill">Phyto Joba Gel</span></div>
@@ -1878,7 +1884,7 @@ em, i { font-style: italic; }
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num">02</div>
         <div class="step-info"><h3>Twist Tightly</h3><p>Tight twist = more defined unravel</p></div>
-        <span class="acc-arrow-char">›</span>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body">
         <div class="method-text" style="font-size:13px;color:var(--text2);">Two-strand twist each section. For most definition: smooth hair flat with comb first before twisting. Seal ends by finger-coiling or placing on a perm rod. The smaller the twist, the tighter the unravel pattern. Twist in the same direction each time for consistency.</div>
@@ -1888,22 +1894,22 @@ em, i { font-style: italic; }
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num">03</div>
         <div class="step-info"><h3>Dry Completely Before Unraveling</h3><p>This is the most important rule</p></div>
-        <span class="acc-arrow-char">›</span>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body">
-        <div class="info info-r"><strong>Never unravel while damp.</strong> Twist-outs set while drying — the pattern is literally being formed by the hydrogen bonds realigning as water evaporates. Unravel while wet and the hydrogen bonds haven't set, creating frizz.</div>
-        <div class="science mt12">30–45 min under hooded dryer OR overnight air dry. Test: press one twist between your fingers — if it's still cool to the touch, it's still damp inside. Cool = moisture. Warm or room temp = dry and ready.</div>
+        <div class="info info-r"><strong>Never unravel while damp.</strong> Twist-outs set while drying &mdash; the pattern is literally being formed by the hydrogen bonds realigning as water evaporates. Unravel while wet and the hydrogen bonds haven't set, creating frizz.</div>
+        <div class="science mt12">30&ndash;45 min under hooded dryer OR overnight air dry. Test: press one twist between your fingers &mdash; if it's still cool to the touch, it's still damp inside. Cool = moisture. Warm or room temp = dry and ready.</div>
       </div>
     </div>
     <div class="step-block">
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num">04</div>
-        <div class="step-info"><h3>Unravel with Oiled Fingers</h3><p>From ends up — never rush</p></div>
-        <span class="acc-arrow-char">›</span>
+        <div class="step-info"><h3>Unravel with Oiled Fingers</h3><p>From ends up &mdash; never rush</p></div>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body">
         <div class="products-wrap"><span class="prod-pill">Leven Rose Jojoba (on fingers)</span><span class="prod-pill">Bio Silk Silk Therapy (anti-frizz)</span><span class="prod-pill">Amika Glass Action Elixir</span></div>
-        <div class="science mt12">Coat fingertips with a small amount of jojoba. Separate the twist from the ends upward, gently. Never pull from the root — this creates immediate frizz at the root section. Work slowly. The patience here directly determines how long the style lasts.</div>
+        <div class="science mt12">Coat fingertips with a small amount of jojoba. Separate the twist from the ends upward, gently. Never pull from the root &mdash; this creates immediate frizz at the root section. Work slowly. The patience here directly determines how long the style lasts.</div>
       </div>
     </div>
   </div>
@@ -1915,22 +1921,22 @@ em, i { font-style: italic; }
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num">Pre</div>
         <div class="step-info"><h3>Pre-Install Prep</h3><p>Always wash &amp; DC before installing protective style</p></div>
-        <span class="acc-arrow-char">›</span>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body">
         <div class="products-wrap"><span class="prod-pill">Full wash day protocol</span><span class="prod-pill">Protein DC (if in rotation)</span><span class="prod-pill">Full LOC method</span><span class="prod-pill">By Taraji Hot Commodity Heat Protectant (if blowout)</span><span class="prod-pill">Oribe Balm d'Or (heat shield)</span></div>
-        <div class="science mt12"><strong>Why full wash before install:</strong> Once in a protective style, your hair is trapped for 6–8 weeks. Any dryness, damage, or protein imbalance is locked in and compounds over that time. Installed clean and well-moisturized, the style will protect; installed dry or damaged, it will break.</div>
+        <div class="science mt12"><strong>Why full wash before install:</strong> Once in a protective style, your hair is trapped for 6&ndash;8 weeks. Any dryness, damage, or protein imbalance is locked in and compounds over that time. Installed clean and well-moisturized, the style will protect; installed dry or damaged, it will break.</div>
       </div>
     </div>
     <div class="step-block">
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num">!</div>
-        <div class="step-info"><h3>Tension Rules — Non-Negotiable</h3><p>Traction alopecia prevention</p></div>
-        <span class="acc-arrow-char">›</span>
+        <div class="step-info"><h3>Tension Rules &mdash; Non-Negotiable</h3><p>Traction alopecia prevention</p></div>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body">
-        <div class="info info-r"><strong>If it hurts when installed — it's too tight.</strong> Tell your stylist immediately. Speak up — this is your hair line at stake. Traction alopecia from repeated tight installs is one of the most common causes of permanent edge loss and is not reversible once scarring begins.</div>
-        <div class="science mt12">The frontal hairline follicles are more susceptible to mechanical stress than other areas. The inflammation from tight braiding accumulates over months — the edge recession you see is months of subclinical follicle stress made visible. One tight install won't do it; repeated installs will.</div>
+        <div class="info info-r"><strong>If it hurts when installed &mdash; it's too tight.</strong> Tell your stylist immediately. Speak up &mdash; this is your hair line at stake. Traction alopecia from repeated tight installs is one of the most common causes of permanent edge loss and is not reversible once scarring begins.</div>
+        <div class="science mt12">The frontal hairline follicles are more susceptible to mechanical stress than other areas. The inflammation from tight braiding accumulates over months &mdash; the edge recession you see is months of subclinical follicle stress made visible. One tight install won't do it; repeated installs will.</div>
       </div>
     </div>
   </div>
@@ -1939,39 +1945,39 @@ em, i { font-style: italic; }
 </div>
 
 
-<!-- ═══════════════════════════════════════════════════
+<!-- 
   PROGRESS
-════════════════════════════════════════════════════ -->
+ -->
 
-  <!-- ═══ HIGH HEAT STYLING (Silk Press / Blow Out + Flat Iron) ═══ -->
+  <!--  HIGH HEAT STYLING (Silk Press / Blow Out + Flat Iron)  -->
   <div id="style-highheat" class="stype-panel" style="display:none;">
 
     <!-- Science Banner -->
     <div class="card mb20" style="border-left:3px solid #FF6B9D;background:linear-gradient(135deg,rgba(255,107,157,0.06),transparent);">
       <div style="font-family:var(--font-head);font-size:1.3rem;font-weight:600;color:#FF6B9D;margin-bottom:8px;">The Science of a Silk Press</div>
       <div class="sz14 text2" style="line-height:1.75;">
-        Hair keratin begins to <strong>denature at 356°F (180°C)</strong>. A healthy strand can tolerate brief high heat because the cuticle acts as a thermal buffer — but repeated passes, wet strands, or damaged hair remove that buffer entirely. The goal of a silk press is not to <em>cook</em> the curl out; it's to use <strong>one precise pass at the right temperature</strong> to temporarily reorient the hydrogen bonds in the cortex. Your GK Keratin treatment creates a protein lattice across the cortex that both improves heat tolerance <em>and</em> makes results last longer — this is why your silk press will behave differently than an untreated natural.
+        Hair keratin begins to <strong>denature at 356&deg;F (180&deg;C)</strong>. A healthy strand can tolerate brief high heat because the cuticle acts as a thermal buffer &mdash; but repeated passes, wet strands, or damaged hair remove that buffer entirely. The goal of a silk press is not to <em>cook</em> the curl out; it's to use <strong>one precise pass at the right temperature</strong> to temporarily reorient the hydrogen bonds in the cortex. Your GK Keratin treatment creates a protein lattice across the cortex that both improves heat tolerance <em>and</em> makes results last longer &mdash; this is why your silk press will behave differently than an untreated natural.
         <br><br>
-        <span style="color:#FF6B9D;font-weight:700;">Your hair profile rule:</span> Fine strands = start at 370°F max. The 4A sections (back + perimeter) tolerate slightly more than the 3C top. Never exceed 400°F on fine strands. One slow pass, then you're done.
+        <span style="color:#FF6B9D;font-weight:700;">Your hair profile rule:</span> Fine strands = start at 370&deg;F max. The 4A sections (back + perimeter) tolerate slightly more than the 3C top. Never exceed 400&deg;F on fine strands. One slow pass, then you're done.
       </div>
     </div>
 
     <!-- Temperature guide -->
     <div class="g3 mb20">
       <div class="card" style="text-align:center;border-top:2px solid #2ECC8F;">
-        <div style="font-size:2rem;font-family:var(--font-head);font-weight:700;color:#2ECC8F;">350–370°F</div>
+        <div style="font-size:2rem;font-family:var(--font-head);font-weight:700;color:#2ECC8F;">350&ndash;370&deg;F</div>
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin:4px 0;">3C Top Section</div>
         <div class="sz12 text3">Fine, loosest curl. Start here. Jilbre Small Iron. One slow pass per section.</div>
       </div>
       <div class="card" style="text-align:center;border-top:2px solid #FF9F5A;">
-        <div style="font-size:2rem;font-family:var(--font-head);font-weight:700;color:#FF9F5A;">370–390°F</div>
+        <div style="font-size:2rem;font-family:var(--font-head);font-weight:700;color:#FF9F5A;">370&ndash;390&deg;F</div>
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin:4px 0;">4A Perimeter + Back</div>
         <div class="sz12 text3">Coilier, more resilient. Mid-range. Jilbre Large Iron. Comb-chase method.</div>
       </div>
       <div class="card" style="text-align:center;border-top:2px solid var(--red);">
-        <div style="font-size:2rem;font-family:var(--font-head);font-weight:700;color:var(--red);">400°F+</div>
+        <div style="font-size:2rem;font-family:var(--font-head);font-weight:700;color:var(--red);">400&deg;F+</div>
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin:4px 0;">Hard Pass</div>
-        <div class="sz12 text3">Above 400°F on fine or keratin-treated hair causes permanent cortex damage. Not worth it.</div>
+        <div class="sz12 text3">Above 400&deg;F on fine or keratin-treated hair causes permanent cortex damage. Not worth it.</div>
       </div>
     </div>
 
@@ -1982,8 +1988,8 @@ em, i { font-style: italic; }
     <div class="step-block open mb8">
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num" style="background:rgba(255,107,157,.15);color:#FF6B9D;">01</div>
-        <div class="step-info"><h3>Pre-Blow Dry Prep</h3><p>On clean, detangled, damp hair · Section into 4–6 parts</p></div>
-        <span class="acc-arrow-char">›</span>
+        <div class="step-info"><h3>Pre-Blow Dry Prep</h3><p>On clean, detangled, damp hair &middot; Section into 4&ndash;6 parts</p></div>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body">
         <div class="step-cols">
@@ -1992,21 +1998,21 @@ em, i { font-style: italic; }
               <span class="prod-pill">Oribe Balm d'Or Heat Styling Shield</span>
               <span class="prod-pill">Oribe Imperial Blowout Styling Cream</span>
               <span class="prod-pill">By Taraji Hot Commodity Heat Protectant</span>
-              <span class="prod-pill">Bio Silk Silk Therapy (2–3 drops)</span>
+              <span class="prod-pill">Bio Silk Silk Therapy (2&ndash;3 drops)</span>
             </div>
             <div class="info info-a mt12">
-              <strong>Layer order matters:</strong> Leave-in → blow dry cream → silicone heat protectant. The cream provides slip and humidity protection; the silicone serum creates the thermal barrier on top. Do not apply silicone serums directly to soaking wet hair — damp to 70% dry is ideal.
+              <strong>Layer order matters:</strong> Leave-in &rarr; blow dry cream &rarr; silicone heat protectant. The cream provides slip and humidity protection; the silicone serum creates the thermal barrier on top. Do not apply silicone serums directly to soaking wet hair &mdash; damp to 70% dry is ideal.
             </div>
             <div class="science mt12">
-              <strong>Why this works:</strong> Silicones (dimethicone, cyclomethicone) have a high thermal conductivity coefficient — they spread and dissipate heat across the strand instead of letting it concentrate on one point. A 2010 study in <em>Journal of Cosmetic Science</em> confirmed silicone-coated strands show significantly lower damage markers at equivalent temperatures. Oribe Imperial Blowout is designed to be heat-activated: its conditioning agents only release under dryer heat.
+              <strong>Why this works:</strong> Silicones (dimethicone, cyclomethicone) have a high thermal conductivity coefficient &mdash; they spread and dissipate heat across the strand instead of letting it concentrate on one point. A 2010 study in <em>Journal of Cosmetic Science</em> confirmed silicone-coated strands show significantly lower damage markers at equivalent temperatures. Oribe Imperial Blowout is designed to be heat-activated: its conditioning agents only release under dryer heat.
             </div>
           </div>
           <div>
             <div class="tool-list">
-              <div class="tool-item"><span class="tool-check">✓</span>Red Pro Titanium Turbo 3500 (high airflow, medium heat)</div>
-              <div class="tool-item"><span class="tool-check">✓</span>Wide-Tooth Comb or Rat Tail Comb for sectioning</div>
-              <div class="tool-item"><span class="tool-check">✓</span>Section clips (at least 6)</div>
-              <div class="tool-item"><span class="tool-check">✓</span>Microfiber towel (squeeze out, don't rub)</div>
+              <div class="tool-item"><span class="tool-check">&#10003;</span>Red Pro Titanium Turbo 3500 (high airflow, medium heat)</div>
+              <div class="tool-item"><span class="tool-check">&#10003;</span>Wide-Tooth Comb or Rat Tail Comb for sectioning</div>
+              <div class="tool-item"><span class="tool-check">&#10003;</span>Section clips (at least 6)</div>
+              <div class="tool-item"><span class="tool-check">&#10003;</span>Microfiber towel (squeeze out, don't rub)</div>
             </div>
           </div>
         </div>
@@ -2017,25 +2023,25 @@ em, i { font-style: italic; }
     <div class="step-block mb8">
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num" style="background:rgba(255,107,157,.15);color:#FF6B9D;">02</div>
-        <div class="step-info"><h3>Blow Dry — Tension Method</h3><p>Medium heat · High airflow · Section by section</p></div>
-        <span class="acc-arrow-char">›</span>
+        <div class="step-info"><h3>Blow Dry &mdash; Tension Method</h3><p>Medium heat &middot; High airflow &middot; Section by section</p></div>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body">
         <div class="step-cols">
           <div>
             <div class="info info-g mb12">
-              <strong>Tension Method (preferred over comb attachment):</strong> Hold the section taut with your non-dominant hand. Angle the dryer nozzle downward — always pointing toward the ends. Move in one direction, roots to ends. The downward angle seals the cuticle as you go. Less mechanical damage than comb attachment, better length retention.
+              <strong>Tension Method (preferred over comb attachment):</strong> Hold the section taut with your non-dominant hand. Angle the dryer nozzle downward &mdash; always pointing toward the ends. Move in one direction, roots to ends. The downward angle seals the cuticle as you go. Less mechanical damage than comb attachment, better length retention.
             </div>
             <div class="info info-a mb12">
-              <strong>When section is done:</strong> The hair will feel warm and dry to touch, with visible stretching. Twist it up and clip away — do not revisit a completed section.
+              <strong>When section is done:</strong> The hair will feel warm and dry to touch, with visible stretching. Twist it up and clip away &mdash; do not revisit a completed section.
             </div>
             <div class="info info-b">
-              <strong>Air dry first:</strong> Blow dry on hair that is 60–70% air dry. Sopping wet hair in a dryer = hygral fatigue under heat. Plait into 4 sections after applying products, air dry 20–30 min, then blow dry the plaits. Faster + less damage.
+              <strong>Air dry first:</strong> Blow dry on hair that is 60&ndash;70% air dry. Sopping wet hair in a dryer = hygral fatigue under heat. Plait into 4 sections after applying products, air dry 20&ndash;30 min, then blow dry the plaits. Faster + less damage.
             </div>
           </div>
           <div>
             <div class="science">
-              <strong>The hair dryer temperature myth:</strong> Your Red Pro Titanium Turbo outputs high airflow but manageable heat — the key variable for natural hair is <em>air speed</em>, not just temperature. High airflow at medium heat actually dries faster with less heat exposure time. The concentrator nozzle focuses airflow which speeds drying and reduces total heat contact. Community consensus (Reddit r/Naturalhair, r/4chair): tension method consistently produces less breakage than comb attachment, especially on fine strands.
+              <strong>The hair dryer temperature myth:</strong> Your Red Pro Titanium Turbo outputs high airflow but manageable heat &mdash; the key variable for natural hair is <em>air speed</em>, not just temperature. High airflow at medium heat actually dries faster with less heat exposure time. The concentrator nozzle focuses airflow which speeds drying and reduces total heat contact. Community consensus (Reddit r/Naturalhair, r/4chair): tension method consistently produces less breakage than comb attachment, especially on fine strands.
             </div>
           </div>
         </div>
@@ -2046,8 +2052,8 @@ em, i { font-style: italic; }
     <div class="step-block mb8">
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num" style="background:rgba(255,107,157,.15);color:#FF6B9D;">03</div>
-        <div class="step-info"><h3>Flat Iron — Comb Chase Method</h3><p>Fully dry hair only · 1 pass per section</p></div>
-        <span class="acc-arrow-char">›</span>
+        <div class="step-info"><h3>Flat Iron &mdash; Comb Chase Method</h3><p>Fully dry hair only &middot; 1 pass per section</p></div>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body">
         <div class="step-cols">
@@ -2058,24 +2064,24 @@ em, i { font-style: italic; }
               <span class="prod-pill">Bio Silk Silk Therapy</span>
             </div>
             <div class="info info-a mb12">
-              <strong>The Comb Chase Method:</strong> Place a fine-tooth comb just above the flat iron plates. As you pull the iron down the section, the comb chases it — keeping tension and separating strands so every hair passes through the plates evenly. Stylists call this the difference between a smooth silk press vs. a flat, dead silk press. Sections should be ¼ inch for your hair type — no thicker.
+              <strong>The Comb Chase Method:</strong> Place a fine-tooth comb just above the flat iron plates. As you pull the iron down the section, the comb chases it &mdash; keeping tension and separating strands so every hair passes through the plates evenly. Stylists call this the difference between a smooth silk press vs. a flat, dead silk press. Sections should be 1/4 inch for your hair type &mdash; no thicker.
             </div>
             <div class="info info-b mb12">
               <strong>Section order:</strong> Nape first, crown last. The nape and perimeter are most visible and need the most precision. Work in quadrants.
             </div>
             <div class="info info-g">
-              <strong>GK Keratin note:</strong> Your keratin treatment contains formaldehyde-free crosslinkers that respond to heat up to 450°F — but your fine strands don't need that. The keratin lattice means your hair will achieve a silk press at lower temperature than uncoated natural hair and results will last longer (10–14 days vs. 5–7 days).
+              <strong>GK Keratin note:</strong> Your keratin treatment contains formaldehyde-free crosslinkers that respond to heat up to 450&deg;F &mdash; but your fine strands don't need that. The keratin lattice means your hair will achieve a silk press at lower temperature than uncoated natural hair and results will last longer (10&ndash;14 days vs. 5&ndash;7 days).
             </div>
           </div>
           <div>
             <div class="tool-list">
-              <div class="tool-item"><span class="tool-check">✓</span>Jilbre Large Iron — 4A back + perimeter sections</div>
-              <div class="tool-item"><span class="tool-check">✓</span>Jilbre Small Iron — 3C top + hairline</div>
-              <div class="tool-item"><span class="tool-check">✓</span>Fine-tooth tail comb (the comb-chase partner)</div>
-              <div class="tool-item"><span class="tool-check">✓</span>Rat tail comb — sectioning</div>
+              <div class="tool-item"><span class="tool-check">&#10003;</span>Jilbre Large Iron &mdash; 4A back + perimeter sections</div>
+              <div class="tool-item"><span class="tool-check">&#10003;</span>Jilbre Small Iron &mdash; 3C top + hairline</div>
+              <div class="tool-item"><span class="tool-check">&#10003;</span>Fine-tooth tail comb (the comb-chase partner)</div>
+              <div class="tool-item"><span class="tool-check">&#10003;</span>Rat tail comb &mdash; sectioning</div>
             </div>
             <div class="science mt12">
-              <strong>Porcelain plates (your Jilbre):</strong> Porcelain distributes heat more evenly than titanium, preventing hot spots. Titanium heats faster and holds higher temps — better for thicker 4C. For your fine 3C/4A porcelain is the right choice and a key reason the Jilbre brand is specifically recommended for this hair profile across YouTube and Reddit communities.
+              <strong>Porcelain plates (your Jilbre):</strong> Porcelain distributes heat more evenly than titanium, preventing hot spots. Titanium heats faster and holds higher temps &mdash; better for thicker 4C. For your fine 3C/4A porcelain is the right choice and a key reason the Jilbre brand is specifically recommended for this hair profile across YouTube and Reddit communities.
             </div>
           </div>
         </div>
@@ -2087,7 +2093,7 @@ em, i { font-style: italic; }
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num" style="background:rgba(255,107,157,.15);color:#FF6B9D;">04</div>
         <div class="step-info"><h3>Finishing &amp; Humidity Seal</h3><p>On fully flat-ironed dry hair</p></div>
-        <span class="acc-arrow-char">›</span>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body">
         <div class="step-cols">
@@ -2099,12 +2105,12 @@ em, i { font-style: italic; }
               <span class="prod-pill">AllDay Edges</span>
             </div>
             <div class="info info-a">
-              Apply Oribe Impermeable <em>before you leave the house</em>, not as the last step at the mirror. It needs 2–3 minutes to form the anti-humidity film. Light hold over the top + edges. Then shine serum for glass effect. Do not touch your hair while the Impermeable is setting.
+              Apply Oribe Impermeable <em>before you leave the house</em>, not as the last step at the mirror. It needs 2&ndash;3 minutes to form the anti-humidity film. Light hold over the top + edges. Then shine serum for glass effect. Do not touch your hair while the Impermeable is setting.
             </div>
           </div>
           <div>
             <div class="science">
-              <strong>Why silks press reverts:</strong> High-porosity hair absorbs atmospheric humidity the moment the sealed surface is broken. Oribe Impermeable works by depositing a film-forming polymer (acrylate copolymer) that physically blocks moisture penetration. It does not prevent reversion forever — heat, sweat, rain, and steam will always win — but it can extend a silk press by 3–5 days. Community tip: wrap in a silk scarf or bonnet nightly. A loose wrap with a satin scarf (not tight) is universally cited as the #1 longevity factor on r/Naturalhair and YouTube silk press tutorials.
+              <strong>Why silks press reverts:</strong> High-porosity hair absorbs atmospheric humidity the moment the sealed surface is broken. Oribe Impermeable works by depositing a film-forming polymer (acrylate copolymer) that physically blocks moisture penetration. It does not prevent reversion forever &mdash; heat, sweat, rain, and steam will always win &mdash; but it can extend a silk press by 3&ndash;5 days. Community tip: wrap in a silk scarf or bonnet nightly. A loose wrap with a satin scarf (not tight) is universally cited as the #1 longevity factor on r/Naturalhair and YouTube silk press tutorials.
             </div>
           </div>
         </div>
@@ -2113,7 +2119,7 @@ em, i { font-style: italic; }
 
     <!-- Maintenance for silk press -->
     <div class="card mt20" style="border-top:3px solid #FF6B9D;">
-      <div style="font-family:var(--font-head);font-size:1.3rem;font-weight:600;margin-bottom:12px;">Silk Press Longevity — Daily Maintenance</div>
+      <div style="font-family:var(--font-head);font-size:1.3rem;font-weight:600;margin-bottom:12px;">Silk Press Longevity &mdash; Daily Maintenance</div>
       <div class="g2">
         <div>
           <div class="step-info-lbl mb8">NIGHTLY ROUTINE</div>
@@ -2123,8 +2129,8 @@ em, i { font-style: italic; }
         <div>
           <div class="step-info-lbl mb8">REFRESH DAYS</div>
           <div class="info info-g mb8">Dry refresh only. A light mist of water + immediate satin wrap will revert 3C sections. Use the Oribe Impermeable as a dry refresh seal instead of water.</div>
-          <div class="info info-a">Edges: a tiny amount of AllDay Edges pressed in with fingertips. Do not use heavy butters — they attract dust + humidity and cause scalp buildup under a silk press.</div>
-          <div class="info info-r mt8">Avoid sweating heavily with a fresh silk press. Scalp sweat is the fastest reversion trigger — even with GK Keratin.</div>
+          <div class="info info-a">Edges: a tiny amount of AllDay Edges pressed in with fingertips. Do not use heavy butters &mdash; they attract dust + humidity and cause scalp buildup under a silk press.</div>
+          <div class="info info-r mt8">Avoid sweating heavily with a fresh silk press. Scalp sweat is the fastest reversion trigger &mdash; even with GK Keratin.</div>
         </div>
       </div>
     </div>
@@ -2132,16 +2138,16 @@ em, i { font-style: italic; }
   </div><!-- end style-highheat -->
 
 
-  <!-- ═══ LOW HEAT STYLING (Blow Out + Diffuse + Stretched Styles) ═══ -->
+  <!--  LOW HEAT STYLING (Blow Out + Diffuse + Stretched Styles)  -->
   <div id="style-lowheat" class="stype-panel" style="display:none;">
 
     <!-- Science Banner -->
     <div class="card mb20" style="border-left:3px solid #7B9EFF;background:linear-gradient(135deg,rgba(123,158,255,0.06),transparent);">
-      <div style="font-family:var(--font-head);font-size:1.3rem;font-weight:600;color:#7B9EFF;margin-bottom:8px;">Low Heat Isn't No Heat — It's Smart Heat</div>
+      <div style="font-family:var(--font-head);font-size:1.3rem;font-weight:600;color:#7B9EFF;margin-bottom:8px;">Low Heat Isn't No Heat &mdash; It's Smart Heat</div>
       <div class="sz14 text2" style="line-height:1.75;">
-        Blow dryer temperatures under <strong>200°F (93°C)</strong> sit well below the keratin denaturation threshold. At this range, you're using heat for two purposes: <em>drying</em> (removing water weight that causes breakage during manipulation) and <em>stretching</em> (elongating the curl pattern without disrupting its hydrogen bond structure). The curl memory remains intact — the style will revert with water, unlike a silk press.
+        Blow dryer temperatures under <strong>200&deg;F (93&deg;C)</strong> sit well below the keratin denaturation threshold. At this range, you're using heat for two purposes: <em>drying</em> (removing water weight that causes breakage during manipulation) and <em>stretching</em> (elongating the curl pattern without disrupting its hydrogen bond structure). The curl memory remains intact &mdash; the style will revert with water, unlike a silk press.
         <br><br>
-        Low heat is your highest-frequency styling tool. It's used after every wash day for a diffused wash &amp; go, for blow-out prep before a twist out, and for "heat stretching" — the technique that makes protective styles last longer and reduces single-strand knots by keeping hair elongated.
+        Low heat is your highest-frequency styling tool. It's used after every wash day for a diffused wash &amp; go, for blow-out prep before a twist out, and for "heat stretching" &mdash; the technique that makes protective styles last longer and reduces single-strand knots by keeping hair elongated.
         <span style="display:block;margin-top:10px;color:#7B9EFF;font-weight:700;">Key insight from research:</span> A 2019 study published in <em>International Journal of Trichology</em> found that hair dried with a dryer at a moderate distance caused <em>less surface damage</em> than air drying, because prolonged water contact causes the cortex to swell and stress repeatedly (hygral fatigue). For high-porosity hair like yours, fast removal of water = less damage, not more.
       </div>
     </div>
@@ -2153,8 +2159,8 @@ em, i { font-style: italic; }
     <div class="step-block open mb8">
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num" style="background:rgba(123,158,255,.15);color:#7B9EFF;">A</div>
-        <div class="step-info"><h3>Diffused Wash &amp; Go</h3><p>Defined curls · No stretching · Medium-low heat · 3C crown priority</p></div>
-        <span class="acc-arrow-char">›</span>
+        <div class="step-info"><h3>Diffused Wash &amp; Go</h3><p>Defined curls &middot; No stretching &middot; Medium-low heat &middot; 3C crown priority</p></div>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body">
         <div class="step-cols">
@@ -2167,23 +2173,23 @@ em, i { font-style: italic; }
               <span class="prod-pill">Oribe Impermeable Anti-Humidity</span>
             </div>
             <div class="info info-a mb10">
-              <strong>Plop first:</strong> After applying all styling products, plop hair in a microfiber towel or cotton T-shirt for 15–20 minutes. This removes excess water and begins curl formation before heat is introduced. Plopping = the single most effective frizz-prevention step according to every curly hair educator from CGM to NaturallyCurly.
+              <strong>Plop first:</strong> After applying all styling products, plop hair in a microfiber towel or cotton T-shirt for 15&ndash;20 minutes. This removes excess water and begins curl formation before heat is introduced. Plopping = the single most effective frizz-prevention step according to every curly hair educator from CGM to NaturallyCurly.
             </div>
             <div class="info info-b mb10">
-              <strong>Diffuse technique:</strong> Flip head upside down. Cup the diffuser bowl under your curls — do not shake or crunch. Hold each section 15–20 seconds, move to next section. Low–medium heat, medium airflow. Once 80–90% dry, switch to cool air to seal cuticle. Finish with a cold shot all over to set the cast.
+              <strong>Diffuse technique:</strong> Flip head upside down. Cup the diffuser bowl under your curls &mdash; do not shake or crunch. Hold each section 15&ndash;20 seconds, move to next section. Low&ndash;medium heat, medium airflow. Once 80&ndash;90% dry, switch to cool air to seal cuticle. Finish with a cold shot all over to set the cast.
             </div>
             <div class="info info-g">
-              <strong>Cast strategy:</strong> Let products fully dry to a hard cast — this is correct and expected. Once completely cool and dry, scrunch out the crunch (SOTC) with a small amount of Amika Glass Elixir or Jojoba oil in your palms. The cast was protecting the curl formation during drying. Scrunching too early = frizz.
+              <strong>Cast strategy:</strong> Let products fully dry to a hard cast &mdash; this is correct and expected. Once completely cool and dry, scrunch out the crunch (SOTC) with a small amount of Amika Glass Elixir or Jojoba oil in your palms. The cast was protecting the curl formation during drying. Scrunching too early = frizz.
             </div>
           </div>
           <div>
             <div class="tool-list">
-              <div class="tool-item"><span class="tool-check">✓</span>Diffuser attachment on Red Pro Turbo 3500</div>
-              <div class="tool-item"><span class="tool-check">✓</span>Microfiber towel or cotton T-shirt for plopping</div>
-              <div class="tool-item"><span class="tool-check">✓</span>Finger comb only — no wide tooth during diffuse</div>
+              <div class="tool-item"><span class="tool-check">&#10003;</span>Diffuser attachment on Red Pro Turbo 3500</div>
+              <div class="tool-item"><span class="tool-check">&#10003;</span>Microfiber towel or cotton T-shirt for plopping</div>
+              <div class="tool-item"><span class="tool-check">&#10003;</span>Finger comb only &mdash; no wide tooth during diffuse</div>
             </div>
             <div class="science mt12">
-              <strong>Diffuser heat safety:</strong> A diffuser distributes heat across a wider surface area, reducing the intensity hitting any single section. The bowl shape also creates convection airflow (rather than forced airflow), which is gentler on the cuticle. The community consensus: diffuse at arm's length for 3C hair, closer for 4A coils which need more volume. Key warning: pulling hair while diffusing causes heat damage at the stretched section — always let the hair stay in its natural shape while diffusing.
+              <strong>Diffuser heat safety:</strong> A diffuser distributes heat across a wider surface area, reducing the intensity hitting any single section. The bowl shape also creates convection airflow (rather than forced airflow), which is gentler on the cuticle. The community consensus: diffuse at arm's length for 3C hair, closer for 4A coils which need more volume. Key warning: pulling hair while diffusing causes heat damage at the stretched section &mdash; always let the hair stay in its natural shape while diffusing.
             </div>
           </div>
         </div>
@@ -2194,8 +2200,8 @@ em, i { font-style: italic; }
     <div class="step-block mb8">
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num" style="background:rgba(123,158,255,.15);color:#7B9EFF;">B</div>
-        <div class="step-info"><h3>Low Heat Blow-Out Stretch</h3><p>For twist outs, braid outs &amp; protective style prep · Tension method</p></div>
-        <span class="acc-arrow-char">›</span>
+        <div class="step-info"><h3>Low Heat Blow-Out Stretch</h3><p>For twist outs, braid outs &amp; protective style prep &middot; Tension method</p></div>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body">
         <div class="step-cols">
@@ -2207,23 +2213,23 @@ em, i { font-style: italic; }
               <span class="prod-pill">Bio Silk Silk Therapy (light)</span>
             </div>
             <div class="info info-b mb10">
-              <strong>The goal:</strong> Stretch without straightening. You want the curl elongated — 60–70% of maximum length — not a blowout. This gives you manageable sections for twist outs, reduces single-strand knots, and makes protective styles sit cleaner.
+              <strong>The goal:</strong> Stretch without straightening. You want the curl elongated &mdash; 60&ndash;70% of maximum length &mdash; not a blowout. This gives you manageable sections for twist outs, reduces single-strand knots, and makes protective styles sit cleaner.
             </div>
             <div class="info info-a mb10">
-              <strong>Tension method at low heat:</strong> Section into 6–8 parts. Apply products. Hold section taut with light tension (not tight — you're not straightening). Point the concentrator nozzle downward. Dryer on medium speed, low heat. Move continuously — don't hover on one spot. The section is done when it feels warm and elongated. Twist it up immediately.
+              <strong>Tension method at low heat:</strong> Section into 6&ndash;8 parts. Apply products. Hold section taut with light tension (not tight &mdash; you're not straightening). Point the concentrator nozzle downward. Dryer on medium speed, low heat. Move continuously &mdash; don't hover on one spot. The section is done when it feels warm and elongated. Twist it up immediately.
             </div>
             <div class="info info-g">
-              <strong>Plait-then-blow method:</strong> Apply products, plait or braid each section, air dry 50–60%. Then blow dry <em>the plaits</em> on low heat. This method is widely recommended on r/4chair — less direct heat contact to individual strands, still achieves stretch, takes less time.
+              <strong>Plait-then-blow method:</strong> Apply products, plait or braid each section, air dry 50&ndash;60%. Then blow dry <em>the plaits</em> on low heat. This method is widely recommended on r/4chair &mdash; less direct heat contact to individual strands, still achieves stretch, takes less time.
             </div>
           </div>
           <div>
             <div class="science">
-              <strong>Why stretch matters for length retention:</strong> Single-strand knots (SSKs) form where a coiled strand loops back and ties itself. A stretched strand cannot coil back on itself — so regular heat stretching is a proven SSK prevention method. Every creator with documented length retention (Naptural85, Curly Proverbz, Jessica Kellgren-Fozard) reports stretching as central to their retention protocol.
+              <strong>Why stretch matters for length retention:</strong> Single-strand knots (SSKs) form where a coiled strand loops back and ties itself. A stretched strand cannot coil back on itself &mdash; so regular heat stretching is a proven SSK prevention method. Every creator with documented length retention (Naptural85, Curly Proverbz, Jessica Kellgren-Fozard) reports stretching as central to their retention protocol.
             </div>
             <div class="tool-list mt12">
-              <div class="tool-item"><span class="tool-check">✓</span>Red Pro Turbo 3500 — concentrator nozzle, medium speed, low heat</div>
-              <div class="tool-item"><span class="tool-check">✓</span>Wide-tooth comb (not comb attachment)</div>
-              <div class="tool-item"><span class="tool-check">✓</span>Section clips × 8</div>
+              <div class="tool-item"><span class="tool-check">&#10003;</span>Red Pro Turbo 3500 &mdash; concentrator nozzle, medium speed, low heat</div>
+              <div class="tool-item"><span class="tool-check">&#10003;</span>Wide-tooth comb (not comb attachment)</div>
+              <div class="tool-item"><span class="tool-check">&#10003;</span>Section clips &times; 8</div>
             </div>
           </div>
         </div>
@@ -2234,14 +2240,14 @@ em, i { font-style: italic; }
     <div class="step-block mb8">
       <div class="step-header" onclick="toggleStep(this)">
         <div class="step-num" style="background:rgba(123,158,255,.15);color:#7B9EFF;">C</div>
-        <div class="step-info"><h3>Hooded Dryer — Roller Set &amp; Twist Set</h3><p>Maximum definition + zero frizz · 30–45 min · Most protective</p></div>
-        <span class="acc-arrow-char">›</span>
+        <div class="step-info"><h3>Hooded Dryer &mdash; Roller Set &amp; Twist Set</h3><p>Maximum definition + zero frizz &middot; 30&ndash;45 min &middot; Most protective</p></div>
+        <span class="acc-arrow-char">&#8250;</span>
       </div>
       <div class="step-body">
         <div class="step-cols">
           <div>
             <div class="info info-a mb10">
-              <strong>Why hooded dryer beats handheld for twist sets:</strong> Uniform radiant heat surrounds every section simultaneously. No direct airflow means no frizz-causing air disturbance. The consistent, gentle heat dries the style <em>in formation</em> — the set holds the shape as it dries, resulting in better definition and longevity vs. air drying or diffusing a set.
+              <strong>Why hooded dryer beats handheld for twist sets:</strong> Uniform radiant heat surrounds every section simultaneously. No direct airflow means no frizz-causing air disturbance. The consistent, gentle heat dries the style <em>in formation</em> &mdash; the set holds the shape as it dries, resulting in better definition and longevity vs. air drying or diffusing a set.
             </div>
             <div class="products-wrap mb10">
               <span class="prod-pill">Camille Rose Almond Jai Twisting Butter (4A)</span>
@@ -2250,12 +2256,12 @@ em, i { font-style: italic; }
               <span class="prod-pill">Flaxseed Gel (DIY)</span>
             </div>
             <div class="info info-b">
-              <strong>For a rod set or roller set:</strong> Apply gel on wet hair → set rods/rollers → sit under hood dryer 30–40 min medium heat → cool 5 min before taking down. Results: defined, frizz-free, 3D curls or waves. Better longevity than air-dry rod sets.
+              <strong>For a rod set or roller set:</strong> Apply gel on wet hair &rarr; set rods/rollers &rarr; sit under hood dryer 30&ndash;40 min medium heat &rarr; cool 5 min before taking down. Results: defined, frizz-free, 3D curls or waves. Better longevity than air-dry rod sets.
             </div>
           </div>
           <div>
             <div class="science">
-              <strong>Hooded dryer heat range:</strong> Most hood dryers operate at 100–160°F — well below any damage threshold. This is why hooded drying is considered safe for frequent use. The moisture from your wet hair actually acts as a heat buffer, preventing any section from exceeding the air temperature. This is the mechanism behind steam treatments: water absorbs heat, protecting the cortex while the outer style dries.
+              <strong>Hooded dryer heat range:</strong> Most hood dryers operate at 100&ndash;160&deg;F &mdash; well below any damage threshold. This is why hooded drying is considered safe for frequent use. The moisture from your wet hair actually acts as a heat buffer, preventing any section from exceeding the air temperature. This is the mechanism behind steam treatments: water absorbs heat, protecting the cortex while the outer style dries.
             </div>
           </div>
         </div>
@@ -2268,14 +2274,14 @@ em, i { font-style: italic; }
       <div class="g2">
         <div>
           <div class="step-info-lbl mb8">HOW LONG IT LASTS</div>
-          <div class="info info-b mb8">Diffused wash &amp; go: 4–7 days with refresh. Blow-out twist out: 5–10 days. Rod/roller set: 5–7 days. Longevity scales with nighttime protection and how little you touch it.</div>
+          <div class="info info-b mb8">Diffused wash &amp; go: 4&ndash;7 days with refresh. Blow-out twist out: 5&ndash;10 days. Rod/roller set: 5&ndash;7 days. Longevity scales with nighttime protection and how little you touch it.</div>
           <div class="info info-a">
-            <strong>The 80/20 rule from the natural hair community:</strong> 80% of style longevity comes from the first 8 hours — this is when the style sets, the products cure, and the shape locks in. Protect heavily those first hours and your style multiplies.
+            <strong>The 80/20 rule from the natural hair community:</strong> 80% of style longevity comes from the first 8 hours &mdash; this is when the style sets, the products cure, and the shape locks in. Protect heavily those first hours and your style multiplies.
           </div>
         </div>
         <div>
           <div class="step-info-lbl mb8">REFRESHING</div>
-          <div class="info info-g mb8">Diluted Daily Moisture Refresh Spray (DIY) → scrunch → diffuse on cool only. Or re-wet sections and re-apply a small amount of gel. Never apply product to completely dry hair — always mist with water first.</div>
+          <div class="info info-g mb8">Diluted Daily Moisture Refresh Spray (DIY) &rarr; scrunch &rarr; diffuse on cool only. Or re-wet sections and re-apply a small amount of gel. Never apply product to completely dry hair &mdash; always mist with water first.</div>
           <div class="info info-b">Pineapple at night (loose high ponytail with satin scrunchie) for wash &amp; go. Satin bonnet for twist out. Loose satin wrap for stretched styles.</div>
         </div>
       </div>
@@ -2308,7 +2314,7 @@ em, i { font-style: italic; }
       <button class="filter-chip" onclick="filterPhotos('condition',this)">Deep Condition</button>
       <button class="filter-chip" onclick="filterPhotos('leavein',this)">Leave-In / LOC</button>
       <button class="filter-chip" onclick="filterPhotos('style',this)">Natural Style</button>
-      <button class="filter-chip" onclick="filterPhotos('blowdry',this)">〰 Blow Dry</button>
+      <button class="filter-chip" onclick="filterPhotos('blowdry',this)">~ Blow Dry</button>
       <button class="filter-chip" onclick="filterPhotos('flatstyle',this)">Flat Iron</button>
       <button class="filter-chip" onclick="filterPhotos('scalp',this)">Scalp</button>
       <button class="filter-chip" onclick="filterPhotos('maintenance',this)">Maintenance</button>
@@ -2317,7 +2323,7 @@ em, i { font-style: italic; }
 
   <!-- Comparison bar -->
   <div id="compare-bar" class="card mb24" style="display:none;">
-    <div class="card-head mb16">Before → After Comparison</div>
+    <div class="card-head mb16">Before &rarr; After Comparison</div>
     <div class="g2" id="compare-grid"></div>
   </div>
 
@@ -2333,11 +2339,11 @@ em, i { font-style: italic; }
   <input type="file" id="photo-input" accept="image/*" style="display:none;" onchange="onPhotoUpload(event)">
 </div>
 
-<!-- ═══════════════════════════════════════════════════
+<!-- 
   TOOLS
-════════════════════════════════════════════════════ -->
+ -->
 <div class="tab" id="tab-tools">
-  <div class="page-hd"><h1>Tools &amp; Equipment</h1><p class="text2">Check what you have — the site adjusts instructions to your kit.</p></div>
+  <div class="page-hd"><h1>Tools &amp; Equipment</h1><p class="text2">Check what you have &mdash; the site adjusts instructions to your kit.</p></div>
   <div class="g2">
     <div>
       <div class="card-head mb12">Mark What You Own</div>
@@ -2356,9 +2362,9 @@ em, i { font-style: italic; }
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════
+<!-- 
   SUPPLEMENTS
-════════════════════════════════════════════════════ -->
+ -->
 <div class="tab" id="tab-supplements">
   <div class="page-hd"><h1>Supplements &amp; Diet</h1><p class="text2">Check what you have for a personalized timing plan and food guide.</p></div>
   <div class="info info-g mb24"><strong>The Morning Shake:</strong> Protein powder + collagen + all powdered supplements in one shake. One step = guaranteed consistency. Take fat-soluble vitamins (D3, Omega-3) with a fat-containing meal.</div>
@@ -2378,18 +2384,18 @@ em, i { font-style: italic; }
       </div>
     </div>
   </div>
-  <div class="info info-a mt24"><strong>Phyto Phanere:</strong> Find on eBay — often $60 vs $150 on Amazon for the same 240ct (4-month supply). Take 2 caps daily with a meal. Full effects at 3–6 months consistent use. MaryRuth Liposomal (Lustriva) — take this separately from your shake for best absorption.</div>
+  <div class="info info-a mt24"><strong>Phyto Phanere:</strong> Find on eBay &mdash; often $60 vs $150 on Amazon for the same 240ct (4-month supply). Take 2 caps daily with a meal. Full effects at 3&ndash;6 months consistent use. MaryRuth Liposomal (Lustriva) &mdash; take this separately from your shake for best absorption.</div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════
+<!-- 
   DASHBOARD
-════════════════════════════════════════════════════ -->
+ -->
 <div class="tab" id="tab-dashboard">
   <div class="flex fxb fxa mb24" style="flex-wrap:wrap;gap:12px;">
     <div class="page-hd" style="margin-bottom:0;"><h1>Dashboard</h1><p class="text2">Your hair health at a glance.</p></div>
     <div style="display:flex;gap:16px;align-items:center;">
       <div style="text-align:center;">
-        <div style="font-size:32px;" id="streak-fire">🔥</div>
+        <div style="font-size:32px;" id="streak-fire"></div>
         <div style="font-family:var(--font-head);font-size:28px;font-weight:800;color:var(--accent);" id="streak-num">0</div>
         <div style="font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);">Day Streak</div>
       </div>
@@ -2450,11 +2456,11 @@ em, i { font-style: italic; }
   <!-- Legend -->
   <div class="flex gap8 mb20" style="flex-wrap:wrap;align-items:center;">
     <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-right:4px;">Category:</span>
-    <span class="prod-badge" style="background:var(--cat-nat-dim);color:var(--cat-nat);">● Natural / Ayurvedic</span>
-    <span class="prod-badge" style="background:var(--cat-pro-dim);color:var(--cat-pro);">● Professional / Lab</span>
-    <span class="prod-badge" style="background:var(--cat-com-dim);color:var(--cat-com);">● Commercial</span>
-    <span class="prod-badge" style="background:var(--cat-ing-dim);color:var(--cat-ing);">● Supplements</span>
-    <span class="prod-badge" style="background:var(--cat-diy-dim);color:var(--cat-diy);">● DIY / Homemade</span>
+    <span class="prod-badge" style="background:var(--cat-nat-dim);color:var(--cat-nat);">&#9679; Natural / Ayurvedic</span>
+    <span class="prod-badge" style="background:var(--cat-pro-dim);color:var(--cat-pro);">&#9679; Professional / Lab</span>
+    <span class="prod-badge" style="background:var(--cat-com-dim);color:var(--cat-com);">&#9679; Commercial</span>
+    <span class="prod-badge" style="background:var(--cat-ing-dim);color:var(--cat-ing);">&#9679; Supplements</span>
+    <span class="prod-badge" style="background:var(--cat-diy-dim);color:var(--cat-diy);">&#9679; DIY / Homemade</span>
   </div>
 
   <div class="stype-nav" style="margin-bottom:28px;">
@@ -2501,9 +2507,9 @@ em, i { font-style: italic; }
   <!-- INGREDIENT GUIDE -->
   <div id="prod-ingredients" class="prod-panel">
     <div class="flex gap12 mb20" style="flex-wrap:wrap;align-items:center;">
-      <span class="prod-badge" style="background:var(--cat-nat-dim);color:var(--cat-nat);">● Natural</span>
-      <span class="prod-badge" style="background:var(--cat-pro-dim);color:var(--cat-pro);">● Professional</span>
-      <span class="prod-badge" style="background:var(--cat-ing-dim);color:var(--cat-ing);">● Ingestible</span>
+      <span class="prod-badge" style="background:var(--cat-nat-dim);color:var(--cat-nat);">&#9679; Natural</span>
+      <span class="prod-badge" style="background:var(--cat-pro-dim);color:var(--cat-pro);">&#9679; Professional</span>
+      <span class="prod-badge" style="background:var(--cat-ing-dim);color:var(--cat-ing);">&#9679; Ingestible</span>
       <span class="text3 sz11" style="margin-left:auto;">Click any card for detail + Ask Claude</span>
     </div>
     <div class="ing-table" id="ing-table"></div>
@@ -2532,12 +2538,12 @@ em, i { font-style: italic; }
 
 
 
-<!-- ═══════════════════════════════════════════════════
+<!-- 
   MODALS
-════════════════════════════════════════════════════ -->
+ -->
 <div class="modal" id="m-settings">
   <div class="modal-box">
-    <button class="modal-x" onclick="closeM('m-settings')">✕</button>
+    <button class="modal-x" onclick="closeM('m-settings')">&#10005;</button>
     <div class="modal-title">Settings</div>
     <div class="modal-sub">Configure your protocol start date and preferences.</div>
     <div class="fgrp"><label class="flbl">Protocol Start Date</label><input class="finp" type="date" id="s-date"></div>
@@ -2552,7 +2558,7 @@ em, i { font-style: italic; }
         <option value="washgo">Wash &amp; Go</option><option value="twistout">Twist Out</option><option value="protective">Protective Style</option>
       </select>
     </div>
-    <div class="fgrp"><label class="flbl">Claude API Key (optional — enables in-app analysis)</label><input class="finp" type="password" id="s-apikey" placeholder="sk-ant-...">
+    <div class="fgrp"><label class="flbl">Claude API Key (optional &mdash; enables in-app analysis)</label><input class="finp" type="password" id="s-apikey" placeholder="sk-ant-...">
     <div class="sz11 text3 mt8">Stored locally, never shared. Leave blank to use the "Ask Claude" redirect instead.</div></div>
     <button class="btn btn-accent w100" onclick="saveSettings()">Save</button>
   </div>
@@ -2560,7 +2566,7 @@ em, i { font-style: italic; }
 
 <div class="modal" id="m-log">
   <div class="modal-box" style="max-width:720px;width:96vw;">
-    <button class="modal-x" onclick="closeM('m-log')">✕</button>
+    <button class="modal-x" onclick="closeM('m-log')">&#10005;</button>
     <div class="modal-title">Log Session</div>
     <div class="modal-sub">Build a detailed record of what you used, how each step went, and what you observed.</div>
 
@@ -2591,8 +2597,8 @@ em, i { font-style: italic; }
     <div class="fgrp">
       <label class="flbl">Overall Session Rating</label>
       <div class="stars" id="log-stars">
-        <span class="star" onclick="setStar(1)">★</span><span class="star" onclick="setStar(2)">★</span>
-        <span class="star" onclick="setStar(3)">★</span><span class="star" onclick="setStar(4)">★</span><span class="star" onclick="setStar(5)">★</span>
+        <span class="star" onclick="setStar(1)">&#9733;</span><span class="star" onclick="setStar(2)">&#9733;</span>
+        <span class="star" onclick="setStar(3)">&#9733;</span><span class="star" onclick="setStar(4)">&#9733;</span><span class="star" onclick="setStar(5)">&#9733;</span>
       </div>
     </div>
 
@@ -2611,14 +2617,14 @@ em, i { font-style: italic; }
 <!-- Product rating modal -->
 <div class="modal" id="m-rate-product">
   <div class="modal-box" style="max-width:420px;">
-    <button class="modal-x" onclick="closeM('m-rate-product')">✕</button>
+    <button class="modal-x" onclick="closeM('m-rate-product')">&#10005;</button>
     <div class="modal-title" id="rate-prod-title">Rate Product</div>
     <div class="modal-sub">How did this product perform this session?</div>
     <div class="fgrp">
       <label class="flbl">Performance Rating</label>
       <div class="stars" id="prod-rate-stars">
-        <span class="star" onclick="setProdStar(1)">★</span><span class="star" onclick="setProdStar(2)">★</span>
-        <span class="star" onclick="setProdStar(3)">★</span><span class="star" onclick="setProdStar(4)">★</span><span class="star" onclick="setProdStar(5)">★</span>
+        <span class="star" onclick="setProdStar(1)">&#9733;</span><span class="star" onclick="setProdStar(2)">&#9733;</span>
+        <span class="star" onclick="setProdStar(3)">&#9733;</span><span class="star" onclick="setProdStar(4)">&#9733;</span><span class="star" onclick="setProdStar(5)">&#9733;</span>
       </div>
     </div>
     <div class="fgrp">
@@ -2644,7 +2650,7 @@ em, i { font-style: italic; }
 <!-- Add Product modal -->
 <div class="modal" id="m-add-product">
   <div class="modal-box" style="max-width:460px;">
-    <button class="modal-x" onclick="closeM('m-add-product')">✕</button>
+    <button class="modal-x" onclick="closeM('m-add-product')">&#10005;</button>
     <div class="modal-title">Add Product</div>
     <div class="fgrp"><label class="flbl">Product Name</label><input class="finp" id="ap-name" placeholder="Product name"></div>
     <div class="fgrp"><label class="flbl">Category</label>
@@ -2671,10 +2677,10 @@ em, i { font-style: italic; }
 <!-- Add DIY Recipe modal -->
 <div class="modal" id="m-add-diy">
   <div class="modal-box" style="max-width:500px;">
-    <button class="modal-x" onclick="closeM('m-add-diy')">✕</button>
+    <button class="modal-x" onclick="closeM('m-add-diy')">&#10005;</button>
     <div class="modal-title">Add DIY Recipe</div>
     <div class="fgrp"><label class="flbl">Recipe Name</label><input class="finp" id="diy-name" placeholder="e.g. Flaxseed Hold Gel"></div>
-    <div class="fgrp"><label class="flbl">What step is it for?</label><input class="finp" id="diy-step" placeholder="e.g. Styling — gel layer"></div>
+    <div class="fgrp"><label class="flbl">What step is it for?</label><input class="finp" id="diy-step" placeholder="e.g. Styling &mdash; gel layer"></div>
     <div class="fgrp"><label class="flbl">Ingredients</label><textarea class="ftxt" id="diy-ings" rows="4" placeholder="List ingredients and amounts..."></textarea></div>
     <div class="fgrp"><label class="flbl">Instructions</label><textarea class="ftxt" id="diy-method" rows="3" placeholder="How to make it..."></textarea></div>
     <div class="fgrp"><label class="flbl">Notes / Why this works</label><textarea class="ftxt" id="diy-notes" rows="2" placeholder="Science or personal notes..."></textarea></div>
@@ -2685,7 +2691,7 @@ em, i { font-style: italic; }
 <!-- DIY Tweak modal -->
 <div class="modal" id="m-diy-tweak">
   <div class="modal-box" style="max-width:460px;">
-    <button class="modal-x" onclick="closeM('m-diy-tweak')">✕</button>
+    <button class="modal-x" onclick="closeM('m-diy-tweak')">&#10005;</button>
     <div class="modal-title" id="tweak-title">Log Tweak</div>
     <div class="fgrp"><label class="flbl">Type</label>
       <div class="cond-time-sel" style="gap:8px;">
@@ -2707,7 +2713,7 @@ em, i { font-style: italic; }
 
 <div class="modal" id="m-claude">
   <div class="modal-box">
-    <button class="modal-x" onclick="closeM('m-claude')">✕</button>
+    <button class="modal-x" onclick="closeM('m-claude')">&#10005;</button>
     <div class="modal-title">Claude Prompt</div>
     <div class="modal-sub">Pre-filled based on your session. Copy and paste into Claude.</div>
     <div class="fgrp"><label class="flbl">Your Prompt</label><textarea class="ftxt" id="claude-prompt" style="min-height:180px;font-size:13px;"></textarea></div>
@@ -2720,17 +2726,17 @@ em, i { font-style: italic; }
 
 <div class="modal" id="m-element">
   <div class="modal-box">
-    <button class="modal-x" onclick="closeM('m-element')">✕</button>
+    <button class="modal-x" onclick="closeM('m-element')">&#10005;</button>
     <div id="m-element-content"></div>
   </div>
 </div>
 
 
-<!-- ═══════════════════════════════════════════════════
+<!-- 
   DIARY
-════════════════════════════════════════════════════ -->
+ -->
 <div class="tab" id="tab-diary">
-  <div class="page-hd"><h1>Session Diary</h1><p class="text2">Every session — searchable, tagged, trackable over time.</p></div>
+  <div class="page-hd"><h1>Session Diary</h1><p class="text2">Every session &mdash; searchable, tagged, trackable over time.</p></div>
   <div class="diary-filter-bar" id="diary-filters">
     <button class="filter-chip on" onclick="filterDiary('all',this)">All</button>
     <button class="filter-chip" onclick="filterDiary('washday',this)">Wash Day</button>
@@ -2753,9 +2759,9 @@ em, i { font-style: italic; }
 
 </main>
 
-<!-- ═══════════════════════════════════════════════════
+<!-- 
   JAVASCRIPT
-════════════════════════════════════════════════════ -->
+ -->
 <script>
 // ── Storage helpers
 const S = {
@@ -3622,7 +3628,7 @@ const CAT_DIMS = {
 function deleteProduct(e, nameEnc) {
   e.stopPropagation();
   const name = decodeURIComponent(nameEnc);
-  if(!confirm(`Remove "${name}" from your library?`)) return;
+  if(!window.confirm('Remove ' + name + ' from your library?')) return;
   // If it's a user-added product, remove it
   let saved = S.get('user-products') || [];
   saved = saved.filter(p => p.name !== name);
@@ -3964,7 +3970,7 @@ function renderIngTable() {
     ${TOP_PRODS[e.sym] ? `<div class="ing-top-prod">In: ${TOP_PRODS[e.sym]}</div>` : ''}
   </div>`).join('');
 }
-function renderPeriodicTable() { renderIngTable(); }
+
 
 // ── Dimension Dashboard
 const DIMS = [
@@ -4437,30 +4443,30 @@ function copyShoppingList() {
 }
 
 
-  const el = document.getElementById('ach-grid');
-  if(!el) return;
-  const logs = S.get('logs') || [];
-  const achievements = [
-    {id:'first',icon:'🌱',label:'First Session',desc:'Logged your first session',earned: logs.length >= 1},
-    {id:'week4',icon:'💪',label:'Month One',desc:'4 weeks of protocol',earned: (ST.week||0) >= 4},
-    {id:'streak7',icon:'🔥',label:'7-Day Streak',desc:'7 days of consistency',earned: logs.length >= 7},
-    {id:'bestdc',icon:'💆',label:'Best DC',desc:'Rated a DC 5 stars',earned: logs.some(l=>(l.steps||[]).some(s=>s.id==='condition'&&s.rating===5))},
-    {id:'bestflat',icon:'✨',label:'Best Flat Iron',desc:'Rated a heat style 5 stars',earned: logs.some(l=>(l.steps||[]).some(s=>s.id==='flatstyle'&&s.rating===5))},
-    {id:'bestblowdry',icon:'💨',label:'Best Blow Dry',desc:'Rated a blow dry 5 stars',earned: logs.some(l=>(l.steps||[]).some(s=>s.id==='blowdry'&&s.rating===5))},
-    {id:'beststyle',icon:'💅',label:'Best Style',desc:'Rated a style 5 stars',earned: logs.some(l=>(l.steps||[]).some(s=>s.id==='style'&&s.rating===5))},
-    {id:'protein4',icon:'🧬',label:'Protein Pro',desc:'Completed 4 protein treatments',earned: logs.filter(l=>(l.steps||[]).some(s=>s.id==='condition'&&(s.tags||[]).includes('Deep DC'))).length >= 4},
-    {id:'growth',icon:'📏',label:'Length Check',desc:'Tagged Retained Length',earned: logs.some(l=>(l.tags||[]).includes('Retained Length'))},
-    {id:'edges',icon:'💎',label:'Edges Back',desc:'Tagged Edges Filling',earned: logs.some(l=>(l.tags||[]).includes('Edges Filling'))},
-    {id:'keratin',icon:'🔑',label:'Keratin Done',desc:'Completed a keratin treatment',earned: !!S.get('keratin_last')},
-    {id:'diy',icon:'🧪',label:'DIY Maker',desc:'Made a DIY recipe',earned: (S.get('diy-recipes')||[]).some(r=>r.made)},
-  ];
-  el.innerHTML = achievements.map(a => `<div class="ach-card${a.earned?' earned':''}">
-    <div style="font-size:28px;margin-bottom:6px;">${a.icon}</div>
-    <div style="font-family:var(--font-head);font-size:13px;font-weight:700;color:${a.earned?'var(--accent)':'var(--text3)'};">${a.label}</div>
-    <div style="font-size:11px;color:var(--text3);margin-top:4px;">${a.desc}</div>
-    ${a.earned ? '<div style="font-size:10px;color:var(--cat-nat);margin-top:6px;font-weight:700;">EARNED ✓</div>' : ''}
-  </div>`).join('');
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function renderDashChart() {
   const canvas = document.getElementById('dash-chart');
